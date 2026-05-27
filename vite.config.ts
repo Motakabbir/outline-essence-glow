@@ -14,6 +14,11 @@ export default defineConfig({
   },
   nitro: {
     preset: "vercel",
+    vercel: {
+      functions: {
+        runtime: "nodejs22.x",
+      },
+    },
     output: {
       dir: ".vercel/output",
       serverDir: ".vercel/output/functions/__server.func",

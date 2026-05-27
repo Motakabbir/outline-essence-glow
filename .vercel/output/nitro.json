@@ -1,5 +1,5 @@
 {
-  "date": "2026-05-27T11:34:34.906Z",
+  "date": "2026-05-27T11:38:15.483Z",
   "preset": "vercel",
   "framework": {
     "name": "nitro",
@@ -8,7 +8,7 @@
   "versions": {
     "nitro": "3.0.260429-beta"
   },
-  "serverEntry": "functions/__nitro.func/index.mjs",
+  "serverEntry": "functions/__server.func/index.mjs",
   "publicDir": "static",
   "commands": {
     "preview": "npx srvx --static ../../static ./functions/__server.func/index.mjs",
@@ -19,7 +19,7 @@
       "skewProtection": false,
       "cronHandlerRoute": "/_vercel/cron",
       "functions": {
-        "runtime": "nodejs24.x"
+        "runtime": "nodejs22.x"
       }
     }
   }
