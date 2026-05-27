@@ -96,13 +96,16 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative min-h-screen flex items-end overflow-hidden">
-      <img
-        src={heroCar}
-        alt="Ford Sierra RS500 Cosworth"
-        width={1920}
-        height={1080}
-        className="absolute inset-0 w-full h-full object-cover opacity-70"
+      <video
+        src={heroVideo.url}
+        poster={heroCar}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-70 grayscale"
       />
+
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/70" />
       <div className="relative max-w-[1500px] mx-auto px-6 md:px-10 pb-20 md:pb-28 w-full reveal">
         <div className="eyebrow mb-6">A Sarthe Cars Programme · Est. 2024</div>
