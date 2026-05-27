@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import logo from "@/assets/vision148-logo.jpg";
 import heroCar from "@/assets/hero-car.jpg";
-import heroVideo from "@/assets/hero-video.mp4.asset.json";
+import heroVideo from "@/assets/video.mp4";
 import workshop from "@/assets/workshop.jpg";
 import engine from "@/assets/engine.jpg";
 import theCar from "@/assets/the-car.jpg";
@@ -97,7 +97,7 @@ function Hero() {
   return (
     <section id="top" className="relative min-h-screen flex items-end overflow-hidden">
       <video
-        src={heroVideo.url}
+        src={heroVideo}
         poster={heroCar}
         autoPlay
         muted
