@@ -12,14 +12,15 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
-  // @ts-expect-error vercel preset accepts additional functions config
   nitro: {
     preset: "vercel",
-    vercel: {
-      functions: {
-        runtime: "nodejs22.x",
+    ...({
+      vercel: {
+        functions: {
+          runtime: "nodejs22.x",
+        },
       },
-    },
+    } as Record<string, unknown>),
     output: {
       dir: ".vercel/output",
       serverDir: ".vercel/output/functions/__server.func",
