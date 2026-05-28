@@ -1,0 +1,84 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Nav } from "@/components/site/Nav";
+import { Footer } from "@/components/site/Footer";
+import { PageHero, CrossLink } from "@/components/site/Primitives";
+
+export const Route = createFileRoute("/partners")({
+  head: () => ({
+    meta: [
+      { title: "Partners — Vision148" },
+      { name: "description", content: "A curated consortium — DMC, Mahle, Coventry Metalcraft, T3DMC, ASM, BAMD." },
+      { property: "og:title", content: "Partners — Vision148" },
+      { property: "og:description", content: "A curated consortium of motorsport and manufacturing partners." },
+    ],
+  }),
+  component: PartnersPage,
+});
+
+const partners = [
+  { name: "DMC", role: "Digital Manufacturing", body: "The Digital Manufacturing Centre at Silverstone — host facility for final assembly and additive manufacture." },
+  { name: "Mahle", role: "Engine Engineering", body: "Engine rebuild and validation. Motorsport-grade tolerances. UK engine programme." },
+  { name: "Coventry Metalcraft", role: "Coachbuilding", body: "Hand-formed steel and aluminium panel work. Heritage techniques, modern measurement." },
+  { name: "T3DMC", role: "Scanning & Twin", body: "Component-level 3D scanning and the live digital twin of the entire build." },
+  { name: "ASM Auto", role: "Restoration Specialist", body: "Classic RS specialists. Donor dismantle, archival photography, parts conservation." },
+  { name: "BAMD", role: "Additive Manufacture", body: "Polymer and metal additive components — including the printed dashboard architecture." },
+  { name: "Cornerstone", role: "Composite Tooling", body: "Composite tooling, jigs and fixtures supporting the assembly programme." },
+  { name: "HGL", role: "Logistics & Storage", body: "Climate-controlled storage, transport, and the chain-of-custody for every component." },
+];
+
+function PartnersPage() {
+  return (
+    <main className="bg-background text-foreground min-h-screen">
+      <Nav />
+      <PageHero
+        eyebrow="03 / Partners"
+        title="A curated"
+        italic="consortium."
+        intro="Each partner is best-in-class — additive manufacturing, coachbuilding, composites, engine engineering. Selected to elevate the technical and commercial credibility of a one-of-one, investment-grade build."
+      />
+
+      <section className="py-20 md:py-28">
+        <div className="max-w-[1500px] mx-auto px-6 md:px-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/15">
+            {partners.map((p) => (
+              <div
+                key={p.name}
+                className="border-b border-r border-white/15 aspect-[3/1] flex items-center justify-center px-4 group transition-colors hover:bg-white hover:text-black"
+              >
+                <span className="font-display uppercase tracking-[0.18em] text-lg md:text-xl text-center">
+                  {p.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="paper">
+        <div className="max-w-[1500px] mx-auto px-6 md:px-10 py-24 md:py-32">
+          <div className="flex items-center gap-4 font-mono text-[0.7rem] tracking-[0.22em] uppercase text-black/50">
+            <span>04</span><span className="h-px w-10 bg-black/30" /><span>Roster</span>
+          </div>
+          <h2 className="font-display text-5xl md:text-6xl uppercase leading-[0.95] mt-8 max-w-3xl">
+            Named hands. <span className="font-serif-italic normal-case opacity-70">Named houses.</span>
+          </h2>
+          <div className="mt-16 divide-y divide-black/15 border-y border-black/15">
+            {partners.map((p, i) => (
+              <div key={p.name} className="grid md:grid-cols-12 gap-6 py-10 group">
+                <div className="md:col-span-1 font-mono text-[11px] uppercase tracking-[0.22em] opacity-50">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <div className="md:col-span-4 font-display uppercase text-3xl md:text-4xl tracking-tight">{p.name}</div>
+                <div className="md:col-span-3 font-mono text-[11px] uppercase tracking-[0.22em] opacity-60">{p.role}</div>
+                <div className="md:col-span-4 text-sm text-black/70 leading-relaxed">{p.body}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CrossLink to="/experience" eyebrow="Next" title="The Experience →" />
+      <Footer />
+    </main>
+  );
+}
