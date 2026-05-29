@@ -19,13 +19,20 @@ export function Footer() {
               </div>
             </div>
           </div>
-          <div className="md:col-span-5 grid grid-cols-2 gap-6 text-[11px] font-mono uppercase tracking-[0.22em]">
+          <div className="md:col-span-5 grid grid-cols-3 gap-6 text-[11px] font-mono uppercase tracking-[0.22em]">
             <div className="space-y-3">
               <div className="text-white/40">Explore</div>
               <Link to="/the-car" className="block hover:opacity-60">The Car</Link>
               <Link to="/process" className="block hover:opacity-60">Process</Link>
               <Link to="/partners" className="block hover:opacity-60">Partners</Link>
               <Link to="/experience" className="block hover:opacity-60">Experience</Link>
+            </div>
+            <div className="space-y-3">
+              <div className="text-white/40">Studio</div>
+              <Link to="/about" className="block hover:opacity-60">About</Link>
+              <Link to="/journal" className="block hover:opacity-60">Journal</Link>
+              <Link to="/faq" className="block hover:opacity-60">FAQ</Link>
+              <Link to="/contact" className="block hover:opacity-60">Contact</Link>
               <Link to="/apply" className="block hover:opacity-60">Apply</Link>
             </div>
             <div className="space-y-3">
@@ -36,6 +43,7 @@ export function Footer() {
               <a href="mailto:hello@vision148.com" className="block hover:opacity-60">Email</a>
             </div>
           </div>
+
           <div className="md:col-span-3 text-[10px] font-mono uppercase tracking-[0.22em] text-white/40 md:text-right">
             © {new Date().getFullYear()} Vision 148.<br />All rights reserved.<br />
             <span className="block mt-4">Coventry · Silverstone · London</span>
