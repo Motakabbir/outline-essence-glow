@@ -7,7 +7,12 @@ const links = [
   { to: "/process", label: "Process" },
   { to: "/partners", label: "Partners" },
   { to: "/experience", label: "Experience" },
+  { to: "/journal", label: "Journal" },
+  { to: "/about", label: "About" },
+  { to: "/faq", label: "FAQ" },
+  { to: "/contact", label: "Contact" },
 ];
+
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
