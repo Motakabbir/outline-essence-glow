@@ -14,11 +14,13 @@ export default defineConfig({
   },
   nitro: {
     preset: "vercel",
-    vercel: {
-      functions: {
-        runtime: "nodejs22.x",
+    ...({
+      vercel: {
+        functions: {
+          runtime: "nodejs22.x",
+        },
       },
-    },
+    } as Record<string, unknown>),
     output: {
       dir: ".vercel/output",
       serverDir: ".vercel/output/functions/__server.func",
