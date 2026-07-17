@@ -3,7 +3,7 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, PillLink, SectionLabel, CrossLink } from "@/components/site/Primitives";
 import workshop from "@/assets/workshop.jpg";
-import engine from "@/assets/engine.jpg";
+import engine from "@/assets/ENGINE.png";
 import theCar from "@/assets/the-car.jpg";
 import design from "@/assets/design.jpg";
 
@@ -45,18 +45,16 @@ function TheCarPage() {
             <img src={theCar} alt="Silver Ford Sierra RS500" className="w-full grayscale" />
           </div>
           <div className="md:col-span-5 md:pt-6">
-            <SectionLabel n="02" title="Provenance" />
+            <SectionLabel n="02" title="THE VISION" />
             <h2 className="font-display text-4xl md:text-5xl uppercase leading-[0.95] mt-8">
               A documented<br />
               <span className="font-serif-italic normal-case opacity-70">lineage.</span>
             </h2>
             <p className="mt-8 text-white/70 leading-relaxed">
-              Sourced through specialist channels. Provenance verified. Every original
-              component catalogued. Every replacement traced to a named manufacturer.
+              The greatest cars are never designed by committee. They begin with one vision, one pencil, and the courage to challenge convention. Vision148 RS500 is our modern interpretation of that philosophy, inspired by Al Yasid's unmistakable design language and the legendary houses of Pininfarina, Bertone and Zagato. This isn't retro. It's the next chapter.
             </p>
             <p className="mt-4 text-white/55 text-sm leading-relaxed">
-              The full archive is shared quarterly with syndicate members, alongside
-              build photography, CAD updates and the live digital twin.
+              Working alongside Al Yasid, we're developing Vision148 RS500 with the same philosophy that made the world's greatest coach builders legendary.
             </p>
           </div>
         </div>
@@ -109,12 +107,11 @@ function TheCarPage() {
           <div className="md:col-span-5 order-1 md:order-2">
             <SectionLabel n="05" title="Coachwork" />
             <h2 className="font-display text-4xl md:text-5xl uppercase leading-[0.95] mt-8">
-              Steel, aluminium,<br />
-              <span className="font-serif-italic normal-case opacity-70">printed polymer.</span>
+              COACH BUILT<br />
+              <span className="font-serif-italic normal-case opacity-70">Alluminium.</span>
             </h2>
             <p className="mt-8 text-white/70 leading-relaxed">
-              Original panels restored by hand at Coventry Metalcraft. New components —
-              including the dashboard — additively manufactured at the DMC, Silverstone.
+              Unique tooling & coach built aluminium body panels by Coventry Metalcraft complemented by composite aero parts by BAMD and 3D printed interior dashboard and switchgear by DMC, Silverstone.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <PillLink to="/process" variant="ghost">The Process</PillLink>

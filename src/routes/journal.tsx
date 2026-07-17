@@ -37,7 +37,7 @@ function JournalPage() {
         eyebrow="08 / Journal"
         title="Dispatches"
         italic="from the floor."
-        intro="A slow, occasional record of the build. Published when there is something worth saying — and only then."
+        intro="A curated in-depth record from acquisition to completion of #148 RS500. This will be a unique insight into the artisan skills of coach building to the bleeding edge additive manufacturing usually reserved for the word of hypercar and motorsport."
       />
 
       <section className="py-20 md:py-28 border-b border-white/10">

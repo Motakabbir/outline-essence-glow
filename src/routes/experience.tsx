@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
-import experience from "@/assets/experience.jpg";
+import experience from "@/assets/Hospitality.png";
 import design from "@/assets/design.jpg";
 
 export const Route = createFileRoute("/experience")({
@@ -67,8 +67,7 @@ function ExperiencePage() {
               <span className="font-serif-italic normal-case opacity-70">corporate.</span>
             </h2>
             <p className="mt-8 text-black/70 leading-relaxed max-w-xl">
-              Each event is shaped around the people in the syndicate. Small numbers,
-              long evenings, real workshops. No badges. No branding.
+              In conjunction with our partners TheCarCrowd each event will be shaped around the people in the syndicate, small numbers, intimate access, real workshops, No badges and no branding.
             </p>
           </div>
           <div className="md:col-span-7">

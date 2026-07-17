@@ -4,6 +4,12 @@ import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
 import workshop from "@/assets/workshop.jpg";
 import design from "@/assets/design.jpg";
+import ianHoweImg from "@/assets/team/Ian-Howe.png";
+import stuartPeachImg from "@/assets/team/Stuart-Peach.png";
+import alYasidImg from "@/assets/team/Al-Yasid.png";
+import simonKwImg from "@/assets/team/Simon-Kw.png";
+import brendanImg from "@/assets/team/Brendan.png";
+import kieronImg from "@/assets/team/KIERON_SALTER.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -25,12 +31,36 @@ const principles = [
 ];
 
 const team = [
-  ["Programme Director", "Sarthe Cars"],
-  ["Engineering Lead", "ASM Performance"],
-  ["Powertrain", "Mahle Powertrain"],
-  ["Digital Manufacture", "DMC · T3DMC"],
-  ["Coachwork", "Coventry Metalcraft"],
-  ["Composites", "BAMD"],
+  {
+    role: "Ian Howe FOUNDER & BUILD DIRECTOR 30 years experience in automotive & fintech Business",
+    name: "Ian Howe",
+    image: ianHoweImg
+  },
+  {
+    role: "Stuart Peach PROJECT CO FOUNDER Partner in the vision148 project and original custodian of #148",
+    name: "Stuart Peach",
+    image: stuartPeachImg
+  },
+  {
+    role: "Al Yasid Oozeear DIGITAL VISUALISOR & DESIGNER Independent Automotive designer specialising in bespoke car design",
+    name: "Al Yasid Oozeear",
+    image: alYasidImg
+  },
+  {
+    role: "Simon Kiero Watson COMMERCIAL & FINANCE OVERSIGHT Highly experiencedCorporate Finance and Exchange Expert.",
+    name: "Simon Kiero Watson",
+    image: simonKwImg
+  },
+  {
+    role: "Brendan OToole CEO of Coventry Metalcraft Ltd.",
+    name: "Brendan OToole",
+    image: brendanImg
+  },
+  {
+    role: "Kieron Salter CEO Digital Manufacturing Centre Ltd (DMC) Silverstone",
+    name: "Kieron Salter",
+    image: kieronImg
+  },
 ];
 
 function AboutPage() {
@@ -90,21 +120,35 @@ function AboutPage() {
 
       <section className="py-24 md:py-32 border-t border-white/10">
         <div className="max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-start">
-          <div className="md:col-span-5">
+          <div className="md:col-span-5 sticky top-32">
             <div className="eyebrow">03 / The Roster</div>
             <h2 className="mt-6 font-display uppercase text-5xl md:text-6xl leading-[0.95]">
               People<br /><span className="font-serif-italic normal-case opacity-70">behind it.</span>
             </h2>
             <p className="mt-8 text-white/70 leading-relaxed max-w-md">
-              A federation of the best independent shops in British motorsport
-              engineering — coordinated, not subcontracted.
+              The primary architects of the Vision148 project have been supported by unique collaborations from automotive and Motorsport with a singular mission to deliver and showcase the very best in coach building and bleeding edge technology manufacturing.
             </p>
           </div>
-          <div className="md:col-span-7 border-t border-white/10">
-            {team.map(([role, name]) => (
-              <div key={role} className="flex items-baseline justify-between gap-6 py-6 border-b border-white/10">
-                <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/50">{role}</div>
-                <div className="font-display uppercase text-2xl md:text-3xl tracking-tight">{name}</div>
+          <div className="md:col-span-7 border-t border-white/10 mt-12 md:mt-0">
+            {team.map(({ role, name, image }) => (
+              <div key={name} className="group flex flex-col md:flex-row items-start md:items-center justify-between gap-8 py-6 md:py-8 border-b border-white/10 hover:bg-white/5 transition-colors cursor-default md:-mx-6 md:px-6 rounded-2xl">
+                <div className="font-mono text-xs md:text-sm uppercase tracking-widest text-white/70 group-hover:text-white transition-colors md:w-2/3 leading-loose pr-8">
+                  {role.startsWith(name) ? (
+                    <>
+                      <span className="bg-white text-black font-semibold px-2 py-0.5 mr-2">{name}</span>
+                      {role.slice(name.length).trim()}
+                    </>
+                  ) : (
+                    role
+                  )}
+                </div>
+                <div className="flex items-center justify-start md:justify-end md:w-1/3 w-full">
+                  <img 
+                    src={image} 
+                    alt={name} 
+                    className="w-20 h-20 md:w-28 md:h-28 shrink-0 object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105 border border-white/10" 
+                  />
+                </div>
               </div>
             ))}
           </div>

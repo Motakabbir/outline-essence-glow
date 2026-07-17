@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
+import partnerVideo from "@/assets/video/partner.mp4";
 
 export const Route = createFileRoute("/partners")({
   head: () => ({
@@ -20,10 +21,10 @@ const partners = [
   { name: "Mahle", role: "Engine Engineering", body: "Engine rebuild and validation. Motorsport-grade tolerances. UK engine programme." },
   { name: "Coventry Metalcraft", role: "Coachbuilding", body: "Hand-formed steel and aluminium panel work. Heritage techniques, modern measurement." },
   { name: "T3DMC", role: "Scanning & Twin", body: "Component-level 3D scanning and the live digital twin of the entire build." },
-  { name: "ASM Auto", role: "Restoration Specialist", body: "Classic RS specialists. Donor dismantle, archival photography, parts conservation." },
-  { name: "BAMD", role: "Additive Manufacture", body: "Polymer and metal additive components — including the printed dashboard architecture." },
-  { name: "Cornerstone", role: "Composite Tooling", body: "Composite tooling, jigs and fixtures supporting the assembly programme." },
-  { name: "HGL", role: "Logistics & Storage", body: "Climate-controlled storage, transport, and the chain-of-custody for every component." },
+  { name: "ASM AUTORECYCLING ", role: "Dismantling specialists", body: "RS500 #148 dismantle and part catalogue and storage" },
+  { name: "BAMD", role: "Composite specialists", body: "Composite partner for trim and interior" },
+  { name: "Cornerstone", role: "non-structural repair specialists", body: "Glass removal and specialist repairs" },
+  { name: "HGL", role: "Membership Program", body: "Technology providers for the project companion membership platform, Autovision.club" },
 ];
 
 function PartnersPage() {
@@ -35,6 +36,7 @@ function PartnersPage() {
         title="A curated"
         italic="consortium."
         intro="Each partner is best-in-class — additive manufacturing, coachbuilding, composites, engine engineering. Selected to elevate the technical and commercial credibility of a one-of-one, investment-grade build."
+        video={partnerVideo}
       />
 
       <section className="py-20 md:py-28">

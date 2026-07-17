@@ -62,15 +62,27 @@ export function PageHero({
   title,
   italic,
   intro,
+  video,
 }: {
   eyebrow: string;
   title: ReactNode;
   italic?: string;
   intro?: string;
+  video?: string;
 }) {
   return (
-    <section className="pt-40 md:pt-52 pb-20 md:pb-28 border-b border-white/10 relative grain">
-      <div className="max-w-[1500px] mx-auto px-6 md:px-10 reveal">
+    <section className="pt-40 md:pt-52 pb-20 md:pb-28 border-b border-white/10 relative grain overflow-hidden">
+      {video && (
+        <video 
+          src={video}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none mix-blend-screen"
+        />
+      )}
+      <div className="max-w-[1500px] mx-auto px-6 md:px-10 reveal relative z-10">
         <div className="eyebrow">{eyebrow}</div>
         <h1 className="mt-8 font-display uppercase leading-[0.88] text-[14vw] md:text-[8.5vw] tracking-tight">
           {title}

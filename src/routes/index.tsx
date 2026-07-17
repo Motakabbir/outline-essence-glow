@@ -59,7 +59,7 @@ function Hero() {
         </h1>
         <div className="mt-12 grid md:grid-cols-12 gap-8 items-end">
           <p className="md:col-span-7 text-base md:text-lg text-white/70 max-w-2xl leading-relaxed">
-            The restoration and re-engineering of car #148 of the original 500 Ford
+            The reimagination and re-engineering of car #148 of the original 500 Ford
             Sierra RS500 Cosworths — reimagined through digital manufacturing, artisan
             coachbuilding, and a private syndicate of twenty-five.
           </p>

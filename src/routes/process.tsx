@@ -2,8 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, SectionLabel, CrossLink } from "@/components/site/Primitives";
-import engine from "@/assets/engine.jpg";
-import design from "@/assets/design.jpg";
+import engine from "@/assets/Vision_To_the_road .jpg";
+import design from "@/assets/Bare_Shell_Disamantling.jpg";
+import processVideo from "@/assets/video/process.mp4";
 
 export const Route = createFileRoute("/process")({
   head: () => ({
@@ -47,9 +48,10 @@ function ProcessPage() {
       <Nav />
       <PageHero
         eyebrow="02 / The Process"
-        title="From chassis"
+        title="FROM MODELLING"
         italic="to road."
-        intro="Three phases. Eighteen months. Documented in full digital fidelity — and witnessed in person by every member of the syndicate."
+        intro="A process of design iteration and modelling to define the design language needed to make the car unique yet respectful to this icons DNA."
+        video={processVideo}
       />
 
       <section className="py-24 md:py-32">
