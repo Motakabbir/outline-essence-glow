@@ -42,10 +42,10 @@ function PartnersPage() {
       <section className="py-20 md:py-28">
         <div className="max-w-[1500px] mx-auto px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/15">
-            {partners.map((p) => (
+            {partners.map((p, i) => (
               <div
                 key={p.name}
-                className="border-b border-r border-white/15 aspect-[3/1] flex items-center justify-center px-4 group transition-colors hover:bg-white hover:text-black"
+                className={`border-b border-r border-white/15 aspect-[3/1] flex items-center justify-center px-4 group transition-colors hover:bg-white hover:text-black reveal stagger-${(i % 4) + 1}`}
               >
                 <span className="font-display uppercase tracking-[0.18em] text-lg md:text-xl text-center">
                   {p.name}
@@ -66,7 +66,7 @@ function PartnersPage() {
           </h2>
           <div className="mt-16 divide-y divide-black/15 border-y border-black/15">
             {partners.map((p, i) => (
-              <div key={p.name} className="grid md:grid-cols-12 gap-6 py-10 group">
+              <div key={p.name} className={`grid md:grid-cols-12 gap-6 py-10 group reveal stagger-${(i % 4) + 1}`}>
                 <div className="md:col-span-1 font-mono text-[11px] uppercase tracking-[0.22em] opacity-50">
                   {String(i + 1).padStart(2, "0")}
                 </div>

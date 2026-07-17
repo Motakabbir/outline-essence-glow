@@ -45,7 +45,7 @@ function ExperiencePage() {
             {benefits.map(([t, b], i) => (
               <div
                 key={t}
-                className="bg-black p-10 md:p-12 group hover:bg-white hover:text-black transition-colors duration-500"
+                className={`bg-black p-10 md:p-12 group hover:bg-white hover:text-black transition-colors duration-500 reveal stagger-${(i % 3) + 1}`}
               >
                 <div className="font-mono text-[11px] uppercase tracking-[0.22em] opacity-50">
                   {String(i + 1).padStart(2, "0")}
@@ -72,16 +72,16 @@ function ExperiencePage() {
               In conjunction with our partners TheCarCrowd each event will be shaped around the people in the syndicate, small numbers, intimate access, real workshops, No badges and no branding.
             </p>
           </div>
-          <div className="md:col-span-7">
-            <img src={experience} alt="Hospitality" className="w-full grayscale aspect-[4/3] object-cover" />
+          <div className="md:col-span-7 overflow-hidden reveal aspect-[4/3] relative">
+            <img src={experience} alt="Hospitality" className="w-full h-full grayscale object-cover zoom-hover" />
           </div>
         </div>
       </section>
 
       <section className="py-24 md:py-32 border-t border-white/10">
         <div className="max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center">
-          <div className="md:col-span-7">
-            <img src={design} alt="Digital twin" className="w-full grayscale aspect-[4/3] object-cover" />
+          <div className="md:col-span-7 overflow-hidden reveal aspect-[4/3] relative">
+            <img src={design} alt="Digital twin" className="w-full h-full grayscale object-cover zoom-hover" />
           </div>
           <div className="md:col-span-5">
             <div className="eyebrow">03 / Digital Twin</div>

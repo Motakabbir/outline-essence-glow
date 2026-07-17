@@ -11,6 +11,17 @@ export const Route = createFileRoute("/journal/$slug")({
     if (!post) throw notFound();
     return { slug: post.slug };
   },
+  head: ({ loaderData }) => {
+    const post = posts.find((p) => p.slug === loaderData?.slug);
+    return {
+      meta: [
+        { title: `${post ? post.title : "Post"} — Vision148` },
+        { name: "description", content: post ? post.excerpt : "Vision148 RS500 Genesis Build dispatch." },
+        { property: "og:title", content: post ? post.title : "Vision148 Dispatch" },
+        { property: "og:description", content: post ? post.excerpt : "Vision148 RS500 Genesis Build dispatch." },
+      ],
+    };
+  },
 });
 
 function JournalPost() {

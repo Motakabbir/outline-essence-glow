@@ -6,6 +6,14 @@ import { posts } from "./-journal-posts";
 import journalVideo from "@/assets/video/journal.mp4";
 
 export const Route = createFileRoute("/journal/")({
+  head: () => ({
+    meta: [
+      { title: "Journal — Vision148" },
+      { name: "description", content: "A curated in-depth record from acquisition to completion of #148 RS500." },
+      { property: "og:title", content: "Journal — Vision148" },
+      { property: "og:description", content: "A curated in-depth record from acquisition to completion of #148 RS500." },
+    ],
+  }),
   component: JournalIndexPage,
 });
 

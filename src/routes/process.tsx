@@ -59,8 +59,8 @@ function ProcessPage() {
           <div className="relative">
             <div className="absolute top-3 left-0 right-0 h-px bg-white/15 hidden md:block" />
             <div className="grid md:grid-cols-3 gap-12">
-              {phases.map((p) => (
-                <div key={p.n} className="relative md:pt-10">
+              {phases.map((p, i) => (
+                <div key={p.n} className={`relative md:pt-10 reveal stagger-${i + 1}`}>
                   <div className="hidden md:block absolute top-0 left-0 w-2 h-2 rounded-full bg-white" />
                   <div className="flex justify-between items-baseline">
                     <div className="font-mono text-xs uppercase tracking-[0.25em]">{p.n}</div>
@@ -103,7 +103,7 @@ function ProcessPage() {
                 ["Document", "Decisions written into the build ledger and shared quarterly with custodians."],
                 ["Drive", "The finished car is tested, validated and handed over with a full provenance dossier."],
               ].map(([t, b], i) => (
-                <li key={t} className="flex gap-6 border-t border-black/15 pt-6">
+                <li key={t} className={`flex gap-6 border-t border-black/15 pt-6 reveal stagger-${i + 1}`}>
                   <span className="font-mono text-xs tracking-[0.2em] opacity-50 mt-1 w-10">0{i + 1}</span>
                   <div>
                     <div className="font-display uppercase text-2xl tracking-tight">{t}</div>
@@ -118,8 +118,12 @@ function ProcessPage() {
 
       <section className="py-24 md:py-32 border-t border-white/10">
         <div className="max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-6">
-          <img src={design} alt="CAD" className="w-full grayscale aspect-[4/3] object-cover" />
-          <img src={engine} alt="Engine" className="w-full grayscale aspect-[4/3] object-cover" />
+          <div className="overflow-hidden aspect-[4/3] relative reveal">
+            <img src={design} alt="CAD" className="w-full h-full grayscale object-cover zoom-hover" />
+          </div>
+          <div className="overflow-hidden aspect-[4/3] relative reveal stagger-2">
+            <img src={engine} alt="Engine" className="w-full h-full grayscale object-cover zoom-hover" />
+          </div>
         </div>
       </section>
 

@@ -32,7 +32,7 @@ export function Nav() {
       }`}
     >
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 h-16 md:h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group">
+        <Link id="nav-logo" to="/" className="flex items-center gap-3 group">
           <img src={logo} alt="Vision148" className="h-9 w-9 object-contain transition-transform duration-500 group-hover:rotate-[8deg]" />
           <span className="font-display text-sm tracking-[0.4em] uppercase hidden sm:block">
             Vision <span className="font-serif-italic normal-case tracking-normal">one-forty-eight</span>
@@ -42,6 +42,7 @@ export function Nav() {
           {links.map((l) => (
             <Link
               key={l.to}
+              id={`nav-link-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
               to={l.to}
               className="link-underline"
               activeProps={{ className: "opacity-100" }}
@@ -53,12 +54,14 @@ export function Nav() {
         </nav>
         <div className="flex items-center gap-3">
           <Link
+            id="nav-apply-btn"
             to="/apply"
             className="hidden sm:inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.24em] border border-white/40 px-4 py-2.5 hover:bg-white hover:text-black transition-colors duration-300"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" /> Apply
           </Link>
           <button
+            id="nav-mobile-toggle"
             aria-label="Menu"
             onClick={() => setOpen((v) => !v)}
             className="md:hidden h-10 w-10 flex flex-col items-center justify-center gap-1.5"
