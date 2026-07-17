@@ -6,6 +6,7 @@ import workshop from "@/assets/workshop.jpg";
 import engine from "@/assets/ENGINE.png";
 import theCar from "@/assets/the-car.jpg";
 import design from "@/assets/design.jpg";
+import videoBg from "@/assets/video/process.mp4";
 
 export const Route = createFileRoute("/the-car")({
   head: () => ({
@@ -37,6 +38,7 @@ function TheCarPage() {
         title="Car №148."
         italic="Reborn."
         intro="Acquired in 2024 after fifteen years in storage. Dismantled with archaeological care, scanned, catalogued and reborn through additive manufacture, classic coachbuilding and motorsport-grade engineering."
+        video={videoBg}
       />
 
       <section className="py-24 md:py-32">

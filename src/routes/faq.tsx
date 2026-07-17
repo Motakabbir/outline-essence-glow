@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
+import videoBg from "@/assets/video/chassis.mp4";
 
 export const Route = createFileRoute("/faq")({
   head: () => ({
@@ -60,6 +61,7 @@ function FAQPage() {
         title="Questions,"
         italic="answered."
         intro="If something isn't covered here, the studio answers personally — write to us at hello@vision148.com."
+        video={videoBg}
       />
 
       <section className="py-24 md:py-32">

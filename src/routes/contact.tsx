@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
+import videoBg from "@/assets/video/journal.mp4";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -38,6 +39,7 @@ function ContactPage() {
         title="Get in"
         italic="touch."
         intro="The studio answers personally. Most messages receive a reply within two working days."
+        video={videoBg}
       />
 
       <section className="py-24 md:py-32">

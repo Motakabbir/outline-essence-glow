@@ -3,7 +3,7 @@ import workshop from "@/assets/workshop.jpg";
 import engine from "@/assets/engine.jpg";
 import design from "@/assets/scanning.jpg";
 import experience from "@/assets/dismantle.jpg";
-import theCar from "@/assets/the-car.jpg";
+import theCar from "@/assets/the_car_crowd.jpg";
 import chassisVideo from "@/assets/video/chassis.mp4";
 
 export const posts = [

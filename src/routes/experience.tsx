@@ -4,6 +4,7 @@ import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
 import experience from "@/assets/Hospitality.png";
 import design from "@/assets/design.jpg";
+import videoBg from "@/assets/video/partner.mp4";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
@@ -35,6 +36,7 @@ function ExperiencePage() {
         title="Ownership,"
         italic="reimagined."
         intro="Twenty-five custodians. One car. A year-round programme of access, hospitality and shared craftsmanship — engineered with the same care as the build itself."
+        video={videoBg}
       />
 
       <section className="py-24 md:py-32">

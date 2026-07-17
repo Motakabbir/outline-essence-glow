@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
+import videoBg from "@/assets/video/journal.mp4";
 import workshop from "@/assets/workshop.jpg";
 import design from "@/assets/design.jpg";
 import ianHoweImg from "@/assets/team/Ian-Howe.png";
@@ -72,6 +73,7 @@ function AboutPage() {
         title="A small studio"
         italic="with one obsession."
         intro="Vision148 was founded to build a single car — a definitive Ford Sierra RS500 Cosworth — and to share its making with twenty-five custodians who care as deeply as we do."
+        video={videoBg}
       />
 
       <section className="py-24 md:py-32 paper">
