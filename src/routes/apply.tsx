@@ -7,14 +7,25 @@ import { PageHero } from "@/components/site/Primitives";
 
 import { z } from "zod";
 
+import { fetchSeoMetadata, mapSeoToMeta } from "@/lib/api";
+
 export const Route = createFileRoute("/apply")({
-  head: () => ({
-    meta: [
-      { title: "Apply — Vision148" },
-      { name: "description", content: "Register interest in the Vision148 syndicate. Twenty-five seats. One car." },
-      { property: "og:title", content: "Apply — Vision148" },
-      { property: "og:description", content: "Register interest in the Vision148 syndicate." },
-    ],
+  loader: async () => {
+    const seo = await fetchSeoMetadata("apply", {
+      title: "Apply — Vision148",
+      description: "Register interest in the Vision148 syndicate. Twenty-five seats. One car.",
+      og_title: "Apply — Vision148",
+      og_description: "Register interest in the Vision148 syndicate.",
+    });
+    return { seo };
+  },
+  head: ({ loaderData }) => ({
+    meta: mapSeoToMeta(loaderData?.seo || {
+      title: "Apply — Vision148",
+      description: "Register interest in the Vision148 syndicate. Twenty-five seats. One car.",
+      og_title: "Apply — Vision148",
+      og_description: "Register interest in the Vision148 syndicate.",
+    }),
   }),
   component: ApplyPage,
 });

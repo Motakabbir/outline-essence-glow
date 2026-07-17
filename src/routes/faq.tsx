@@ -4,18 +4,7 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
 import videoBg from "@/assets/video/chassis.mp4";
-
-export const Route = createFileRoute("/faq")({
-  head: () => ({
-    meta: [
-      { title: "FAQ — Vision148" },
-      { name: "description", content: "Answers about the Vision148 syndicate, the RS500 build, costs, timelines and custodianship." },
-      { property: "og:title", content: "FAQ — Vision148" },
-      { property: "og:description", content: "Everything custodians ask, in one place." },
-    ],
-  }),
-  component: FAQPage,
-});
+import { fetchSeoMetadata, mapSeoToMeta, fetchFaqs } from "@/lib/api";
 
 const groups: { title: string; items: [string, string][] }[] = [
   {
@@ -52,7 +41,54 @@ const groups: { title: string; items: [string, string][] }[] = [
   },
 ];
 
+function groupFaqs(faqs: any[]) {
+  const map: Record<string, [string, string][]> = {};
+  for (const f of faqs) {
+    const cat = f.categoryName || "General";
+    if (!map[cat]) map[cat] = [];
+    map[cat].push([f.title, f.description]);
+  }
+  return Object.entries(map).map(([title, items]) => ({
+    title,
+    items,
+  }));
+}
+
+export const Route = createFileRoute("/faq")({
+  loader: async () => {
+    const seoPromise = fetchSeoMetadata("faq", {
+      title: "FAQ — Vision148",
+      description: "Answers about the Vision148 syndicate, the RS500 build, costs, timelines and custodianship.",
+      og_title: "FAQ — Vision148",
+      og_description: "Everything custodians ask, in one place.",
+    });
+
+    const fallbackFlat = groups.flatMap(g => 
+      g.items.map(([q, a]) => ({
+        title: q,
+        description: a,
+        categoryName: g.title,
+      }))
+    );
+    const faqsPromise = fetchFaqs(fallbackFlat);
+
+    const [seo, flatFaqs] = await Promise.all([seoPromise, faqsPromise]);
+    const grouped = groupFaqs(flatFaqs);
+
+    return { seo, groups: grouped };
+  },
+  head: ({ loaderData }) => ({
+    meta: mapSeoToMeta(loaderData?.seo || {
+      title: "FAQ — Vision148",
+      description: "Answers about the Vision148 syndicate, the RS500 build, costs, timelines and custodianship.",
+      og_title: "FAQ — Vision148",
+      og_description: "Everything custodians ask, in one place.",
+    }),
+  }),
+  component: FAQPage,
+});
 function FAQPage() {
+  const { groups } = Route.useLoaderData();
   return (
     <main className="bg-background text-foreground min-h-screen">
       <Nav />

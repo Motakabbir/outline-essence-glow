@@ -6,15 +6,25 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
 import videoBg from "@/assets/video/journal.mp4";
+import { fetchSeoMetadata, mapSeoToMeta, sendContactForm } from "@/lib/api";
 
 export const Route = createFileRoute("/contact")({
-  head: () => ({
-    meta: [
-      { title: "Contact — Vision148" },
-      { name: "description", content: "Speak with the Vision148 studio about the RS500 Genesis Build, partnerships, or press." },
-      { property: "og:title", content: "Contact — Vision148" },
-      { property: "og:description", content: "Reach the Vision148 studio directly." },
-    ],
+  loader: async () => {
+    const seo = await fetchSeoMetadata("contact", {
+      title: "Contact — Vision148",
+      description: "Speak with the Vision148 studio about the RS500 Genesis Build, partnerships, or press.",
+      og_title: "Contact — Vision148",
+      og_description: "Reach the Vision148 studio directly.",
+    });
+    return { seo };
+  },
+  head: ({ loaderData }) => ({
+    meta: mapSeoToMeta(loaderData?.seo || {
+      title: "Contact — Vision148",
+      description: "Speak with the Vision148 studio about the RS500 Genesis Build, partnerships, or press.",
+      og_title: "Contact — Vision148",
+      og_description: "Reach the Vision148 studio directly.",
+    }),
   }),
   component: ContactPage,
 });
@@ -22,16 +32,16 @@ export const Route = createFileRoute("/contact")({
 const submitContactForm = createServerFn({ method: "POST" })
   .inputValidator(
     z.object({
-      name: z.string(),
+      first_name: z.string(),
+      last_name: z.string(),
       email: z.string().email(),
-      subject: z.string(),
+      phone: z.string(),
       message: z.string(),
     })
   )
   .handler(async ({ data }) => {
     console.info("Server received contact submission:", data);
-    // Integration logic here (e.g. SMTP/Resend)
-    return { success: true };
+    return await sendContactForm(data);
   });
 
 const channels = [
@@ -103,15 +113,18 @@ function ContactPage() {
                   e.preventDefault();
                   const formData = new FormData(e.currentTarget);
                   const data = {
-                    name: formData.get("name") as string,
+                    first_name: formData.get("first_name") as string,
+                    last_name: formData.get("last_name") as string,
                     email: formData.get("email") as string,
-                    subject: formData.get("subject") as string,
+                    phone: formData.get("phone") as string,
                     message: formData.get("message") as string,
                   };
                   try {
                     const res = await submitContactForm({ data });
                     if (res.success) {
                       setSent(true);
+                    } else {
+                      console.error("Failed to submit form:", res.message);
                     }
                   } catch (err) {
                     console.error("Failed to submit form:", err);
@@ -120,10 +133,13 @@ function ContactPage() {
                 className="space-y-6 text-black"
               >
                 <div className="grid md:grid-cols-2 gap-6">
-                  <Field label="Name" name="name" />
-                  <Field label="Email" name="email" type="email" />
+                  <Field label="First Name" name="first_name" />
+                  <Field label="Last Name" name="last_name" />
                 </div>
-                <Field label="Subject" name="subject" />
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Field label="Email" name="email" type="email" />
+                  <Field label="Phone" name="phone" type="tel" />
+                </div>
                 <Field label="Message" name="message" textarea />
                 <button
                   type="submit"

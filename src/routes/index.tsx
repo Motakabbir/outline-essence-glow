@@ -12,23 +12,27 @@ import experience from "@/assets/experience.jpg";
 import chassisVideo from "@/assets/video/chassis.mp4";
 import processVideo from "@/assets/video/process.mp4";
 import partnerVideo from "@/assets/video/partner.mp4";
+import { fetchSeoMetadata, mapSeoToMeta } from "@/lib/api";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Vision148 — RS500 Genesis Build" },
-      {
-        name: "description",
-        content:
-          "Vision148 — a one-of-one syndicated build of the Ford Sierra RS500 Cosworth. Heritage coachbuilding meets digital manufacturing.",
-      },
-      { property: "og:title", content: "Vision148 — RS500 Genesis Build" },
-      {
-        property: "og:description",
-        content: "A one-of-one syndicated build of the Ford Sierra RS500 Cosworth.",
-      },
-      { property: "og:image", content: "/og.jpg" },
-    ],
+  loader: async () => {
+    const seo = await fetchSeoMetadata("home", {
+      title: "Vision148 — RS500 Genesis Build",
+      description: "Vision148 — a one-of-one syndicated build of the Ford Sierra RS500 Cosworth. Heritage coachbuilding meets digital manufacturing.",
+      og_title: "Vision148 — RS500 Genesis Build",
+      og_description: "A one-of-one syndicated build of the Ford Sierra RS500 Cosworth.",
+      og_image: "/og.jpg",
+    });
+    return { seo };
+  },
+  head: ({ loaderData }) => ({
+    meta: mapSeoToMeta(loaderData?.seo || {
+      title: "Vision148 — RS500 Genesis Build",
+      description: "Vision148 — a one-of-one syndicated build of the Ford Sierra RS500 Cosworth. Heritage coachbuilding meets digital manufacturing.",
+      og_title: "Vision148 — RS500 Genesis Build",
+      og_description: "A one-of-one syndicated build of the Ford Sierra RS500 Cosworth.",
+      og_image: "/og.jpg",
+    }),
   }),
   component: Home,
 });

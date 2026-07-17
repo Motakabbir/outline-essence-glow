@@ -4,17 +4,7 @@ import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
 import partnerVideo from "@/assets/video/partner.mp4";
 
-export const Route = createFileRoute("/partners")({
-  head: () => ({
-    meta: [
-      { title: "Partners — Vision148" },
-      { name: "description", content: "A curated consortium — DMC, Mahle, Coventry Metalcraft, T3DMC, ASM, BAMD." },
-      { property: "og:title", content: "Partners — Vision148" },
-      { property: "og:description", content: "A curated consortium of motorsport and manufacturing partners." },
-    ],
-  }),
-  component: PartnersPage,
-});
+import { fetchSeoMetadata, mapSeoToMeta, fetchPartners } from "@/lib/api";
 
 const partners = [
   { name: "DMC", role: "Digital Manufacturing", body: "The Digital Manufacturing Centre at Silverstone — host facility for final assembly and additive manufacture." },
@@ -27,7 +17,32 @@ const partners = [
   { name: "HGL", role: "Membership Program", body: "Technology providers for the project companion membership platform, Autovision.club" },
 ];
 
+export const Route = createFileRoute("/partners")({
+  loader: async () => {
+    const seoPromise = fetchSeoMetadata("partners", {
+      title: "Partners — Vision148",
+      description: "A curated consortium — DMC, Mahle, Coventry Metalcraft, T3DMC, ASM, BAMD.",
+      og_title: "Partners — Vision148",
+      og_description: "A curated consortium of motorsport and manufacturing partners.",
+    });
+    const partnersPromise = fetchPartners(partners);
+
+    const [seo, dynamicPartners] = await Promise.all([seoPromise, partnersPromise]);
+    return { seo, partners: dynamicPartners };
+  },
+  head: ({ loaderData }) => ({
+    meta: mapSeoToMeta(loaderData?.seo || {
+      title: "Partners — Vision148",
+      description: "A curated consortium — DMC, Mahle, Coventry Metalcraft, T3DMC, ASM, BAMD.",
+      og_title: "Partners — Vision148",
+      og_description: "A curated consortium of motorsport and manufacturing partners.",
+    }),
+  }),
+  component: PartnersPage,
+});
+
 function PartnersPage() {
+  const { partners: dynamicPartners } = Route.useLoaderData();
   return (
     <main className="bg-background text-foreground min-h-screen">
       <Nav />
@@ -42,7 +57,7 @@ function PartnersPage() {
       <section className="py-20 md:py-28">
         <div className="max-w-[1500px] mx-auto px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/15">
-            {partners.map((p, i) => (
+            {dynamicPartners.map((p, i) => (
               <div
                 key={p.name}
                 className={`border-b border-r border-white/15 aspect-[3/1] flex items-center justify-center px-4 group transition-colors hover:bg-white hover:text-black reveal stagger-${(i % 4) + 1}`}
@@ -65,7 +80,7 @@ function PartnersPage() {
             Named hands. <span className="font-serif-italic normal-case opacity-70">Named houses.</span>
           </h2>
           <div className="mt-16 divide-y divide-black/15 border-y border-black/15">
-            {partners.map((p, i) => (
+            {dynamicPartners.map((p, i) => (
               <div key={p.name} className={`grid md:grid-cols-12 gap-6 py-10 group reveal stagger-${(i % 4) + 1}`}>
                 <div className="md:col-span-1 font-mono text-[11px] uppercase tracking-[0.22em] opacity-50">
                   {String(i + 1).padStart(2, "0")}

@@ -6,14 +6,25 @@ import engine from "@/assets/Vision_To_the_road .jpg";
 import design from "@/assets/Bare_Shell_Disamantling.jpg";
 import processVideo from "@/assets/video/process.mp4";
 
+import { fetchSeoMetadata, mapSeoToMeta } from "@/lib/api";
+
 export const Route = createFileRoute("/process")({
-  head: () => ({
-    meta: [
-      { title: "The Process — Vision148" },
-      { name: "description", content: "Three phases. Eighteen months. From archaeological dismantle to the first drive." },
-      { property: "og:title", content: "The Process — Vision148" },
-      { property: "og:description", content: "Three phases. Eighteen months. The Vision148 build process." },
-    ],
+  loader: async () => {
+    const seo = await fetchSeoMetadata("process", {
+      title: "The Process — Vision148",
+      description: "Three phases. Eighteen months. From archaeological dismantle to the first drive.",
+      og_title: "The Process — Vision148",
+      og_description: "Three phases. Eighteen months. The Vision148 build process.",
+    });
+    return { seo };
+  },
+  head: ({ loaderData }) => ({
+    meta: mapSeoToMeta(loaderData?.seo || {
+      title: "The Process — Vision148",
+      description: "Three phases. Eighteen months. From archaeological dismantle to the first drive.",
+      og_title: "The Process — Vision148",
+      og_description: "Three phases. Eighteen months. The Vision148 build process.",
+    }),
   }),
   component: ProcessPage,
 });

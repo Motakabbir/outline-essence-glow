@@ -11,25 +11,7 @@ import alYasidImg from "@/assets/team/Al-Yasid.png";
 import simonKwImg from "@/assets/team/Simon-Kw.png";
 import brendanImg from "@/assets/team/Brendan.png";
 import kieronImg from "@/assets/team/KIERON_SALTER.png";
-
-export const Route = createFileRoute("/about")({
-  head: () => ({
-    meta: [
-      { title: "About — Vision148" },
-      { name: "description", content: "The story, the people, and the philosophy behind the Vision148 RS500 Genesis Build." },
-      { property: "og:title", content: "About — Vision148" },
-      { property: "og:description", content: "Heritage coachbuilding meets digital manufacturing." },
-    ],
-  }),
-  component: AboutPage,
-});
-
-const principles = [
-  ["Heritage", "We treat the RS500 as a cultural artefact — preserved, not modernised away."],
-  ["Craft", "Every panel, every weld, every fastener is documented, dated and signed."],
-  ["Transparency", "Custodians see the build as it happens. No press release surprises."],
-  ["Restraint", "Twenty-five seats. One car. No spin-offs. No tiers."],
-];
+import { fetchSeoMetadata, mapSeoToMeta, fetchTeamMembers } from "@/lib/api";
 
 const team = [
   {
@@ -64,7 +46,45 @@ const team = [
   },
 ];
 
+export const Route = createFileRoute("/about")({
+  loader: async () => {
+    const seoPromise = fetchSeoMetadata("about", {
+      title: "About — Vision148",
+      description: "The story, the people, and the philosophy behind the Vision148 RS500 Genesis Build.",
+      og_title: "About — Vision148",
+      og_description: "Heritage coachbuilding meets digital manufacturing.",
+    });
+
+    const fallbackTeam = team.map(t => ({
+      name: t.name,
+      position: t.role,
+      image: t.image,
+    }));
+    const teamMembersPromise = fetchTeamMembers(fallbackTeam);
+
+    const [seo, teamMembers] = await Promise.all([seoPromise, teamMembersPromise]);
+    return { seo, teamMembers };
+  },
+  head: ({ loaderData }) => ({
+    meta: mapSeoToMeta(loaderData?.seo || {
+      title: "About — Vision148",
+      description: "The story, the people, and the philosophy behind the Vision148 RS500 Genesis Build.",
+      og_title: "About — Vision148",
+      og_description: "Heritage coachbuilding meets digital manufacturing.",
+    }),
+  }),
+  component: AboutPage,
+});
+
+const principles = [
+  ["Heritage", "We treat the RS500 as a cultural artefact — preserved, not modernised away."],
+  ["Craft", "Every panel, every weld, every fastener is documented, dated and signed."],
+  ["Transparency", "Custodians see the build as it happens. No press release surprises."],
+  ["Restraint", "Twenty-five seats. One car. No spin-offs. No tiers."],
+];
+
 function AboutPage() {
+  const { teamMembers } = Route.useLoaderData();
   return (
     <main className="bg-background text-foreground min-h-screen">
       <Nav />
@@ -134,25 +154,30 @@ function AboutPage() {
             </p>
           </div>
           <div className="md:col-span-7 border-t border-white/10 mt-12 md:mt-0">
-            {team.map(({ role, name, image }, i) => (
+            {teamMembers.map(({ position, name, image }, i) => (
               <div key={name} className={`group flex flex-col md:flex-row items-start md:items-center justify-between gap-8 py-6 md:py-8 border-b border-white/10 hover:bg-white/5 transition-colors cursor-default md:-mx-6 md:px-6 rounded-2xl reveal stagger-${(i % 5) + 1}`}>
                 <div className="font-mono text-xs md:text-sm uppercase tracking-widest text-white/70 group-hover:text-white transition-colors md:w-2/3 leading-loose pr-8">
-                  {role.startsWith(name) ? (
+                  {position && position.startsWith(name) ? (
                     <>
                       <span className="bg-white text-black font-semibold px-2 py-0.5 mr-2">{name}</span>
-                      {role.slice(name.length).trim()}
+                      {position.slice(name.length).trim()}
                     </>
                   ) : (
-                    role
+                    <>
+                      <span className="bg-white text-black font-semibold px-2 py-0.5 mr-2">{name}</span>
+                      {position}
+                    </>
                   )}
                 </div>
-                <div className="flex items-center justify-start md:justify-end md:w-1/3 w-full">
-                  <img
-                    src={image}
-                    alt={name}
-                    className="w-20 h-20 md:w-28 md:h-28 shrink-0 object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105 border border-white/10"
-                  />
-                </div>
+                {image && (
+                  <div className="flex items-center justify-start md:justify-end md:w-1/3 w-full">
+                    <img
+                      src={image}
+                      alt={name}
+                      className="w-20 h-20 md:w-28 md:h-28 shrink-0 object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105 border border-white/10"
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>

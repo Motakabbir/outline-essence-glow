@@ -8,14 +8,25 @@ import theCar from "@/assets/the-car.jpg";
 import design from "@/assets/design.jpg";
 import videoBg from "@/assets/video/process.mp4";
 
+import { fetchSeoMetadata, mapSeoToMeta } from "@/lib/api";
+
 export const Route = createFileRoute("/the-car")({
-  head: () => ({
-    meta: [
-      { title: "The Car — Vision148 RS500" },
-      { name: "description", content: "Car #148 of 500 RS500 Cosworths — reborn through digital manufacturing and motorsport-grade engineering." },
-      { property: "og:title", content: "The Car — Vision148 RS500" },
-      { property: "og:description", content: "Car #148 of 500 RS500 Cosworths — reborn through digital manufacturing." },
-    ],
+  loader: async () => {
+    const seo = await fetchSeoMetadata("the-car", {
+      title: "The Car — Vision148 RS500",
+      description: "Car #148 of 500 RS500 Cosworths — reborn through digital manufacturing and motorsport-grade engineering.",
+      og_title: "The Car — Vision148 RS500",
+      og_description: "Car #148 of 500 RS500 Cosworths — reborn through digital manufacturing.",
+    });
+    return { seo };
+  },
+  head: ({ loaderData }) => ({
+    meta: mapSeoToMeta(loaderData?.seo || {
+      title: "The Car — Vision148 RS500",
+      description: "Car #148 of 500 RS500 Cosworths — reborn through digital manufacturing and motorsport-grade engineering.",
+      og_title: "The Car — Vision148 RS500",
+      og_description: "Car #148 of 500 RS500 Cosworths — reborn through digital manufacturing.",
+    }),
   }),
   component: TheCarPage,
 });

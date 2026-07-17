@@ -6,14 +6,25 @@ import experience from "@/assets/Hospitality.png";
 import design from "@/assets/design.jpg";
 import videoBg from "@/assets/video/partner.mp4";
 
+import { fetchSeoMetadata, mapSeoToMeta } from "@/lib/api";
+
 export const Route = createFileRoute("/experience")({
-  head: () => ({
-    meta: [
-      { title: "The Experience — Vision148" },
-      { name: "description", content: "Private drives, studio visits, exhibitions and the quarterly digital twin." },
-      { property: "og:title", content: "The Experience — Vision148" },
-      { property: "og:description", content: "Custodianship designed around the finished car." },
-    ],
+  loader: async () => {
+    const seo = await fetchSeoMetadata("experience", {
+      title: "The Experience — Vision148",
+      description: "Private drives, studio visits, exhibitions and the quarterly digital twin.",
+      og_title: "The Experience — Vision148",
+      og_description: "Custodianship designed around the finished car.",
+    });
+    return { seo };
+  },
+  head: ({ loaderData }) => ({
+    meta: mapSeoToMeta(loaderData?.seo || {
+      title: "The Experience — Vision148",
+      description: "Private drives, studio visits, exhibitions and the quarterly digital twin.",
+      og_title: "The Experience — Vision148",
+      og_description: "Custodianship designed around the finished car.",
+    }),
   }),
   component: ExperiencePage,
 });
