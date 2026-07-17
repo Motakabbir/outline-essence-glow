@@ -73,8 +73,8 @@ export const posts = [
     slug: "provenance",
     date: "apr 2026",
     category: "SYNDICATE BIRTH",
-    title: "The donor: chain of custody, 1987 to today.",
-    excerpt: "Four owners, two countries, one extraordinary file of documentation.",
+    title: "THE BIRTH OF A SYNDICATE",
+    excerpt: "in collaboration with TheCarCrowd the creation of an exclusive Syndicate will allow members the opportunity to become a part of this project and to ultimately experience driving the RS500 #148.",
     img: theCar,
     content: (
       <>
