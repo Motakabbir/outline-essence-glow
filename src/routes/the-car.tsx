@@ -123,10 +123,11 @@ function TheCarPage() {
         </div>
       </section>
 
-      <section className="py-24 md:py-32 border-t border-white/10">
-        <div className="max-w-[1500px] mx-auto px-6 md:px-10">
-          <img src={design} alt="CAD" className="w-full grayscale aspect-[21/9] object-cover" />
-        </div>
+      <section className="h-[45vh] md:h-[65vh] relative overflow-hidden border-t border-b border-white/10">
+        <div 
+          className="absolute inset-0 bg-fixed bg-cover bg-center grayscale opacity-60 parallax-bg"
+          style={{ backgroundImage: `url(${design})` }}
+        />
       </section>
 
       <CrossLink to="/process" eyebrow="Next" title="The Process →" />

@@ -9,6 +9,9 @@ import workshop from "@/assets/workshop.jpg";
 import engine from "@/assets/engine.jpg";
 import theCar from "@/assets/the-car.jpg";
 import experience from "@/assets/experience.jpg";
+import chassisVideo from "@/assets/video/chassis.mp4";
+import processVideo from "@/assets/video/process.mp4";
+import partnerVideo from "@/assets/video/partner.mp4";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -94,8 +97,8 @@ function Manifesto() {
               ["500", "Original cars"],
               ["1 / 1", "Genesis build"],
               ["25", "Syndicate seats"],
-            ].map(([k, v]) => (
-              <div key={v} className="border-t border-white/20 pt-4">
+            ].map(([k, v], i) => (
+              <div key={v} className={`border-t border-white/20 pt-4 reveal stagger-${i + 1}`}>
                 <div className="font-display text-3xl md:text-4xl">{k}</div>
                 <div className="text-[10px] mt-2 font-mono uppercase tracking-[0.2em] text-white/50">
                   {v}
@@ -118,11 +121,11 @@ function Pillars() {
   return (
     <section className="paper">
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 py-24 md:py-32">
-        <div className="grid md:grid-cols-3 gap-0 border-t border-b border-black/15">
+        <div className="grid md:grid-cols-3 gap-0 border-t border-b border-black/15 overflow-hidden">
           {items.map((it, i) => (
             <div
               key={it.title}
-              className={`p-10 md:p-14 group transition-colors hover:bg-black hover:text-white ${
+              className={`p-10 md:p-14 group transition-colors hover:bg-black hover:text-white reveal stagger-${i + 1} ${
                 i > 0 ? "md:border-l border-black/15 border-t md:border-t-0" : ""
               }`}
             >
@@ -143,14 +146,14 @@ function HighlightCar() {
   return (
     <section className="py-28 md:py-40">
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12">
-        <div className="md:col-span-7 overflow-hidden">
-          <img
-            src={workshop}
-            alt="RS500 chassis in workshop"
-            width={1400}
-            height={1000}
-            loading="lazy"
-            className="w-full grayscale transition-transform duration-[2s] hover:scale-[1.04]"
+        <div className="md:col-span-7 overflow-hidden reveal aspect-[4/3] bg-white/5 relative">
+          <video
+            src={chassisVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover grayscale zoom-hover"
           />
         </div>
         <div className="md:col-span-5 md:pt-6">
@@ -191,14 +194,14 @@ function HighlightProcess() {
             <PillLink to="/process" variant="ghost">The Build Process</PillLink>
           </div>
         </div>
-        <div className="md:col-span-7 overflow-hidden">
-          <img
-            src={engine}
-            alt="Cosworth YB engine"
-            width={1400}
-            height={1000}
-            loading="lazy"
-            className="w-full grayscale aspect-[4/3] object-cover transition-transform duration-[2s] hover:scale-[1.04]"
+        <div className="md:col-span-7 overflow-hidden reveal aspect-[4/3] bg-white/5 relative">
+          <video
+            src={processVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover grayscale zoom-hover"
           />
         </div>
       </div>
@@ -210,14 +213,14 @@ function HighlightExperience() {
   return (
     <section className="paper">
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 py-28 md:py-40 grid md:grid-cols-12 gap-12">
-        <div className="md:col-span-7 overflow-hidden">
-          <img
-            src={experience}
-            alt="Exhibition"
-            width={1400}
-            height={1000}
-            loading="lazy"
-            className="w-full grayscale aspect-[4/3] object-cover"
+        <div className="md:col-span-7 overflow-hidden reveal aspect-[4/3] bg-white/5 relative">
+          <video
+            src={partnerVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover grayscale zoom-hover"
           />
         </div>
         <div className="md:col-span-5 md:pt-6">

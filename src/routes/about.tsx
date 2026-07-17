@@ -93,8 +93,11 @@ function AboutPage() {
               The mission has never been to recreate the RS500. It's to imagine what it would have become if its bloodline had continued uninterrupted into 2026. With Al Yasid's vision blending heritage with modern design language, creating a silhouette that feels both inevitable and completely new. This is how legends evolve
             </p>
           </div>
-          <div className="md:col-span-7">
-            <img src={workshop} alt="Workshop" className="w-full grayscale aspect-[4/3] object-cover" />
+          <div className="md:col-span-7 h-[300px] md:h-[450px] overflow-hidden relative">
+            <div 
+              className="absolute inset-0 bg-fixed bg-cover bg-center grayscale opacity-80 parallax-bg"
+              style={{ backgroundImage: `url(${workshop})` }}
+            />
           </div>
         </div>
       </section>
@@ -107,11 +110,12 @@ function AboutPage() {
           </h2>
           <div className="grid md:grid-cols-2 gap-px bg-white/10 mt-16">
             {principles.map(([t, b], i) => (
-              <div key={t} className="bg-black p-10 md:p-14">
+              <div key={t} className={`bg-black p-10 md:p-14 reveal stagger-${(i % 2) + 1}`}>
                 <div className="font-mono text-[11px] uppercase tracking-[0.22em] opacity-50">
                   {String(i + 1).padStart(2, "0")}
                 </div>
                 <div className="font-display uppercase text-3xl md:text-4xl mt-6">{t}</div>
+                <div className="mt-4 text-sm opacity-70 leading-relaxed">{b}</div>
               </div>
             ))}
           </div>
@@ -130,8 +134,8 @@ function AboutPage() {
             </p>
           </div>
           <div className="md:col-span-7 border-t border-white/10 mt-12 md:mt-0">
-            {team.map(({ role, name, image }) => (
-              <div key={name} className="group flex flex-col md:flex-row items-start md:items-center justify-between gap-8 py-6 md:py-8 border-b border-white/10 hover:bg-white/5 transition-colors cursor-default md:-mx-6 md:px-6 rounded-2xl">
+            {team.map(({ role, name, image }, i) => (
+              <div key={name} className={`group flex flex-col md:flex-row items-start md:items-center justify-between gap-8 py-6 md:py-8 border-b border-white/10 hover:bg-white/5 transition-colors cursor-default md:-mx-6 md:px-6 rounded-2xl reveal stagger-${(i % 5) + 1}`}>
                 <div className="font-mono text-xs md:text-sm uppercase tracking-widest text-white/70 group-hover:text-white transition-colors md:w-2/3 leading-loose pr-8">
                   {role.startsWith(name) ? (
                     <>
