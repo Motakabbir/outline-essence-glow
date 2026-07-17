@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { createServerFn } from "@tanstack/react-start";
+import { z } from "zod";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
@@ -16,6 +18,21 @@ export const Route = createFileRoute("/contact")({
   }),
   component: ContactPage,
 });
+
+const submitContactForm = createServerFn({ method: "POST" })
+  .inputValidator(
+    z.object({
+      name: z.string(),
+      email: z.string().email(),
+      subject: z.string(),
+      message: z.string(),
+    })
+  )
+  .handler(async ({ data }) => {
+    console.info("Server received contact submission:", data);
+    // Integration logic here (e.g. SMTP/Resend)
+    return { success: true };
+  });
 
 const channels = [
   ["Custodianship", "syndicate@vision148.com", "For seat enquiries and applications."],
@@ -82,7 +99,24 @@ function ContactPage() {
               </div>
             ) : (
               <form
-                onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.currentTarget);
+                  const data = {
+                    name: formData.get("name") as string,
+                    email: formData.get("email") as string,
+                    subject: formData.get("subject") as string,
+                    message: formData.get("message") as string,
+                  };
+                  try {
+                    const res = await submitContactForm({ data });
+                    if (res.success) {
+                      setSent(true);
+                    }
+                  } catch (err) {
+                    console.error("Failed to submit form:", err);
+                  }
+                }}
                 className="space-y-6 text-black"
               >
                 <div className="grid md:grid-cols-2 gap-6">

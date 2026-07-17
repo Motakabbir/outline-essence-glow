@@ -1207,6 +1207,9 @@ function isRedirect(obj) {
 function isResolvedRedirect(obj) {
   return isRedirect(obj) && !!obj.options.href;
 }
+function parseRedirect(obj) {
+  if (obj !== null && typeof obj === "object" && obj.isSerializedRedirect) return redirect(obj);
+}
 const triggerOnReady = (inner) => {
   if (!inner.rendered) {
     inner.rendered = true;
@@ -4309,12 +4312,13 @@ export {
   makeSerovalPlugin as E,
   mergeHeaders as F,
   notFound as G,
-  removeTrailingSlash as H,
-  resolveManifestAssetLink as I,
-  resolveManifestCssLink as J,
-  rootRouteId as K,
-  transformPipeableStreamWithRouter as L,
-  transformReadableStreamWithRouter as M,
+  parseRedirect as H,
+  removeTrailingSlash as I,
+  resolveManifestAssetLink as J,
+  resolveManifestCssLink as K,
+  rootRouteId as L,
+  transformPipeableStreamWithRouter as M,
+  transformReadableStreamWithRouter as N,
   RouterCore as R,
   BaseRoute as a,
   appendUniqueUserTags as b,

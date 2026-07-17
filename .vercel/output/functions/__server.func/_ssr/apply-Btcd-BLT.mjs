@@ -1,19 +1,35 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
+import { c as createSsrRpc } from "./createSsrRpc-D8V7FHCZ.mjs";
+import { a as createServerFn } from "./server-DM88Rqsv.mjs";
 import { N as Nav, P as PageHero, F as Footer } from "./Primitives-DHBnMrOH.mjs";
-import "../_libs/tanstack__react-router.mjs";
+import "../_libs/seroval.mjs";
+import { o as objectType, s as stringType } from "../_libs/zod.mjs";
+import "node:async_hooks";
+import "../_libs/h3-v2.mjs";
+import "../_libs/rou3.mjs";
+import "../_libs/srvx.mjs";
+import "node:stream";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";
-import "../_libs/seroval.mjs";
 import "../_libs/seroval-plugins.mjs";
 import "node:stream/web";
-import "node:stream";
+import "../_libs/tanstack__react-router.mjs";
 import "../_libs/react-dom.mjs";
 import "util";
 import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
+const submitApplyForm = createServerFn({
+  method: "POST"
+}).inputValidator(objectType({
+  name: stringType(),
+  email: stringType().email(),
+  phone: stringType().optional(),
+  intro: stringType().optional(),
+  message: stringType().optional()
+})).handler(createSsrRpc("596878548ed97fad99e76f722b7a9710ef35e411603b7cf465c4265a96fd0bdc"));
 function ApplyPage() {
   const [submitted, setSubmitted] = reactExports.useState(false);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "bg-background text-foreground min-h-screen", children: [
@@ -40,9 +56,26 @@ function ApplyPage() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "eyebrow", children: "Received" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display uppercase text-4xl md:text-5xl mt-6", children: "Thank you." }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-6 text-white/65 max-w-md mx-auto", children: "A member of the Vision148 team will be in touch within five working days with the full prospectus." })
-      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: (e) => {
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: async (e) => {
         e.preventDefault();
-        setSubmitted(true);
+        const formData = new FormData(e.currentTarget);
+        const data = {
+          name: formData.get("name"),
+          email: formData.get("email"),
+          phone: formData.get("phone") || void 0,
+          intro: formData.get("intro") || void 0,
+          message: formData.get("message") || void 0
+        };
+        try {
+          const res = await submitApplyForm({
+            data
+          });
+          if (res.success) {
+            setSubmitted(true);
+          }
+        } catch (err) {
+          console.error("Failed to submit application:", err);
+        }
       }, className: "space-y-10", children: [
         [{
           id: "name",
@@ -66,11 +99,11 @@ function ApplyPage() {
           required: false
         }].map((f) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-b border-white/20 pb-4 focus-within:border-white transition-colors", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: f.id, className: "block eyebrow mb-3", children: f.label }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { id: f.id, type: f.type, required: f.required, className: "w-full bg-transparent text-xl md:text-2xl font-display tracking-tight placeholder:opacity-30 outline-none", placeholder: "—" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("input", { id: f.id, name: f.id, type: f.type, required: f.required, className: "w-full bg-transparent text-xl md:text-2xl font-display tracking-tight placeholder:opacity-30 outline-none", placeholder: "—" })
         ] }, f.id)),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-b border-white/20 pb-4 focus-within:border-white transition-colors", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "message", className: "block eyebrow mb-3", children: "Notes (optional)" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("textarea", { id: "message", rows: 4, className: "w-full bg-transparent text-lg leading-relaxed placeholder:opacity-30 outline-none resize-none", placeholder: "Anything we should know" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("textarea", { id: "message", name: "message", rows: 4, className: "w-full bg-transparent text-lg leading-relaxed placeholder:opacity-30 outline-none resize-none", placeholder: "Anything we should know" })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap items-center gap-6 pt-4", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { type: "submit", className: "group inline-flex items-center gap-3 bg-white text-black px-8 py-4 text-[11px] font-mono uppercase tracking-[0.24em] hover:bg-white/85 transition", children: [

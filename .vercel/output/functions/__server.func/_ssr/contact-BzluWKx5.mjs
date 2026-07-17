@@ -1,20 +1,35 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
+import { c as createSsrRpc } from "./createSsrRpc-D8V7FHCZ.mjs";
+import { a as createServerFn } from "./server-DM88Rqsv.mjs";
 import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-DHBnMrOH.mjs";
 import { j as journalVideo } from "./journal-Dn1zTfAK.mjs";
-import "../_libs/tanstack__react-router.mjs";
+import "../_libs/seroval.mjs";
+import { o as objectType, s as stringType } from "../_libs/zod.mjs";
+import "node:async_hooks";
+import "../_libs/h3-v2.mjs";
+import "../_libs/rou3.mjs";
+import "../_libs/srvx.mjs";
+import "node:stream";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
 import "../_libs/cookie-es.mjs";
-import "../_libs/seroval.mjs";
 import "../_libs/seroval-plugins.mjs";
 import "node:stream/web";
-import "node:stream";
+import "../_libs/tanstack__react-router.mjs";
 import "../_libs/react-dom.mjs";
 import "util";
 import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
+const submitContactForm = createServerFn({
+  method: "POST"
+}).inputValidator(objectType({
+  name: stringType(),
+  email: stringType().email(),
+  subject: stringType(),
+  message: stringType()
+})).handler(createSsrRpc("c3804d43ea11a75535ebb5ae9e76d1efb9734c08a9487988e3b78f015fb81075"));
 const channels = [["Custodianship", "syndicate@vision148.com", "For seat enquiries and applications."], ["Partnerships", "studio@vision148.com", "Suppliers, collaborators and patrons."], ["Press", "press@vision148.com", "Editorial, features and image requests."]];
 const locations = [["Studio", "Coventry, UK", "By appointment only."], ["Engineering", "Silverstone, UK", "ASM Performance facility."], ["Office", "London, UK", "Mayfair — by introduction."]];
 function ContactPage() {
@@ -46,9 +61,25 @@ function ContactPage() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-mono text-[11px] uppercase tracking-[0.22em] opacity-60", children: "Received" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-4 font-display uppercase text-3xl", children: "Thank you." }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 text-black/70", children: "We'll be in touch shortly." })
-      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: (e) => {
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: async (e) => {
         e.preventDefault();
-        setSent(true);
+        const formData = new FormData(e.currentTarget);
+        const data = {
+          name: formData.get("name"),
+          email: formData.get("email"),
+          subject: formData.get("subject"),
+          message: formData.get("message")
+        };
+        try {
+          const res = await submitContactForm({
+            data
+          });
+          if (res.success) {
+            setSent(true);
+          }
+        } catch (err) {
+          console.error("Failed to submit form:", err);
+        }
       }, className: "space-y-6 text-black", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid md:grid-cols-2 gap-6", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Field, { label: "Name", name: "name" }),

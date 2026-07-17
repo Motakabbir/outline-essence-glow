@@ -101,7 +101,7 @@ function RootComponent() {
   const { queryClient } = Route$c.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
 }
-const $$splitComponentImporter$b = () => import("./the-car-D6emlsXy.mjs");
+const $$splitComponentImporter$b = () => import("./the-car-CwNZVy46.mjs");
 const Route$b = createFileRoute("/the-car")({
   head: () => ({
     meta: [{
@@ -173,7 +173,7 @@ const Route$8 = createFileRoute("/journal")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$8, "component")
 });
-const $$splitComponentImporter$7 = () => import("./faq-FjssMgrO.mjs");
+const $$splitComponentImporter$7 = () => import("./faq-CoGQQ8VF.mjs");
 const Route$7 = createFileRoute("/faq")({
   head: () => ({
     meta: [{
@@ -209,7 +209,7 @@ const Route$6 = createFileRoute("/experience")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$6, "component")
 });
-const $$splitComponentImporter$5 = () => import("./contact-DMly1bLU.mjs");
+const $$splitComponentImporter$5 = () => import("./contact-BzluWKx5.mjs");
 const Route$5 = createFileRoute("/contact")({
   head: () => ({
     meta: [{
@@ -227,7 +227,7 @@ const Route$5 = createFileRoute("/contact")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$5, "component")
 });
-const $$splitComponentImporter$4 = () => import("./apply-DknaX0sI.mjs");
+const $$splitComponentImporter$4 = () => import("./apply-Btcd-BLT.mjs");
 const Route$4 = createFileRoute("/apply")({
   head: () => ({
     meta: [{
@@ -245,7 +245,7 @@ const Route$4 = createFileRoute("/apply")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
-const $$splitComponentImporter$3 = () => import("./about-C8s-9D2H.mjs");
+const $$splitComponentImporter$3 = () => import("./about-B3y-AHvm.mjs");
 const Route$3 = createFileRoute("/about")({
   head: () => ({
     meta: [{
@@ -263,7 +263,7 @@ const Route$3 = createFileRoute("/about")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./index-CQuMv2o7.mjs");
+const $$splitComponentImporter$2 = () => import("./index-C4rsaG6Q.mjs");
 const Route$2 = createFileRoute("/")({
   head: () => ({
     meta: [{
@@ -284,7 +284,7 @@ const Route$2 = createFileRoute("/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./journal.index-Bl-fx0G8.mjs");
+const $$splitComponentImporter$1 = () => import("./journal.index-Cd7s6pg4.mjs");
 const Route$1 = createFileRoute("/journal/")({
   head: () => ({
     meta: [{
@@ -361,7 +361,7 @@ const posts = [
     content: /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Detailed notes regarding the extraordinary chain of custody for the donor car will go here, tracing its history back to 1987." }) })
   }
 ];
-const $$splitComponentImporter = () => import("./journal._slug-C31-E88X.mjs");
+const $$splitComponentImporter = () => import("./journal._slug-CZmNK6bv.mjs");
 const Route = createFileRoute("/journal/$slug")({
   component: lazyRouteComponent($$splitComponentImporter, "component"),
   loader: ({

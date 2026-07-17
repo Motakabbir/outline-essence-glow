@@ -1,8 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { createServerFn } from "@tanstack/react-start";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero } from "@/components/site/Primitives";
+
+import { z } from "zod";
 
 export const Route = createFileRoute("/apply")({
   head: () => ({
@@ -15,6 +18,22 @@ export const Route = createFileRoute("/apply")({
   }),
   component: ApplyPage,
 });
+
+const submitApplyForm = createServerFn({ method: "POST" })
+  .inputValidator(
+    z.object({
+      name: z.string(),
+      email: z.string().email(),
+      phone: z.string().optional(),
+      intro: z.string().optional(),
+      message: z.string().optional(),
+    })
+  )
+  .handler(async ({ data }) => {
+    console.info("Server received syndicate application:", data);
+    // Integration logic here (e.g. SMTP/Resend)
+    return { success: true };
+  });
 
 function ApplyPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -66,9 +85,24 @@ function ApplyPage() {
               </div>
             ) : (
               <form
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  setSubmitted(true);
+                  const formData = new FormData(e.currentTarget);
+                  const data = {
+                    name: formData.get("name") as string,
+                    email: formData.get("email") as string,
+                    phone: formData.get("phone") as string || undefined,
+                    intro: formData.get("intro") as string || undefined,
+                    message: formData.get("message") as string || undefined,
+                  };
+                  try {
+                    const res = await submitApplyForm({ data });
+                    if (res.success) {
+                      setSubmitted(true);
+                    }
+                  } catch (err) {
+                    console.error("Failed to submit application:", err);
+                  }
                 }}
                 className="space-y-10"
               >
@@ -82,6 +116,7 @@ function ApplyPage() {
                     <label htmlFor={f.id} className="block eyebrow mb-3">{f.label}</label>
                     <input
                       id={f.id}
+                      name={f.id}
                       type={f.type}
                       required={f.required}
                       className="w-full bg-transparent text-xl md:text-2xl font-display tracking-tight placeholder:opacity-30 outline-none"
@@ -93,6 +128,7 @@ function ApplyPage() {
                   <label htmlFor="message" className="block eyebrow mb-3">Notes (optional)</label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={4}
                     className="w-full bg-transparent text-lg leading-relaxed placeholder:opacity-30 outline-none resize-none"
                     placeholder="Anything we should know"

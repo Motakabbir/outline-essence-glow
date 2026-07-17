@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
 import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-DHBnMrOH.mjs";
-import { p as posts } from "./router-Bg6saCrs.mjs";
+import { p as posts } from "./router-CQfFc4iI.mjs";
 import { j as journalVideo } from "./journal-Dn1zTfAK.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
