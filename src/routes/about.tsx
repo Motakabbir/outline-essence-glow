@@ -81,16 +81,14 @@ function AboutPage() {
               <span>01</span><span className="h-px w-10 bg-black/30" /><span>Origin</span>
             </div>
             <h2 className="font-display text-5xl md:text-6xl uppercase leading-[0.95] mt-8">
-              Started in a<br />
-              <span className="font-serif-italic normal-case opacity-70">Coventry shed.</span>
+              STARTED WITH A PASSION<br />
+              <span className="font-serif-italic normal-case opacity-70">to reimagine</span>
             </h2>
             <p className="mt-8 text-black/70 leading-relaxed">
-              Three engineers, one donor shell, and a question: what would the RS500
-              look like if it had been finished properly, the first time? Five years
-              later, the answer is in mid-build at a small workshop outside Coventry.
+              The origin story of the Vision148 is inspired through exposure to some of the leading figures in UK automotive and motorsport  and a collective passion to identify icons of the road and deploy artisan and bleeding edge technology manufacturing and materials into a unique showpiece.
             </p>
             <p className="mt-6 text-black/70 leading-relaxed">
-              We don't restore cars. We don't make replicas. We build one — and only one.
+              The mission has never been to recreate the RS500. It's to imagine what it would have become if its bloodline had continued uninterrupted into 2026. With Al Yasid's vision blending heritage with modern design language, creating a silhouette that feels both inevitable and completely new. This is how legends evolve
             </p>
           </div>
           <div className="md:col-span-7">
@@ -143,10 +141,10 @@ function AboutPage() {
                   )}
                 </div>
                 <div className="flex items-center justify-start md:justify-end md:w-1/3 w-full">
-                  <img 
-                    src={image} 
-                    alt={name} 
-                    className="w-20 h-20 md:w-28 md:h-28 shrink-0 object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105 border border-white/10" 
+                  <img
+                    src={image}
+                    alt={name}
+                    className="w-20 h-20 md:w-28 md:h-28 shrink-0 object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105 border border-white/10"
                   />
                 </div>
               </div>
@@ -166,11 +164,10 @@ function AboutPage() {
             </div>
             <h2 className="font-display text-5xl md:text-6xl uppercase leading-[0.95] mt-8">
               Not a brand.<br />
-              <span className="font-serif-italic normal-case opacity-70">A programme.</span>
+              <span className="font-serif-italic normal-case opacity-70">An experience</span>
             </h2>
             <p className="mt-8 text-black/70 leading-relaxed">
-              When this car is finished, Vision148 closes. There is no Vision149.
-              The studio exists to deliver one object — exceptionally — and then go quiet.
+              But, the true benefactors of this project will be a limited few who will be have the unique privilege of experiencing driving the completed car through an unique syndicate of individuals.   
             </p>
           </div>
         </div>
