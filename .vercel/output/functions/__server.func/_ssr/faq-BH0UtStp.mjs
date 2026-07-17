@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports, r as reactExports } from "../_libs/react.mjs";
 import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-BHEdI8CK.mjs";
-import { v as videoBg } from "./router-D5DEaOuI.mjs";
+import { c as chassisVideo } from "./router-DbM9WHzU.mjs";
 import "../_libs/tanstack__react-router.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
@@ -33,7 +33,7 @@ const groups = [{
 function FAQPage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "bg-background text-foreground min-h-screen", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Nav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(PageHero, { eyebrow: "07 / FAQ", title: "Questions,", italic: "answered.", intro: "If something isn't covered here, the studio answers personally — write to us at hello@vision148.com.", video: videoBg }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(PageHero, { eyebrow: "07 / FAQ", title: "Questions,", italic: "answered.", intro: "If something isn't covered here, the studio answers personally — write to us at hello@vision148.com.", video: chassisVideo }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-[1100px] mx-auto px-6 md:px-10 space-y-20", children: groups.map((g, gi) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 font-mono text-[0.7rem] tracking-[0.22em] uppercase text-white/50", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: String(gi + 1).padStart(2, "0") }),

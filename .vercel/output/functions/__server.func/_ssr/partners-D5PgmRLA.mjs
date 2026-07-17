@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-BHEdI8CK.mjs";
-import { v as videoBg } from "./partner-sMw59VCA.mjs";
+import { p as partnerVideo } from "./partner-GufV5oeM.mjs";
 import "../_libs/tanstack__react-router.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
@@ -51,7 +51,7 @@ const partners = [{
 function PartnersPage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "bg-background text-foreground min-h-screen", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Nav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(PageHero, { eyebrow: "03 / Partners", title: "A curated", italic: "consortium.", intro: "Each partner is best-in-class — additive manufacturing, coachbuilding, composites, engine engineering. Selected to elevate the technical and commercial credibility of a one-of-one, investment-grade build.", video: videoBg }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(PageHero, { eyebrow: "03 / Partners", title: "A curated", italic: "consortium.", intro: "Each partner is best-in-class — additive manufacturing, coachbuilding, composites, engine engineering. Selected to elevate the technical and commercial credibility of a one-of-one, investment-grade build.", video: partnerVideo }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-20 md:py-28", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/15", children: partners.map((p) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-b border-r border-white/15 aspect-[3/1] flex items-center justify-center px-4 group transition-colors hover:bg-white hover:text-black", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display uppercase tracking-[0.18em] text-lg md:text-xl text-center", children: p.name }) }, p.name)) }) }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "paper", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 py-24 md:py-32", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 font-mono text-[0.7rem] tracking-[0.22em] uppercase text-black/50", children: [

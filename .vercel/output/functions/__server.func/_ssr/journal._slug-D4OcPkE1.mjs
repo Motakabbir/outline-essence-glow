@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-BHEdI8CK.mjs";
-import { R as Route, p as posts } from "./router-D5DEaOuI.mjs";
+import { R as Route, p as posts } from "./router-DbM9WHzU.mjs";
 import "../_libs/tanstack__react-router.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";

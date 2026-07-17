@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-BHEdI8CK.mjs";
 import { d as design } from "./design-CJWwRsMp.mjs";
-import { v as videoBg } from "./partner-sMw59VCA.mjs";
+import { p as partnerVideo } from "./partner-GufV5oeM.mjs";
 import "../_libs/tanstack__react-router.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
@@ -21,7 +21,7 @@ const benefits = [["Private Drives", "Track and road days at proving grounds and
 function ExperiencePage() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "bg-background text-foreground min-h-screen", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Nav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(PageHero, { eyebrow: "04 / The Experience", title: "Ownership,", italic: "reimagined.", intro: "Twenty-five custodians. One car. A year-round programme of access, hospitality and shared craftsmanship — engineered with the same care as the build itself.", video: videoBg }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(PageHero, { eyebrow: "04 / The Experience", title: "Ownership,", italic: "reimagined.", intro: "Twenty-five custodians. One car. A year-round programme of access, hospitality and shared craftsmanship — engineered with the same care as the build itself.", video: partnerVideo }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-3 gap-px bg-white/10", children: benefits.map(([t, b], i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-black p-10 md:p-12 group hover:bg-white hover:text-black transition-colors duration-500", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-mono text-[11px] uppercase tracking-[0.22em] opacity-50", children: String(i + 1).padStart(2, "0") }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-display uppercase text-2xl md:text-3xl mt-6", children: t }),

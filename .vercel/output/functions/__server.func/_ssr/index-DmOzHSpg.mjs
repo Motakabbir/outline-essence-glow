@@ -1,6 +1,8 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { N as Nav, C as CrossLink, F as Footer, a as PillLink, S as SectionLabel } from "./Primitives-BHEdI8CK.mjs";
-import { w as workshop, e as engine } from "./router-D5DEaOuI.mjs";
+import { c as chassisVideo } from "./router-DbM9WHzU.mjs";
+import { p as processVideo } from "./process-rFchNS1r.mjs";
+import { p as partnerVideo } from "./partner-GufV5oeM.mjs";
 import "../_libs/tanstack__react-router.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
@@ -33,7 +35,6 @@ function Marquee({ items }) {
 }
 const heroCar = "/assets/hero-car-D7AYmz0K.jpg";
 const heroVideo = "/assets/video-CEQfNafy.mp4";
-const experience = "/assets/experience-ZyUdGZJn.jpg";
 function Hero() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { id: "top", className: "relative min-h-screen flex items-end overflow-hidden", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("video", { src: heroVideo, poster: heroCar, autoPlay: true, muted: true, loop: true, playsInline: true, className: "absolute inset-0 w-full h-full object-cover opacity-70 grayscale scale-[1.04]" }),
@@ -75,7 +76,7 @@ function Manifesto() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-serif-italic normal-case opacity-80", children: "artefact" }),
         "."
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-12 grid grid-cols-3 gap-6 max-w-xl", children: [["500", "Original cars"], ["1 / 1", "Genesis build"], ["25", "Syndicate seats"]].map(([k, v]) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "border-t border-white/20 pt-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-12 grid grid-cols-3 gap-6 max-w-xl", children: [["500", "Original cars"], ["1 / 1", "Genesis build"], ["25", "Syndicate seats"]].map(([k, v], i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `border-t border-white/20 pt-4 reveal stagger-${i + 1}`, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-display text-3xl md:text-4xl", children: k }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-[10px] mt-2 font-mono uppercase tracking-[0.2em] text-white/50", children: v })
       ] }, v)) })
@@ -96,7 +97,7 @@ function Pillars() {
     title: "Exclusive Access",
     body: "Private drives, factory visits, and curated experiences with the finished car."
   }];
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "paper", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 py-24 md:py-32", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-3 gap-0 border-t border-b border-black/15", children: items.map((it, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `p-10 md:p-14 group transition-colors hover:bg-black hover:text-white ${i > 0 ? "md:border-l border-black/15 border-t md:border-t-0" : ""}`, children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "paper", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 py-24 md:py-32", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-3 gap-0 border-t border-b border-black/15 overflow-hidden", children: items.map((it, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `p-10 md:p-14 group transition-colors hover:bg-black hover:text-white reveal stagger-${i + 1} ${i > 0 ? "md:border-l border-black/15 border-t md:border-t-0" : ""}`, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-mono text-xs tracking-[0.3em] opacity-60", children: it.n }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display text-3xl md:text-4xl uppercase mt-8 leading-tight", children: it.title }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-6 text-sm leading-relaxed opacity-70 max-w-xs", children: it.body })
@@ -104,7 +105,7 @@ function Pillars() {
 }
 function HighlightCar() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-28 md:py-40", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: workshop, alt: "RS500 chassis in workshop", width: 1400, height: 1e3, loading: "lazy", className: "w-full grayscale transition-transform duration-[2s] hover:scale-[1.04]" }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] bg-white/5 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("video", { src: chassisVideo, autoPlay: true, muted: true, loop: true, playsInline: true, className: "w-full h-full object-cover grayscale zoom-hover" }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5 md:pt-6", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(SectionLabel, { n: "02", title: "The Car" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-display text-5xl md:text-6xl uppercase leading-[0.95] mt-8", children: [
@@ -129,12 +130,12 @@ function HighlightProcess() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-white/70 leading-relaxed max-w-xl", children: "Three phases. Eighteen months. Documented in full digital fidelity. From the archaeological dismantle through to the first turn of the key." }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(PillLink, { to: "/process", variant: "ghost", children: "The Build Process" }) })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: engine, alt: "Cosworth YB engine", width: 1400, height: 1e3, loading: "lazy", className: "w-full grayscale aspect-[4/3] object-cover transition-transform duration-[2s] hover:scale-[1.04]" }) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] bg-white/5 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("video", { src: processVideo, autoPlay: true, muted: true, loop: true, playsInline: true, className: "w-full h-full object-cover grayscale zoom-hover" }) })
   ] }) });
 }
 function HighlightExperience() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "paper", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 py-28 md:py-40 grid md:grid-cols-12 gap-12", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: experience, alt: "Exhibition", width: 1400, height: 1e3, loading: "lazy", className: "w-full grayscale aspect-[4/3] object-cover" }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] bg-white/5 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("video", { src: partnerVideo, autoPlay: true, muted: true, loop: true, playsInline: true, className: "w-full h-full object-cover grayscale zoom-hover" }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5 md:pt-6", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 font-mono text-[0.7rem] tracking-[0.22em] uppercase text-black/50", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "04" }),

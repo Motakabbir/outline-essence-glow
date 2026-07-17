@@ -15,7 +15,7 @@ import "../_libs/cookie-es.mjs";
 import "../_libs/seroval.mjs";
 import "../_libs/seroval-plugins.mjs";
 import "node:stream/web";
-const appCss = "/assets/styles-c6MLmjTd.css";
+const appCss = "/assets/styles-D76CjOR4.css";
 function NotFoundComponent() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md text-center", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-7xl font-bold text-foreground", children: "404" }),
@@ -101,7 +101,7 @@ function RootComponent() {
   const { queryClient } = Route$c.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
 }
-const $$splitComponentImporter$b = () => import("./the-car-CjScEkNA.mjs");
+const $$splitComponentImporter$b = () => import("./the-car-C3rRpmE7.mjs");
 const Route$b = createFileRoute("/the-car")({
   head: () => ({
     meta: [{
@@ -137,7 +137,7 @@ const Route$a = createFileRoute("/process")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$a, "component")
 });
-const $$splitComponentImporter$9 = () => import("./partners-Cr892p9s.mjs");
+const $$splitComponentImporter$9 = () => import("./partners-D5PgmRLA.mjs");
 const Route$9 = createFileRoute("/partners")({
   head: () => ({
     meta: [{
@@ -173,7 +173,7 @@ const Route$8 = createFileRoute("/journal")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$8, "component")
 });
-const $$splitComponentImporter$7 = () => import("./faq-DJ4R_t50.mjs");
+const $$splitComponentImporter$7 = () => import("./faq-BH0UtStp.mjs");
 const Route$7 = createFileRoute("/faq")({
   head: () => ({
     meta: [{
@@ -191,7 +191,7 @@ const Route$7 = createFileRoute("/faq")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$7, "component")
 });
-const $$splitComponentImporter$6 = () => import("./experience-kzSnS0gI.mjs");
+const $$splitComponentImporter$6 = () => import("./experience-BJOfHhTS.mjs");
 const Route$6 = createFileRoute("/experience")({
   head: () => ({
     meta: [{
@@ -245,7 +245,7 @@ const Route$4 = createFileRoute("/apply")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$4, "component")
 });
-const $$splitComponentImporter$3 = () => import("./about-CCmnAMGT.mjs");
+const $$splitComponentImporter$3 = () => import("./about-CBiGhkBZ.mjs");
 const Route$3 = createFileRoute("/about")({
   head: () => ({
     meta: [{
@@ -263,7 +263,7 @@ const Route$3 = createFileRoute("/about")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./index-fuT7Hv8m.mjs");
+const $$splitComponentImporter$2 = () => import("./index-DmOzHSpg.mjs");
 const Route$2 = createFileRoute("/")({
   head: () => ({
     meta: [{
@@ -284,7 +284,7 @@ const Route$2 = createFileRoute("/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./journal.index-CrC7-QYf.mjs");
+const $$splitComponentImporter$1 = () => import("./journal.index-BOWFRyc5.mjs");
 const Route$1 = createFileRoute("/journal/")({
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
@@ -293,7 +293,7 @@ const engine = "/assets/engine-BAsbs6x4.jpg";
 const design = "/assets/scanning-Zqz__a3f.jpg";
 const experience = "/assets/dismantle-DDyiDgC6.jpg";
 const theCar = "/assets/the_car_crowd-BrIp2JeP.jpg";
-const videoBg = "/assets/chassis-DzkiDE7p.mp4";
+const chassisVideo = "/assets/chassis-DzkiDE7p.mp4";
 const posts = [
   {
     slug: "bare-shell",
@@ -301,7 +301,7 @@ const posts = [
     category: "Build Note",
     title: "BARE SHELL, STRIPPED & SCANNED",
     excerpt: "Together with our partners at ASM, 148 has been completely stripped and prepared for ICE blasting, repair, alignment and painting and further scanned to create our unique digital datum.",
-    video: videoBg,
+    video: chassisVideo,
     img: workshop,
     content: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "In the painstaking process of reviving #148, the initial dismantling phase proved crucial. Working alongside our dedicated partners at ASM, we meticulously stripped the vehicle down to its barest essentials. Every component, no matter how minute, was carefully cataloged and preserved for the ensuing steps." }),
@@ -347,7 +347,7 @@ const posts = [
     content: /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Detailed notes regarding the extraordinary chain of custody for the donor car will go here, tracing its history back to 1987." }) })
   }
 ];
-const $$splitComponentImporter = () => import("./journal._slug-3ICPx9ui.mjs");
+const $$splitComponentImporter = () => import("./journal._slug-D4OcPkE1.mjs");
 const Route = createFileRoute("/journal/$slug")({
   component: lazyRouteComponent($$splitComponentImporter, "component"),
   loader: ({
@@ -454,9 +454,8 @@ const router = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
 }, Symbol.toStringTag, { value: "Module" }));
 export {
   Route as R,
-  engine as e,
+  chassisVideo as c,
   posts as p,
   router as r,
-  videoBg as v,
   workshop as w
 };

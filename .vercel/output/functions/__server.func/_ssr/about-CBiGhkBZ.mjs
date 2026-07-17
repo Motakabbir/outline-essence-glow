@@ -1,7 +1,7 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-BHEdI8CK.mjs";
 import { j as journalVideo } from "./journal-Dn1zTfAK.mjs";
-import { w as workshop } from "./router-D5DEaOuI.mjs";
+import { w as workshop } from "./router-DbM9WHzU.mjs";
 import { d as design } from "./design-CJWwRsMp.mjs";
 import "../_libs/tanstack__react-router.mjs";
 import "../_libs/tanstack__router-core.mjs";
@@ -70,14 +70,17 @@ function AboutPage() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-black/70 leading-relaxed", children: "The origin story of the Vision148 is inspired through exposure to some of the leading figures in UK automotive and motorsport  and a collective passion to identify icons of the road and deploy artisan and bleeding edge technology manufacturing and materials into a unique showpiece." }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-6 text-black/70 leading-relaxed", children: "The mission has never been to recreate the RS500. It's to imagine what it would have become if its bloodline had continued uninterrupted into 2026. With Al Yasid's vision blending heritage with modern design language, creating a silhouette that feels both inevitable and completely new. This is how legends evolve" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: workshop, alt: "Workshop", className: "w-full grayscale aspect-[4/3] object-cover" }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 h-[300px] md:h-[450px] overflow-hidden relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-fixed bg-cover bg-center grayscale opacity-80 parallax-bg", style: {
+        backgroundImage: `url(${workshop})`
+      } }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "eyebrow", children: "02 / Principles" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "mt-6 font-display uppercase text-5xl md:text-7xl leading-[0.9]", children: "What we believe." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-2 gap-px bg-white/10 mt-16", children: principles.map(([t, b], i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-black p-10 md:p-14", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-2 gap-px bg-white/10 mt-16", children: principles.map(([t, b], i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `bg-black p-10 md:p-14 reveal stagger-${i % 2 + 1}`, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-mono text-[11px] uppercase tracking-[0.22em] opacity-50", children: String(i + 1).padStart(2, "0") }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-display uppercase text-3xl md:text-4xl mt-6", children: t })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-display uppercase text-3xl md:text-4xl mt-6", children: t }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-4 text-sm opacity-70 leading-relaxed", children: b })
       ] }, t)) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-start", children: [
@@ -94,7 +97,7 @@ function AboutPage() {
         role,
         name,
         image
-      }) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "group flex flex-col md:flex-row items-start md:items-center justify-between gap-8 py-6 md:py-8 border-b border-white/10 hover:bg-white/5 transition-colors cursor-default md:-mx-6 md:px-6 rounded-2xl", children: [
+      }, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `group flex flex-col md:flex-row items-start md:items-center justify-between gap-8 py-6 md:py-8 border-b border-white/10 hover:bg-white/5 transition-colors cursor-default md:-mx-6 md:px-6 rounded-2xl reveal stagger-${i % 5 + 1}`, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-mono text-xs md:text-sm uppercase tracking-widest text-white/70 group-hover:text-white transition-colors md:w-2/3 leading-loose pr-8", children: role.startsWith(name) ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bg-white text-black font-semibold px-2 py-0.5 mr-2", children: name }),
           role.slice(name.length).trim()

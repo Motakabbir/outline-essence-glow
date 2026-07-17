@@ -1,6 +1,6 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { N as Nav, P as PageHero, S as SectionLabel, a as PillLink, C as CrossLink, F as Footer } from "./Primitives-BHEdI8CK.mjs";
-import { w as workshop } from "./router-D5DEaOuI.mjs";
+import { w as workshop } from "./router-DbM9WHzU.mjs";
 import { d as design } from "./design-CJWwRsMp.mjs";
 import { p as processVideo } from "./process-rFchNS1r.mjs";
 import "../_libs/tanstack__react-router.mjs";
@@ -84,7 +84,9 @@ function TheCarPage() {
         ] })
       ] })
     ] }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design, alt: "CAD", className: "w-full grayscale aspect-[21/9] object-cover" }) }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "h-[45vh] md:h-[65vh] relative overflow-hidden border-t border-b border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-fixed bg-cover bg-center grayscale opacity-60 parallax-bg", style: {
+      backgroundImage: `url(${design})`
+    } }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(CrossLink, { to: "/process", eyebrow: "Next", title: "The Process →" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
   ] });
