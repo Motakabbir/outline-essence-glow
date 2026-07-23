@@ -1,63 +1,129 @@
 /**
- * Post-build script: generates index.html for static hosting.
+ * Post-build script: generates static index.html by running the built
+ * SSR server and capturing its output.
  *
- * TanStack Start + Nitro v3 prerendering has a lifecycle bug where the
- * prerender crawler returns 404 for "/" because the SSR service isn't
- * properly wired during the static build. This script works around it
- * by scanning the built client assets and generating an SPA shell that
- * hydrates on the client side.
+ * TanStack Start requires server-rendered HTML with bootstrap data
+ * (window.$_TSR) for client hydration. A simple SPA shell won't work.
+ * This script starts the built server, fetches each route's HTML, and
+ * saves it as static files.
  */
-import { readdirSync, writeFileSync, existsSync, cpSync } from "fs";
-import { resolve, join } from "path";
+import { spawn } from "child_process";
+import { writeFileSync, mkdirSync, existsSync, cpSync } from "fs";
+import { resolve, dirname, join } from "path";
 
 const CLIENT_DIR = resolve("dist/client");
-const ASSETS_DIR = join(CLIENT_DIR, "assets");
+const ROUTES = [
+  "/",
+  "/about",
+  "/the-car",
+  "/process",
+  "/partners",
+  "/experience",
+  "/journal",
+  "/apply",
+  "/contact",
+  "/faq",
+];
 
-if (!existsSync(ASSETS_DIR)) {
-  console.error("dist/client/assets not found. Run `npm run build` first.");
-  process.exit(1);
+const PORT = 4174;
+const BASE_URL = `http://localhost:${PORT}`;
+
+async function waitForServer(url, maxAttempts = 30) {
+  for (let i = 0; i < maxAttempts; i++) {
+    try {
+      const res = await fetch(url);
+      if (res.ok || res.status < 500) return true;
+    } catch {
+      // Server not ready yet
+    }
+    await new Promise((r) => setTimeout(r, 500));
+  }
+  return false;
 }
 
-const files = readdirSync(ASSETS_DIR);
-const cssFile = files.find((f) => f.endsWith(".css"));
-const mainJs = files.find(
-  (f) => f.startsWith("index-") && f.endsWith(".js")
-);
+async function main() {
+  const SERVER_DIR = resolve("dist/server");
+  if (existsSync(join(SERVER_DIR, "index.mjs")) && !existsSync(join(SERVER_DIR, "server.js"))) {
+    writeFileSync(join(SERVER_DIR, "server.js"), 'export { default } from "./index.mjs";\n');
+  }
 
-if (!cssFile || !mainJs) {
-  console.error("Could not find main CSS or JS bundle in dist/client/assets/");
-  process.exit(1);
+  console.log("Starting preview server to capture SSR output...");
+
+  const server = spawn("npx", ["vite", "preview", "--port", String(PORT)], {
+    cwd: process.cwd(),
+    stdio: ["ignore", "pipe", "pipe"],
+    env: { ...process.env, NODE_ENV: "production" },
+  });
+
+  let serverOutput = "";
+  server.stdout.on("data", (d) => (serverOutput += d.toString()));
+  server.stderr.on("data", (d) => (serverOutput += d.toString()));
+
+  server.on("error", (err) => {
+    console.error("Failed to start preview server:", err);
+    process.exit(1);
+  });
+
+  const ready = await waitForServer(BASE_URL);
+  if (!ready) {
+    console.error("Preview server did not start in time.");
+    console.error("Server output:", serverOutput);
+    server.kill();
+    process.exit(1);
+  }
+
+  console.log(`✓ Preview server ready on port ${PORT}`);
+
+  let success = 0;
+  let failed = 0;
+
+  for (const route of ROUTES) {
+    try {
+      const res = await fetch(`${BASE_URL}${route}`);
+      const html = await res.text();
+
+      if (res.status >= 400 || !html.includes("$_TSR")) {
+        console.warn(`  ⚠ ${route} — status ${res.status}, skipping (no SSR data)`);
+        failed++;
+        continue;
+      }
+
+      // Determine output path
+      let outPath;
+      if (route === "/") {
+        outPath = join(CLIENT_DIR, "index.html");
+      } else {
+        const dir = join(CLIENT_DIR, route.slice(1));
+        mkdirSync(dir, { recursive: true });
+        outPath = join(dir, "index.html");
+      }
+
+      writeFileSync(outPath, html);
+      console.log(`  ✓ ${route} → ${outPath.replace(process.cwd() + "/", "")}`);
+      success++;
+    } catch (err) {
+      console.error(`  ✗ ${route} — ${err.message}`);
+      failed++;
+    }
+  }
+
+  // Also create 200.html and 404.html fallbacks for SPA routing
+  if (existsSync(join(CLIENT_DIR, "index.html"))) {
+    cpSync(join(CLIENT_DIR, "index.html"), join(CLIENT_DIR, "200.html"));
+    cpSync(join(CLIENT_DIR, "index.html"), join(CLIENT_DIR, "404.html"));
+    console.log(`✓ Created 200.html and 404.html SPA fallbacks`);
+  }
+
+  server.kill();
+  console.log(`\nDone: ${success} pages generated, ${failed} skipped.`);
+
+  if (success === 0) {
+    console.error("No pages were generated! Check server output above.");
+    process.exit(1);
+  }
 }
 
-const html = `<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vision148 — RS500 Genesis Build</title>
-    <meta name="description" content="A one-of-one syndicated build of the Ford Sierra RS500 Cosworth. Heritage coachbuilding meets digital manufacturing." />
-    <meta name="author" content="Vision148" />
-    <meta property="og:title" content="Vision148 — RS500 Genesis Build" />
-    <meta property="og:description" content="A one-of-one syndicated build of the Ford Sierra RS500 Cosworth." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="/assets/${cssFile}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/assets/${mainJs}"></script>
-  </body>
-</html>
-`;
-
-writeFileSync(join(CLIENT_DIR, "index.html"), html);
-console.log(`✓ Generated dist/client/index.html`);
-console.log(`  CSS: /assets/${cssFile}`);
-console.log(`  JS:  /assets/${mainJs}`);
-
-// Copy index.html as 200.html for SPA fallback (used by `serve -s`)
-cpSync(join(CLIENT_DIR, "index.html"), join(CLIENT_DIR, "200.html"));
-console.log(`✓ Copied as dist/client/200.html (SPA fallback)`);
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
