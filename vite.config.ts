@@ -6,6 +6,9 @@ export default defineConfig({
   },
   nitro: {
     preset: "static",
+    output: {
+      publicDir: "dist/client",
+    },
   },
   vite: {
     environments: {
