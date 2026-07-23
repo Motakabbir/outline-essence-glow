@@ -2,7 +2,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
   tanstackStart: {},
-  nitro: false,
+  nitro: {},
   vite: {
     environments: {
       nitro: {
