@@ -120,7 +120,7 @@ function ContactPage() {
                     message: formData.get("message") as string,
                   };
                   try {
-                    const res = await submitContactForm({ data });
+                    const res = await sendContactForm(data);
                     if (res.success) {
                       setSent(true);
                     } else {

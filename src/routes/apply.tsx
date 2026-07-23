@@ -7,7 +7,7 @@ import { PageHero } from "@/components/site/Primitives";
 
 import { z } from "zod";
 
-import { fetchSeoMetadata, mapSeoToMeta } from "@/lib/api";
+import { fetchSeoMetadata, mapSeoToMeta, sendApplyForm } from "@/lib/api";
 
 export const Route = createFileRoute("/apply")({
   loader: async () => {
@@ -107,7 +107,7 @@ function ApplyPage() {
                     message: formData.get("message") as string || undefined,
                   };
                   try {
-                    const res = await submitApplyForm({ data });
+                    const res = await sendApplyForm(data);
                     if (res.success) {
                       setSubmitted(true);
                     }
