@@ -1,16 +1,8 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  tanstackStart: {
-    prerender: {
-      routes: ["/"],
-      crawlLinks: true,
-    },
-  },
-  nitro: {
-    preset: "static",
-    noPublicDir: true,
-  },
+  tanstackStart: {},
+  nitro: false,
   vite: {
     environments: {
       nitro: {
