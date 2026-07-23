@@ -6,7 +6,7 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # Route all requests to the dist directory
-  RewriteCond %{REQUEST_URI} !^/dist/
-  RewriteRule ^(.*)$ /dist/$1 [L]
+  # Route all requests to the static output directory
+  RewriteCond %{REQUEST_URI} !^/\.output/public/
+  RewriteRule ^(.*)$ /.output/public/$1 [L]
 </IfModule>
