@@ -2,11 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, PillLink, SectionLabel, CrossLink } from "@/components/site/Primitives";
-import workshop from "@/assets/workshop.jpg";
+import workshop from "@/assets/vision_R500 _goodwood_landscape_2.png";
 import engine from "@/assets/ENGINE.png";
-import theCar from "@/assets/the-car.jpg";
-import design from "@/assets/design.jpg";
-import videoBg from "@/assets/video/process.mp4";
+import theCar from "@/assets/goodwood_landscape.png";
+import design from "@/assets/vision_R500_goodwood_landscape.png";
+import heroImg from "@/assets/vision_R500_goodwood_landscape_1.png";
 
 import { fetchSeoMetadata, mapSeoToMeta } from "@/lib/api";
 
@@ -49,7 +49,7 @@ function TheCarPage() {
         title="Car №148."
         italic="Reborn."
         intro="Acquired in 2024 after fifteen years in storage. Dismantled with archaeological care, scanned, catalogued and reborn through additive manufacture, classic coachbuilding and motorsport-grade engineering."
-        video={videoBg}
+        img={heroImg}
       />
 
       <section className="py-24 md:py-32">
@@ -135,7 +135,7 @@ function TheCarPage() {
       </section>
 
       <section className="h-[45vh] md:h-[65vh] relative overflow-hidden border-t border-b border-white/10">
-        <div 
+        <div
           className="absolute inset-0 bg-fixed bg-cover bg-center grayscale opacity-60 parallax-bg"
           style={{ backgroundImage: `url(${design})` }}
         />

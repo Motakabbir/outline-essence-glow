@@ -9,6 +9,7 @@ import workshop from "@/assets/workshop.jpg";
 import engine from "@/assets/engine.jpg";
 import theCar from "@/assets/the-car.jpg";
 import experience from "@/assets/experience.jpg";
+import blueprint from "@/assets/blueprint_vRS500_ 001.png";
 import chassisVideo from "@/assets/video/chassis.mp4";
 import processVideo from "@/assets/video/process.mp4";
 import partnerVideo from "@/assets/video/partner.mp4";
@@ -89,6 +90,13 @@ function Manifesto() {
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12">
         <div className="md:col-span-4">
           <SectionLabel n="01" title="Manifesto" />
+          <div className="mt-8 overflow-hidden border border-white/10 bg-white/[0.02]">
+            <img
+              src={blueprint}
+              alt="vRS500 Blueprint"
+              className="w-full h-auto object-cover grayscale opacity-55 transition-all duration-700 ease-out hover:scale-105 hover:opacity-100"
+            />
+          </div>
         </div>
         <div className="md:col-span-8">
           <p className="font-display uppercase text-3xl md:text-5xl leading-[1.05] tracking-tight">
@@ -129,9 +137,8 @@ function Pillars() {
           {items.map((it, i) => (
             <div
               key={it.title}
-              className={`p-10 md:p-14 group transition-colors hover:bg-black hover:text-white reveal stagger-${i + 1} ${
-                i > 0 ? "md:border-l border-black/15 border-t md:border-t-0" : ""
-              }`}
+              className={`p-10 md:p-14 group transition-colors hover:bg-black hover:text-white reveal stagger-${i + 1} ${i > 0 ? "md:border-l border-black/15 border-t md:border-t-0" : ""
+                }`}
             >
               <div className="font-mono text-xs tracking-[0.3em] opacity-60">{it.n}</div>
               <h3 className="font-display text-3xl md:text-4xl uppercase mt-8 leading-tight">
