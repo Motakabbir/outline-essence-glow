@@ -121,6 +121,7 @@ async function main() {
     console.error("No pages were generated! Check server output above.");
     process.exit(1);
   }
+  process.exit(0);
 }
 
 main().catch((err) => {

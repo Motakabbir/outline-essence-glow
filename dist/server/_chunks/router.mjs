@@ -20,7 +20,7 @@ import "../_libs/tanstack__history.mjs";
 import "../_libs/seroval-plugins.mjs";
 import "../_libs/cookie-es.mjs";
 import "node:stream/web";
-const appCss = "/assets/styles-BTGW7T3T.css";
+const appCss = "/assets/styles-B3lnfX92.css";
 function NotFoundComponent() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md text-center", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-7xl font-bold text-foreground", children: "404" }),
@@ -320,11 +320,11 @@ function CrossLink({
     }
   );
 }
-const workshop = "/assets/workshop-DP3ouAaE.jpg";
+const workshop$1 = "/assets/vision_R500%20_goodwood_landscape_2-CDfa323G.png";
 const engine$2 = "/assets/ENGINE-BDR4qXPc.png";
-const theCar$1 = "/assets/the-car-IRvns5Xa.jpg";
-const design$2 = "/assets/design-Dc-ZZXQQ.jpg";
-const processVideo = "/assets/process-Wn1o6mEh.mp4";
+const theCar$1 = "/assets/goodwood_landscape-ZdZmTO5n.png";
+const design$3 = "/assets/vision_R500_goodwood_landscape-DCix3yC6.png";
+const heroImg = "/assets/vision_R500_goodwood_landscape_1-DII-qrjz.png";
 async function fetchSeoMetadata(slug, fallback) {
   return fallback;
 }
@@ -482,7 +482,7 @@ function TheCarPage() {
         title: "Car №148.",
         italic: "Reborn.",
         intro: "Acquired in 2024 after fifteen years in storage. Dismantled with archaeological care, scanned, catalogued and reborn through additive manufacture, classic coachbuilding and motorsport-grade engineering.",
-        video: processVideo
+        img: heroImg
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12", children: [
@@ -528,7 +528,7 @@ function TheCarPage() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: engine$2, alt: "Engine", className: "w-full grayscale aspect-[4/3] object-cover" }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden order-2 md:order-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: workshop, alt: "Workshop", className: "w-full grayscale aspect-[4/3] object-cover" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden order-2 md:order-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: workshop$1, alt: "Workshop", className: "w-full grayscale aspect-[4/3] object-cover" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5 order-1 md:order-2", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(SectionLabel, { n: "05", title: "Coachwork" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-display text-4xl md:text-5xl uppercase leading-[0.95] mt-8", children: [
@@ -547,7 +547,7 @@ function TheCarPage() {
       "div",
       {
         className: "absolute inset-0 bg-fixed bg-cover bg-center grayscale opacity-60 parallax-bg",
-        style: { backgroundImage: `url(${design$2})` }
+        style: { backgroundImage: `url(${design$3})` }
       }
     ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(CrossLink, { to: "/process", eyebrow: "Next", title: "The Process →" }),
@@ -555,7 +555,8 @@ function TheCarPage() {
   ] });
 }
 const engine$1 = "/assets/Vision_To_the_road%20-4RKVkAdB.jpg";
-const design$1 = "/assets/Bare_Shell_Disamantling-DFLSKoly.jpg";
+const design$2 = "/assets/Bare_Shell_Disamantling-DFLSKoly.jpg";
+const processVideo = "/assets/process-Wn1o6mEh.mp4";
 const Route$a = createFileRoute("/process")({
   loader: async () => {
     const seo = await fetchSeoMetadata("process", {
@@ -658,7 +659,7 @@ function ProcessPage() {
       ] }, t)) }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-6", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden aspect-[4/3] relative reveal", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$1, alt: "CAD", className: "w-full h-full grayscale object-cover zoom-hover" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden aspect-[4/3] relative reveal", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$2, alt: "CAD", className: "w-full h-full grayscale object-cover zoom-hover" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden aspect-[4/3] relative reveal stagger-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: engine$1, alt: "Engine", className: "w-full h-full grayscale object-cover zoom-hover" }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(CrossLink, { to: "/partners", eyebrow: "Next", title: "The Partners →" }),
@@ -879,6 +880,7 @@ function FAQItem({ q, a }) {
   );
 }
 const experience$1 = "/assets/Hospitality-BsUpDMdM.png";
+const design$1 = "/assets/design-Dc-ZZXQQ.jpg";
 const Route$6 = createFileRoute("/experience")({
   loader: async () => {
     const seo = await fetchSeoMetadata("experience", {
@@ -949,7 +951,7 @@ function ExperiencePage() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: experience$1, alt: "Hospitality", className: "w-full h-full grayscale object-cover zoom-hover" }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$2, alt: "Digital twin", className: "w-full h-full grayscale object-cover zoom-hover" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$1, alt: "Digital twin", className: "w-full h-full grayscale object-cover zoom-hover" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "eyebrow", children: "03 / Digital Twin" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-display text-5xl md:text-6xl uppercase leading-[0.95] mt-8", children: [
@@ -1270,6 +1272,7 @@ function ApplyPage() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
   ] });
 }
+const workshop = "/assets/workshop-DP3ouAaE.jpg";
 const ianHoweImg = "/assets/Ian-Howe-DEhh2UC5.png";
 const stuartPeachImg = "/assets/Stuart-Peach-CH7eWYnA.png";
 const alYasidImg = "/assets/Al-Yasid-Bm-z5K-a.png";
@@ -1416,7 +1419,7 @@ function AboutPage() {
       ] }, name)) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "paper py-24 md:py-32", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$2, alt: "Design", className: "w-full grayscale aspect-[4/3] object-cover" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$1, alt: "Design", className: "w-full grayscale aspect-[4/3] object-cover" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 font-mono text-[0.7rem] tracking-[0.22em] uppercase text-black/50", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "04" }),
@@ -1451,6 +1454,7 @@ function Marquee({ items }) {
 }
 const heroCar = "/assets/hero-car-D7AYmz0K.jpg";
 const heroVideo = "/assets/video-CEQfNafy.mp4";
+const blueprint = "/assets/blueprint_vRS500_%20001-BAytMY1P.png";
 const Route$2 = createFileRoute("/")({
   loader: async () => {
     const seo = await fetchSeoMetadata("home", {
@@ -1516,7 +1520,17 @@ function Hero() {
 }
 function Manifesto() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-32 md:py-48 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SectionLabel, { n: "01", title: "Manifesto" }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(SectionLabel, { n: "01", title: "Manifesto" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-8 overflow-hidden border border-white/10 bg-white/[0.02]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "img",
+        {
+          src: blueprint,
+          alt: "vRS500 Blueprint",
+          className: "w-full h-auto object-cover grayscale opacity-55 transition-all duration-700 ease-out hover:scale-105 hover:opacity-100"
+        }
+      ) })
+    ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-8", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "font-display uppercase text-3xl md:text-5xl leading-[1.05] tracking-tight", children: [
         "A modern ",
