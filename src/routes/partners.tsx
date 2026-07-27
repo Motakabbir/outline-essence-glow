@@ -14,7 +14,7 @@ const partners = [
   { name: "ASM AUTORECYCLING ", role: "Dismantling specialists", body: "RS500 #148 dismantle and part catalogue and storage" },
   { name: "BAMD", role: "Composite specialists", body: "Composite partner for trim and interior" },
   { name: "Cornerstone", role: "non-structural repair specialists", body: "Glass removal and specialist repairs" },
-  { name: "HGL", role: "Membership Program", body: "Technology providers for the project companion membership platform, Autovision.club" },
+  { name: "HGL", role: "Membership Program", body: "Technology providers for the project companion membership platform, autovision.club", href: "https://autovision.club" },
 ];
 
 export const Route = createFileRoute("/partners")({
@@ -43,6 +43,29 @@ export const Route = createFileRoute("/partners")({
 
 function PartnersPage() {
   const { partners: dynamicPartners } = Route.useLoaderData();
+
+  const renderBody = (body: string | undefined, href: string | undefined) => {
+    if (!body) return null;
+    if (href && body.includes("autovision.club")) {
+      const parts = body.split("autovision.club");
+      return (
+        <>
+          {parts[0]}
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-underline font-medium text-black inline-block"
+          >
+            autovision.club
+          </a>
+          {parts[1]}
+        </>
+      );
+    }
+    return body;
+  };
+
   return (
     <main className="bg-background text-foreground min-h-screen">
       <Nav />
@@ -57,16 +80,34 @@ function PartnersPage() {
       <section className="py-20 md:py-28">
         <div className="max-w-[1500px] mx-auto px-6 md:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/15">
-            {dynamicPartners.map((p, i) => (
-              <div
-                key={p.name}
-                className={`border-b border-r border-white/15 aspect-[3/1] flex items-center justify-center px-4 group transition-colors hover:bg-white hover:text-black reveal stagger-${(i % 4) + 1}`}
-              >
+            {dynamicPartners.map((p, i) => {
+              const content = (
                 <span className="font-display uppercase tracking-[0.18em] text-lg md:text-xl text-center">
                   {p.name}
                 </span>
-              </div>
-            ))}
+              );
+              const className = `border-b border-r border-white/15 aspect-[3/1] flex items-center justify-center px-4 group transition-colors hover:bg-white hover:text-black reveal stagger-${(i % 4) + 1}`;
+              
+              if (p.href) {
+                return (
+                  <a
+                    key={p.name}
+                    href={p.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${className} cursor-pointer`}
+                  >
+                    {content}
+                  </a>
+                );
+              }
+              
+              return (
+                <div key={p.name} className={className}>
+                  {content}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -87,7 +128,9 @@ function PartnersPage() {
                 </div>
                 <div className="md:col-span-4 font-display uppercase text-3xl md:text-4xl tracking-tight">{p.name}</div>
                 <div className="md:col-span-3 font-mono text-[11px] uppercase tracking-[0.22em] opacity-60">{p.role}</div>
-                <div className="md:col-span-4 text-sm text-black/70 leading-relaxed">{p.body}</div>
+                <div className="md:col-span-4 text-sm text-black/70 leading-relaxed">
+                  {renderBody(p.body, p.href)}
+                </div>
               </div>
             ))}
           </div>

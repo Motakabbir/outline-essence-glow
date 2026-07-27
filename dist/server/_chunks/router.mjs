@@ -676,7 +676,7 @@ const partners = [
   { name: "ASM AUTORECYCLING ", role: "Dismantling specialists", body: "RS500 #148 dismantle and part catalogue and storage" },
   { name: "BAMD", role: "Composite specialists", body: "Composite partner for trim and interior" },
   { name: "Cornerstone", role: "non-structural repair specialists", body: "Glass removal and specialist repairs" },
-  { name: "HGL", role: "Membership Program", body: "Technology providers for the project companion membership platform, Autovision.club" }
+  { name: "HGL", role: "Membership Program", body: "Technology providers for the project companion membership platform, autovision.club", href: "https://autovision.club" }
 ];
 const Route$9 = createFileRoute("/partners")({
   loader: async () => {
@@ -702,6 +702,27 @@ const Route$9 = createFileRoute("/partners")({
 });
 function PartnersPage() {
   const { partners: dynamicPartners } = Route$9.useLoaderData();
+  const renderBody = (body, href) => {
+    if (!body) return null;
+    if (href && body.includes("autovision.club")) {
+      const parts = body.split("autovision.club");
+      return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        parts[0],
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "a",
+          {
+            href,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            className: "link-underline font-medium text-black inline-block",
+            children: "autovision.club"
+          }
+        ),
+        parts[1]
+      ] });
+    }
+    return body;
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "bg-background text-foreground min-h-screen", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Nav, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -714,14 +735,24 @@ function PartnersPage() {
         video: partnerVideo$1
       }
     ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-20 md:py-28", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/15", children: dynamicPartners.map((p, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "div",
-      {
-        className: `border-b border-r border-white/15 aspect-[3/1] flex items-center justify-center px-4 group transition-colors hover:bg-white hover:text-black reveal stagger-${i % 4 + 1}`,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display uppercase tracking-[0.18em] text-lg md:text-xl text-center", children: p.name })
-      },
-      p.name
-    )) }) }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-20 md:py-28", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/15", children: dynamicPartners.map((p, i) => {
+      const content = /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display uppercase tracking-[0.18em] text-lg md:text-xl text-center", children: p.name });
+      const className = `border-b border-r border-white/15 aspect-[3/1] flex items-center justify-center px-4 group transition-colors hover:bg-white hover:text-black reveal stagger-${i % 4 + 1}`;
+      if (p.href) {
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "a",
+          {
+            href: p.href,
+            target: "_blank",
+            rel: "noopener noreferrer",
+            className: `${className} cursor-pointer`,
+            children: content
+          },
+          p.name
+        );
+      }
+      return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className, children: content }, p.name);
+    }) }) }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "paper", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 py-24 md:py-32", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 font-mono text-[0.7rem] tracking-[0.22em] uppercase text-black/50", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "04" }),
@@ -736,7 +767,7 @@ function PartnersPage() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-1 font-mono text-[11px] uppercase tracking-[0.22em] opacity-50", children: String(i + 1).padStart(2, "0") }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-4 font-display uppercase text-3xl md:text-4xl tracking-tight", children: p.name }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-3 font-mono text-[11px] uppercase tracking-[0.22em] opacity-60", children: p.role }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-4 text-sm text-black/70 leading-relaxed", children: p.body })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-4 text-sm text-black/70 leading-relaxed", children: renderBody(p.body, p.href) })
       ] }, p.name)) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(CrossLink, { to: "/experience", eyebrow: "Next", title: "The Experience →" }),

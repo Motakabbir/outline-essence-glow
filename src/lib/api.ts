@@ -39,6 +39,7 @@ export interface PartnerData {
   role?: string;
   body?: string;
   logo?: string;
+  href?: string;
 }
 
 export interface FaqData {
