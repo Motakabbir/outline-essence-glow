@@ -3,8 +3,8 @@ import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
 import experience from "@/assets/Hospitality.png";
-import design from "@/assets/design.jpg";
-import videoBg from "@/assets/video/partner.mp4";
+import design from "@/assets/witness_the_build.jpg";
+import videoBg from "@/assets/video/04_the_experience_Ownership_Reimagined.mp4";
 
 import { fetchSeoMetadata, mapSeoToMeta } from "@/lib/api";
 
@@ -95,14 +95,15 @@ function ExperiencePage() {
             <img src={design} alt="Digital twin" className="w-full h-full grayscale object-cover zoom-hover" />
           </div>
           <div className="md:col-span-5">
-            <div className="eyebrow">03 / Digital Twin</div>
+            <div className="eyebrow">03 / Special Access </div>
             <h2 className="font-display text-5xl md:text-6xl uppercase leading-[0.95] mt-8">
               Witness the<br />
               <span className="font-serif-italic normal-case opacity-70">build, live.</span>
             </h2>
             <p className="mt-8 text-white/70 leading-relaxed max-w-xl">
-              A quarterly 3D update — explorable in browser. Every new component, every
-              decision, every piece of provenance attached to its place on the car.
+              The Vision148 RS500 will not be built in a silo.
+              We intend to showcase the very best in artisan and bleeding edge technology throughout this build, coach building and additive manufacturing will feature prominently as well as the talented people involved with the project who lead the way in specialist car builds.
+              Every new component, every decision, every piece of provenance attached to its place on the car will be documented and accessible.
             </p>
           </div>
         </div>

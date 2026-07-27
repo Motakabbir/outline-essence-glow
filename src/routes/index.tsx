@@ -4,15 +4,11 @@ import { Footer } from "@/components/site/Footer";
 import { Marquee } from "@/components/site/Marquee";
 import { PillLink, SectionLabel, CrossLink } from "@/components/site/Primitives";
 import heroCar from "@/assets/hero-car.jpg";
-import heroVideo from "@/assets/video.mp4";
-import workshop from "@/assets/workshop.jpg";
-import engine from "@/assets/engine.jpg";
-import theCar from "@/assets/the-car.jpg";
-import experience from "@/assets/experience.jpg";
+import heroVideo from "@/assets/video/hero_video_landing_page.mp4";
 import blueprint from "@/assets/blueprint_vRS500_ 001.png";
-import chassisVideo from "@/assets/video/chassis.mp4";
-import processVideo from "@/assets/video/process.mp4";
-import partnerVideo from "@/assets/video/partner.mp4";
+import theCarImage from "@/assets/02_the_car.jpg";
+import processImage from "@/assets/from_chassis_to_road.png";
+import partnerVideo from "@/assets/video/04_the_experience_Ownership_Reimagined.mp4";
 import { fetchSeoMetadata, mapSeoToMeta } from "@/lib/api";
 
 export const Route = createFileRoute("/")({
@@ -158,12 +154,9 @@ function HighlightCar() {
     <section className="py-28 md:py-40">
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12">
         <div className="md:col-span-7 overflow-hidden reveal aspect-[4/3] bg-white/5 relative">
-          <video
-            src={chassisVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
+          <img
+            src={theCarImage}
+            alt="The Car"
             className="w-full h-full object-cover grayscale zoom-hover"
           />
         </div>
@@ -198,20 +191,16 @@ function HighlightProcess() {
             <span className="font-serif-italic normal-case opacity-70">to road.</span>
           </h2>
           <p className="mt-8 text-white/70 leading-relaxed max-w-xl">
-            Three phases. Eighteen months. Documented in full digital fidelity. From the
-            archaeological dismantle through to the first turn of the key.
+            Fully documented from the forensic dismantle through to the first turn of the key.
           </p>
           <div className="mt-10">
             <PillLink to="/process" variant="ghost">The Build Process</PillLink>
           </div>
         </div>
         <div className="md:col-span-7 overflow-hidden reveal aspect-[4/3] bg-white/5 relative">
-          <video
-            src={processVideo}
-            autoPlay
-            muted
-            loop
-            playsInline
+          <img
+            src={processImage}
+            alt="Process"
             className="w-full h-full object-cover grayscale zoom-hover"
           />
         </div>
