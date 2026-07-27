@@ -21,6 +21,7 @@ import "../_libs/seroval-plugins.mjs";
 import "../_libs/cookie-es.mjs";
 import "node:stream/web";
 const appCss = "/assets/styles-B3lnfX92.css";
+const logo = "/assets/vision148-logo-Dbu8HTfX.jpg";
 function NotFoundComponent() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md text-center", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-7xl font-bold text-foreground", children: "404" }),
@@ -79,6 +80,7 @@ const Route$c = createRootRouteWithContext()({
       { name: "twitter:card", content: "summary_large_image" }
     ],
     links: [
+      { rel: "icon", href: logo },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
@@ -106,7 +108,6 @@ function RootComponent() {
   const { queryClient } = Route$c.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
 }
-const logo = "/assets/vision148-logo-Dbu8HTfX.jpg";
 const links = [
   { to: "/the-car", label: "The Car" },
   { to: "/process", label: "Process" },
@@ -323,7 +324,7 @@ function CrossLink({
 const workshop$1 = "/assets/vision_R500%20_goodwood_landscape_2-CDfa323G.png";
 const engine$2 = "/assets/ENGINE-BDR4qXPc.png";
 const theCar$1 = "/assets/goodwood_landscape-ZdZmTO5n.png";
-const design$3 = "/assets/vision_R500_goodwood_landscape-DCix3yC6.png";
+const design$4 = "/assets/vision_R500_goodwood_landscape-DCix3yC6.png";
 const heroImg = "/assets/vision_R500_goodwood_landscape_1-DII-qrjz.png";
 async function fetchSeoMetadata(slug, fallback) {
   return fallback;
@@ -547,7 +548,7 @@ function TheCarPage() {
       "div",
       {
         className: "absolute inset-0 bg-fixed bg-cover bg-center grayscale opacity-60 parallax-bg",
-        style: { backgroundImage: `url(${design$3})` }
+        style: { backgroundImage: `url(${design$4})` }
       }
     ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(CrossLink, { to: "/process", eyebrow: "Next", title: "The Process →" }),
@@ -555,7 +556,7 @@ function TheCarPage() {
   ] });
 }
 const engine$1 = "/assets/Vision_To_the_road%20-4RKVkAdB.jpg";
-const design$2 = "/assets/Bare_Shell_Disamantling-DFLSKoly.jpg";
+const design$3 = "/assets/Bare_Shell_Disamantling-DFLSKoly.jpg";
 const processVideo = "/assets/process-Wn1o6mEh.mp4";
 const Route$a = createFileRoute("/process")({
   loader: async () => {
@@ -659,14 +660,14 @@ function ProcessPage() {
       ] }, t)) }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-6", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden aspect-[4/3] relative reveal", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$2, alt: "CAD", className: "w-full h-full grayscale object-cover zoom-hover" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden aspect-[4/3] relative reveal", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$3, alt: "CAD", className: "w-full h-full grayscale object-cover zoom-hover" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden aspect-[4/3] relative reveal stagger-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: engine$1, alt: "Engine", className: "w-full h-full grayscale object-cover zoom-hover" }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(CrossLink, { to: "/partners", eyebrow: "Next", title: "The Partners →" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
   ] });
 }
-const partnerVideo = "/assets/partner-OoUrGRph.mp4";
+const partnerVideo$1 = "/assets/partner-OoUrGRph.mp4";
 const partners = [
   { name: "DMC", role: "Digital Manufacturing", body: "The Digital Manufacturing Centre at Silverstone — host facility for final assembly and additive manufacture." },
   { name: "Mahle", role: "Engine Engineering", body: "Engine rebuild and validation. Motorsport-grade tolerances. UK engine programme." },
@@ -710,7 +711,7 @@ function PartnersPage() {
         title: "A curated",
         italic: "consortium.",
         intro: "Each partner is best-in-class — additive manufacturing, coachbuilding, composites, engine engineering. Selected to elevate the technical and commercial credibility of a one-of-one, investment-grade build.",
-        video: partnerVideo
+        video: partnerVideo$1
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-20 md:py-28", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 md:grid-cols-4 border-t border-l border-white/15", children: dynamicPartners.map((p, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -880,7 +881,8 @@ function FAQItem({ q, a }) {
   );
 }
 const experience$1 = "/assets/Hospitality-BsUpDMdM.png";
-const design$1 = "/assets/design-Dc-ZZXQQ.jpg";
+const design$2 = "/assets/witness_the_build-CU3Gmirn.jpg";
+const partnerVideo = "/assets/04_the_experience_Ownership_Reimagined-MlUM1hwG.mp4";
 const Route$6 = createFileRoute("/experience")({
   loader: async () => {
     const seo = await fetchSeoMetadata("experience", {
@@ -951,15 +953,15 @@ function ExperiencePage() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: experience$1, alt: "Hospitality", className: "w-full h-full grayscale object-cover zoom-hover" }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$1, alt: "Digital twin", className: "w-full h-full grayscale object-cover zoom-hover" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$2, alt: "Digital twin", className: "w-full h-full grayscale object-cover zoom-hover" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "eyebrow", children: "03 / Digital Twin" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "eyebrow", children: "03 / Special Access " }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-display text-5xl md:text-6xl uppercase leading-[0.95] mt-8", children: [
           "Witness the",
           /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-serif-italic normal-case opacity-70", children: "build, live." })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-white/70 leading-relaxed max-w-xl", children: "A quarterly 3D update — explorable in browser. Every new component, every decision, every piece of provenance attached to its place on the car." })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-white/70 leading-relaxed max-w-xl", children: "The Vision148 RS500 will not be built in a silo. We intend to showcase the very best in artisan and bleeding edge technology throughout this build, coach building and additive manufacturing will feature prominently as well as the talented people involved with the project who lead the way in specialist car builds. Every new component, every decision, every piece of provenance attached to its place on the car will be documented and accessible." })
       ] })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(CrossLink, { to: "/apply", eyebrow: "Next", title: "Apply for a seat →" }),
@@ -1273,6 +1275,7 @@ function ApplyPage() {
   ] });
 }
 const workshop = "/assets/workshop-DP3ouAaE.jpg";
+const design$1 = "/assets/design-Dc-ZZXQQ.jpg";
 const ianHoweImg = "/assets/Ian-Howe-DEhh2UC5.png";
 const stuartPeachImg = "/assets/Stuart-Peach-CH7eWYnA.png";
 const alYasidImg = "/assets/Al-Yasid-Bm-z5K-a.png";
@@ -1453,8 +1456,10 @@ function Marquee({ items }) {
   )) }) });
 }
 const heroCar = "/assets/hero-car-D7AYmz0K.jpg";
-const heroVideo = "/assets/video-CEQfNafy.mp4";
+const heroVideo = "/assets/hero_video_landing_page-BG6qwN3k.mp4";
 const blueprint = "/assets/blueprint_vRS500_%20001-BAytMY1P.png";
+const theCarImage = "/assets/02_the_car-Lgh_mrNZ.jpg";
+const processImage = "/assets/from_chassis_to_road-DeiXDZE7.png";
 const Route$2 = createFileRoute("/")({
   loader: async () => {
     const seo = await fetchSeoMetadata("home", {
@@ -1572,13 +1577,10 @@ function Pillars() {
 function HighlightCar() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-28 md:py-40", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] bg-white/5 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "video",
+      "img",
       {
-        src: chassisVideo,
-        autoPlay: true,
-        muted: true,
-        loop: true,
-        playsInline: true,
+        src: theCarImage,
+        alt: "The Car",
         className: "w-full h-full object-cover grayscale zoom-hover"
       }
     ) }),
@@ -1603,17 +1605,14 @@ function HighlightProcess() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-serif-italic normal-case opacity-70", children: "to road." })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-white/70 leading-relaxed max-w-xl", children: "Three phases. Eighteen months. Documented in full digital fidelity. From the archaeological dismantle through to the first turn of the key." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-white/70 leading-relaxed max-w-xl", children: "Fully documented from the forensic dismantle through to the first turn of the key." }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(PillLink, { to: "/process", variant: "ghost", children: "The Build Process" }) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] bg-white/5 relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "video",
+      "img",
       {
-        src: processVideo,
-        autoPlay: true,
-        muted: true,
-        loop: true,
-        playsInline: true,
+        src: processImage,
+        alt: "Process",
         className: "w-full h-full object-cover grayscale zoom-hover"
       }
     ) })
