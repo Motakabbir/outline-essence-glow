@@ -1448,7 +1448,7 @@ function AboutPage() {
           {
             src: image,
             alt: name,
-            className: "w-20 h-20 md:w-28 md:h-28 shrink-0 object-cover rounded-full  group-hover:-0 transition-all duration-500 group-hover:scale-105 border border-white/10"
+            className: "w-20 h-20 md:w-28 md:h-28 shrink-0 object-cover rounded-full transition-all duration-500 group-hover:scale-105 border border-white/10"
           }
         ) })
       ] }, name)) })
