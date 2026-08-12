@@ -1,6 +1,6 @@
 {
-  "date": "2026-08-12T15:24:49.738Z",
-  "preset": "static",
+  "date": "2026-08-12T17:03:35.622Z",
+  "preset": "node-server",
   "framework": {
     "name": "nitro",
     "version": "3.0.260429-beta"
@@ -11,7 +11,7 @@
   "serverEntry": "server/index.mjs",
   "publicDir": "client",
   "commands": {
-    "preview": "npx serve ./public"
+    "preview": "node ./server/index.mjs"
   },
   "config": {}
 }

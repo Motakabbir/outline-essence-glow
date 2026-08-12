@@ -43,16 +43,12 @@ async function waitForServer(url, maxAttempts = 30) {
 
 async function main() {
   const SERVER_DIR = resolve("dist/server");
-  if (existsSync(join(SERVER_DIR, "index.mjs")) && !existsSync(join(SERVER_DIR, "server.js"))) {
-    writeFileSync(join(SERVER_DIR, "server.js"), 'export { default } from "./index.mjs";\n');
-  }
+  console.log("Starting Nitro production server to capture SSR output...");
 
-  console.log("Starting preview server to capture SSR output...");
-
-  const server = spawn("npx", ["vite", "preview", "--port", String(PORT)], {
+  const server = spawn("node", [join(SERVER_DIR, "index.mjs")], {
     cwd: process.cwd(),
     stdio: ["ignore", "pipe", "pipe"],
-    env: { ...process.env, NODE_ENV: "production" },
+    env: { ...process.env, PORT: String(PORT), NODE_ENV: "production" },
   });
 
   let serverOutput = "";

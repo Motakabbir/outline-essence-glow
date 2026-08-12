@@ -1,7 +1,7 @@
 import { p as parseHref } from "./tanstack__history.mjs";
+import { s as splitSetCookieString } from "./cookie-es.mjs";
 import { a as ai, r as re, S as Sn, d as dn } from "./seroval.mjs";
 import { p } from "./seroval-plugins.mjs";
-import { s as splitSetCookieString } from "./cookie-es.mjs";
 import { ReadableStream as ReadableStream$1 } from "node:stream/web";
 import { Readable } from "node:stream";
 const isServer = true;
@@ -84,6 +84,10 @@ function createControlledPromise(onResolve) {
     rejectLoadPromise(e);
   };
   return controlledPromise;
+}
+function isModuleNotFoundError(error) {
+  if (typeof error?.message !== "string") return false;
+  return error.message.startsWith("Failed to fetch dynamically imported module") || error.message.startsWith("error loading dynamically imported module") || error.message.startsWith("Importing a module script failed");
 }
 function isPromise(value) {
   return Boolean(value && typeof value === "object" && typeof value.then === "function");
@@ -3568,20 +3572,20 @@ const defaultSerovalPlugins = [
   RawStreamSSRPlugin,
   p
 ];
-var scroll_restoration_inline_default = 'function(a,f){let l;try{l=JSON.parse(sessionStorage.getItem(a)||"{}")}catch{return}const n=l?.[f||history.state?.__TSR_key];let c=!1;for(const t in n){const e=n[t],o=e?.scrollX,s=e?.scrollY;if(Number.isFinite(o)&&Number.isFinite(s)){if(t==="window")scrollTo(o,s),c=!0;else if(t)try{const r=document.querySelector(t);r&&(r.scrollLeft=o,r.scrollTop=s)}catch{}}}if(c)return;const i=location.hash.slice(1);if(i){const t=history.state?.__hashScrollIntoViewOptions??!0;if(t){const e=document.getElementById(i);e&&e.scrollIntoView(t)}return}scrollTo(0,0)}';
-const defaultInlineScrollRestorationScript = `(${scroll_restoration_inline_default})(${escapeHtml(JSON.stringify(storageKey))})`;
-function getScrollRestorationScript(key) {
-  if (key === void 0) return defaultInlineScrollRestorationScript;
-  return `(${scroll_restoration_inline_default})(${escapeHtml(JSON.stringify(storageKey))},${escapeHtml(JSON.stringify(key))})`;
+function toHeadersInstance(init) {
+  if (init instanceof Headers) return init;
+  else if (Array.isArray(init)) return new Headers(init);
+  else if (typeof init === "object") return new Headers(init);
+  else return null;
 }
-function getScrollRestorationScriptForRouter(router) {
-  if (typeof router.options.scrollRestoration === "function" && !router.options.scrollRestoration({ location: router.latestLocation })) return null;
-  const getKey = router.options.getScrollRestorationKey;
-  if (!getKey) return defaultInlineScrollRestorationScript;
-  const location = router.latestLocation;
-  const userKey = getKey(location);
-  if (userKey === defaultGetScrollRestorationKey(location)) return defaultInlineScrollRestorationScript;
-  return getScrollRestorationScript(userKey);
+function mergeHeaders(...headers) {
+  return headers.reduce((acc, header) => {
+    const headersInstance = toHeadersInstance(header);
+    if (!headersInstance) return acc;
+    for (const [key, value] of headersInstance.entries()) if (key === "set-cookie") splitSetCookieString(value).forEach((cookie) => acc.append("set-cookie", cookie));
+    else acc.set(key, value);
+    return acc;
+  }, new Headers());
 }
 function dehydrateSsrMatchId(id) {
   return id.replaceAll("/", "\0");
@@ -3971,21 +3975,6 @@ function getNormalizedURL(url, base) {
     handledProtocolRelativeURL
   };
 }
-function toHeadersInstance(init) {
-  if (init instanceof Headers) return init;
-  else if (Array.isArray(init)) return new Headers(init);
-  else if (typeof init === "object") return new Headers(init);
-  else return null;
-}
-function mergeHeaders(...headers) {
-  return headers.reduce((acc, header) => {
-    const headersInstance = toHeadersInstance(header);
-    if (!headersInstance) return acc;
-    for (const [key, value] of headersInstance.entries()) if (key === "set-cookie") splitSetCookieString(value).forEach((cookie) => acc.append("set-cookie", cookie));
-    else acc.set(key, value);
-    return acc;
-  }, new Headers());
-}
 function defineHandlerCallback(handler) {
   return handler;
 }
@@ -4300,20 +4289,36 @@ function transformStreamWithRouter(router, appStream, opts) {
   });
   return stream;
 }
+var scroll_restoration_inline_default = 'function(a,f){let l;try{l=JSON.parse(sessionStorage.getItem(a)||"{}")}catch{return}const n=l?.[f||history.state?.__TSR_key];let c=!1;for(const t in n){const e=n[t],o=e?.scrollX,s=e?.scrollY;if(Number.isFinite(o)&&Number.isFinite(s)){if(t==="window")scrollTo(o,s),c=!0;else if(t)try{const r=document.querySelector(t);r&&(r.scrollLeft=o,r.scrollTop=s)}catch{}}}if(c)return;const i=location.hash.slice(1);if(i){const t=history.state?.__hashScrollIntoViewOptions??!0;if(t){const e=document.getElementById(i);e&&e.scrollIntoView(t)}return}scrollTo(0,0)}';
+const defaultInlineScrollRestorationScript = `(${scroll_restoration_inline_default})(${escapeHtml(JSON.stringify(storageKey))})`;
+function getScrollRestorationScript(key) {
+  if (key === void 0) return defaultInlineScrollRestorationScript;
+  return `(${scroll_restoration_inline_default})(${escapeHtml(JSON.stringify(storageKey))},${escapeHtml(JSON.stringify(key))})`;
+}
+function getScrollRestorationScriptForRouter(router) {
+  if (typeof router.options.scrollRestoration === "function" && !router.options.scrollRestoration({ location: router.latestLocation })) return null;
+  const getKey = router.options.getScrollRestorationKey;
+  if (!getKey) return defaultInlineScrollRestorationScript;
+  const location = router.latestLocation;
+  const userKey = getKey(location);
+  if (userKey === defaultGetScrollRestorationKey(location)) return defaultInlineScrollRestorationScript;
+  return getScrollRestorationScript(userKey);
+}
 export {
-  isResolvedRedirect as A,
+  isRedirect as A,
   BaseRootRoute as B,
-  isServer as C,
-  makeSerovalPlugin as D,
-  mergeHeaders as E,
-  notFound as F,
-  parseRedirect as G,
-  removeTrailingSlash as H,
-  resolveManifestAssetLink as I,
-  resolveManifestCssLink as J,
-  rootRouteId as K,
-  transformPipeableStreamWithRouter as L,
-  transformReadableStreamWithRouter as M,
+  isResolvedRedirect as C,
+  isServer as D,
+  makeSerovalPlugin as E,
+  mergeHeaders as F,
+  notFound as G,
+  parseRedirect as H,
+  removeTrailingSlash as I,
+  resolveManifestAssetLink as J,
+  resolveManifestCssLink as K,
+  rootRouteId as L,
+  transformPipeableStreamWithRouter as M,
+  transformReadableStreamWithRouter as N,
   RouterCore as R,
   BaseRoute as a,
   appendUniqueUserTags as b,
@@ -4339,6 +4344,6 @@ export {
   hasKeys as v,
   invariant as w,
   isDangerousProtocol as x,
-  isNotFound as y,
-  isRedirect as z
+  isModuleNotFoundError as y,
+  isNotFound as z
 };
