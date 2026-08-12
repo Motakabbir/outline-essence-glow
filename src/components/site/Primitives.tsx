@@ -75,7 +75,7 @@ export function PageHero({
   return (
     <section className="pt-40 md:pt-52 pb-20 md:pb-28 border-b border-white/10 relative grain overflow-hidden">
       {video ? (
-        <video 
+        <video
           src={video}
           autoPlay
           muted
@@ -84,10 +84,10 @@ export function PageHero({
           className="absolute inset-0 w-full h-full object-cover opacity-40 pointer-events-none mix-blend-screen"
         />
       ) : img ? (
-        <img 
-          src={img} 
-          alt="" 
-          className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none grayscale mix-blend-screen" 
+        <img
+          src={img}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none mix-blend-screen"
         />
       ) : null}
       <div className="max-w-[1500px] mx-auto px-6 md:px-10 reveal relative z-10">

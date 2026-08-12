@@ -20,7 +20,7 @@ import "../_libs/tanstack__history.mjs";
 import "../_libs/seroval-plugins.mjs";
 import "../_libs/cookie-es.mjs";
 import "node:stream/web";
-const appCss = "/assets/styles-yTaYS6Tv.css";
+const appCss = "/assets/styles-BQ6OmDzg.css";
 const logo = "/assets/vision148-logo-Dbu8HTfX.jpg";
 function NotFoundComponent() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md text-center", children: [
@@ -285,7 +285,7 @@ function PageHero({
       {
         src: img,
         alt: "",
-        className: "absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none grayscale mix-blend-screen"
+        className: "absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none mix-blend-screen"
       }
     ) : null,
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 reveal relative z-10", children: [
