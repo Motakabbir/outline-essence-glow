@@ -20,7 +20,7 @@ import "../_libs/tanstack__history.mjs";
 import "../_libs/seroval-plugins.mjs";
 import "../_libs/cookie-es.mjs";
 import "node:stream/web";
-const appCss = "/assets/styles-B3lnfX92.css";
+const appCss = "/assets/styles-yTaYS6Tv.css";
 const logo = "/assets/vision148-logo-Dbu8HTfX.jpg";
 function NotFoundComponent() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex min-h-screen items-center justify-center bg-background px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-md text-center", children: [
@@ -324,7 +324,7 @@ function CrossLink({
 const workshop$1 = "/assets/vision_R500%20_goodwood_landscape_2-CDfa323G.png";
 const engine$2 = "/assets/ENGINE-BDR4qXPc.png";
 const theCar$1 = "/assets/goodwood_landscape-ZdZmTO5n.png";
-const design$4 = "/assets/vision_R500_goodwood_landscape-DCix3yC6.png";
+const design$3 = "/assets/vision_R500_goodwood_landscape-DCix3yC6.png";
 const heroImg = "/assets/vision_R500_goodwood_landscape_1-DII-qrjz.png";
 async function fetchSeoMetadata(slug, fallback) {
   return fallback;
@@ -487,7 +487,7 @@ function TheCarPage() {
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: theCar$1, alt: "Silver Ford Sierra RS500", className: "w-full grayscale" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: theCar$1, alt: "Silver Ford Sierra RS500", className: "w-full " }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5 md:pt-6", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(SectionLabel, { n: "02", title: "THE VISION" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-display text-4xl md:text-5xl uppercase leading-[0.95] mt-8", children: [
@@ -496,7 +496,7 @@ function TheCarPage() {
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-serif-italic normal-case opacity-70", children: "lineage." })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-white/70 leading-relaxed", children: "The greatest cars are never designed by committee. They begin with one vision, one pencil, and the courage to challenge convention. Vision148 RS500 is our modern interpretation of that philosophy, inspired by Al Yasid's unmistakable design language and the legendary houses of Pininfarina, Bertone and Zagato. This isn't retro. It's the next chapter." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4 text-white/55 text-sm leading-relaxed", children: "Working alongside Al Yasid, we're developing Vision148 RS500 with the same philosophy that made the world's greatest coach builders legendary." })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-white/70 leading-relaxed", children: "Working alongside Al Yasid, we're developing Vision148 RS500 with the same philosophy that made the world's greatest coach builders legendary." })
       ] })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "paper", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 py-24 md:py-32", children: [
@@ -526,16 +526,16 @@ function TheCarPage() {
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-white/70 leading-relaxed", children: "Stripped to bare castings. Re-machined. Re-balanced. Reassembled to motorsport tolerance by Mahle's UK engine programme." })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: engine$2, alt: "Engine", className: "w-full grayscale aspect-[4/3] object-cover" }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: engine$2, alt: "Engine", className: "w-full  aspect-[4/3] object-cover" }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden order-2 md:order-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: workshop$1, alt: "Workshop", className: "w-full grayscale aspect-[4/3] object-cover" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden order-2 md:order-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: workshop$1, alt: "Workshop", className: "w-full  aspect-[4/3] object-cover" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5 order-1 md:order-2", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(SectionLabel, { n: "05", title: "Coachwork" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-display text-4xl md:text-5xl uppercase leading-[0.95] mt-8", children: [
           "COACH BUILT",
           /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-serif-italic normal-case opacity-70", children: "Alluminium." })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-serif-italic normal-case opacity-70", children: "Aluminium." })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-white/70 leading-relaxed", children: "Unique tooling & coach built aluminium body panels by Coventry Metalcraft complemented by composite aero parts by BAMD and 3D printed interior dashboard and switchgear by DMC, Silverstone." }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-10 flex flex-wrap gap-3", children: [
@@ -547,8 +547,8 @@ function TheCarPage() {
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "h-[45vh] md:h-[65vh] relative overflow-hidden border-t border-b border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
       "div",
       {
-        className: "absolute inset-0 bg-fixed bg-cover bg-center grayscale opacity-60 parallax-bg",
-        style: { backgroundImage: `url(${design$4})` }
+        className: "absolute inset-0 bg-fixed bg-cover bg-center  opacity-60 parallax-bg",
+        style: { backgroundImage: `url(${design$3})` }
       }
     ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(CrossLink, { to: "/process", eyebrow: "Next", title: "The Process →" }),
@@ -556,7 +556,7 @@ function TheCarPage() {
   ] });
 }
 const engine$1 = "/assets/Vision_To_the_road%20-4RKVkAdB.jpg";
-const design$3 = "/assets/Bare_Shell_Disamantling-DFLSKoly.jpg";
+const design$2 = "/assets/Bare_Shell_Disamantling-DFLSKoly.jpg";
 const processVideo = "/assets/process-Wn1o6mEh.mp4";
 const Route$a = createFileRoute("/process")({
   loader: async () => {
@@ -660,8 +660,8 @@ function ProcessPage() {
       ] }, t)) }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-6", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden aspect-[4/3] relative reveal", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$3, alt: "CAD", className: "w-full h-full grayscale object-cover zoom-hover" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden aspect-[4/3] relative reveal stagger-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: engine$1, alt: "Engine", className: "w-full h-full grayscale object-cover zoom-hover" }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden aspect-[4/3] relative reveal", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$2, alt: "CAD", className: "w-full h-full  object-cover zoom-hover" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden aspect-[4/3] relative reveal stagger-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: engine$1, alt: "Engine", className: "w-full h-full  object-cover zoom-hover" }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(CrossLink, { to: "/partners", eyebrow: "Next", title: "The Partners →" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
@@ -675,8 +675,8 @@ const partners = [
   { name: "T3DMC", role: "Scanning & Twin", body: "Component-level 3D scanning and the live digital twin of the entire build." },
   { name: "ASM AUTORECYCLING ", role: "Dismantling specialists", body: "RS500 #148 dismantle and part catalogue and storage" },
   { name: "BAMD", role: "Composite specialists", body: "Composite partner for trim and interior" },
-  { name: "Cornerstone", role: "non-structural repair specialists", body: "Glass removal and specialist repairs" },
-  { name: "HGL", role: "Membership Program", body: "Technology providers for the project companion membership platform, autovision.club", href: "https://autovision.club" }
+  { name: "CORNERSTONE TECHNOLOGIES", role: "non-structural repair specialists", body: "Glass removal and specialist repairs" },
+  { name: "AL YASID DESIGN ", role: "AUTOMOTIVE VISUALISOR", body: "Creative Automotive visualisation and AI specialist " }
 ];
 const Route$9 = createFileRoute("/partners")({
   loader: async () => {
@@ -790,33 +790,33 @@ const groups = [
   {
     title: "The Programme",
     items: [
-      ["How many seats are available?", "Twenty-five. When they're gone, the syndicate closes. There is no waitlist beyond the first round."],
-      ["Is this a fractional ownership scheme?", "No. Custodians do not own the car. They fund and accompany its build, and share scheduled access to the finished object."],
-      ["What is the duration of the programme?", "Approximately three years from kickoff to handover, with a five-year custodianship period after completion."]
+      ["How many seats are available?", "Limited 10 Founder Members for rotational use, however 20 associate Memberships available for experience days."],
+      ["Is this a fractional ownership scheme?", "This is an Experiential scheme for a limited number of people to get access to a 1-of-1 asset for use and enjoyment."],
+      ["What is the duration of the programme?", "The Syndicate will run for three years after the car is complete. "]
     ]
   },
   {
     title: "The Car",
     items: [
-      ["Is the donor shell genuine?", "Yes. A matching-numbers RS500 shell, fully documented, acquired in 2023. Provenance is published to custodians."],
-      ["What is being changed?", "Nothing visible. Beneath the skin: modern metallurgy, refreshed electronics, and a Mahle-built powertrain to original spec."],
-      ["Will it be road-legal?", "Yes. UK registered, MOT-exempt as a historic vehicle, fully usable on public roads."]
+      ["Is the donor shell genuine?", "Yes. A matching-numbers RS500 shell, fully documented, acquired in 2023. This is number 148 of 500. Provenance is published to custodians."],
+      ["What is being changed?", "The body will be coach built aluminium with modern underpinnings, so yes much will be changed."],
+      ["Will it be road-legal?", "The completed car will be road legal and used by the Members."]
     ]
   },
   {
     title: "Custodianship",
     items: [
-      ["What do custodians actually get?", "Studio access during build, quarterly digital-twin updates, private drives, exhibitions, dinners, and a place in the provenance ledger of the finished car."],
-      ["Can I drive the car?", "Yes. Scheduled drive days are part of the programme — track and road, in the UK and Europe."],
-      ["What happens after five years?", "The car enters its long-term custodianship phase. The original twenty-five retain first right of access in perpetuity."]
+      ["What do custodians actually get?", "Founder Members will have access to the car for 16 days per year for three years, Associate Members will be invited to two experience track days per year. "],
+      ["Can I drive the car?", "Yes , if you are a Founder Member"],
+      ["What happens after three years?", "The Rs500 will be prepared to be sold."]
     ]
   },
   {
     title: "Application",
     items: [
-      ["How do I apply?", "Submit an enquiry through the Apply page. We respond personally within two working days."],
-      ["Is there a selection process?", "Yes. The studio meets every prospective custodian before a seat is offered. Fit matters as much as funding."],
-      ["What are the costs?", "Disclosed in the prospectus, on request, after an initial conversation."]
+      ["How do I apply?", "Apply via www.syndicatedrestomod.com "],
+      ["Is there a selection process?", "First come first served limited to 10 Founder and 20 Associate Members."],
+      ["What are the costs?", "Founder Members one off fee of £25,000 for Associate Members £5000 one off fee."]
     ]
   }
 ];
@@ -912,7 +912,7 @@ function FAQItem({ q, a }) {
   );
 }
 const experience$1 = "/assets/Hospitality-BsUpDMdM.png";
-const design$2 = "/assets/witness_the_build-CU3Gmirn.jpg";
+const design$1 = "/assets/witness_the_build-CU3Gmirn.jpg";
 const partnerVideo = "/assets/04_the_experience_Ownership_Reimagined-MlUM1hwG.mp4";
 const Route$6 = createFileRoute("/experience")({
   loader: async () => {
@@ -951,7 +951,7 @@ function ExperiencePage() {
         eyebrow: "04 / The Experience",
         title: "Ownership,",
         italic: "reimagined.",
-        intro: "Twenty-five custodians. One car. A year-round programme of access, hospitality and shared craftsmanship — engineered with the same care as the build itself.",
+        intro: "Ten custodians. One car. A year-round programme of access, hospitality and shared craftsmanship — engineered with the same care as the build itself.",
         video: partnerVideo
       }
     ),
@@ -981,10 +981,10 @@ function ExperiencePage() {
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-8 text-black/70 leading-relaxed max-w-xl", children: "In conjunction with our partners TheCarCrowd each event will be shaped around the people in the syndicate, small numbers, intimate access, real workshops, No badges and no branding." })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: experience$1, alt: "Hospitality", className: "w-full h-full grayscale object-cover zoom-hover" }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: experience$1, alt: "Hospitality", className: "w-full h-full  object-cover zoom-hover" }) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$2, alt: "Digital twin", className: "w-full h-full grayscale object-cover zoom-hover" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden reveal aspect-[4/3] relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$1, alt: "Digital twin", className: "w-full h-full  object-cover zoom-hover" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "eyebrow", children: "03 / Special Access " }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "font-display text-5xl md:text-6xl uppercase leading-[0.95] mt-8", children: [
@@ -1305,8 +1305,9 @@ function ApplyPage() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
   ] });
 }
-const workshop = "/assets/workshop-DP3ouAaE.jpg";
-const design$1 = "/assets/design-Dc-ZZXQQ.jpg";
+const videoBg = "/assets/showcase_video_social_v1-BHDPgQs6.mp4";
+const blueprint = "/assets/blueprint_vRS500_%20001-BAytMY1P.png";
+const showcaseVideo = "/assets/rs500_monaco_showcase-DlSAcCtN.mp4";
 const ianHoweImg = "/assets/Ian-Howe-DEhh2UC5.png";
 const stuartPeachImg = "/assets/Stuart-Peach-CH7eWYnA.png";
 const alYasidImg = "/assets/Al-Yasid-Bm-z5K-a.png";
@@ -1386,10 +1387,10 @@ function AboutPage() {
       PageHero,
       {
         eyebrow: "05 / About",
-        title: "A small studio",
+        title: "An Agile Studio",
         italic: "with one obsession.",
-        intro: "Vision148 was founded to build a single car — a definitive Ford Sierra RS500 Cosworth — and to share its making with twenty-five custodians who care as deeply as we do.",
-        video: journalVideo
+        intro: "Vision148 was founded to build a single car — a definitive Ford Sierra RS500 Cosworth — and to share its making with a small number of custodians who care as deeply as we do.",
+        video: videoBg
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32 paper", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center", children: [
@@ -1410,8 +1411,8 @@ function AboutPage() {
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 h-[300px] md:h-[450px] overflow-hidden relative", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         "div",
         {
-          className: "absolute inset-0 bg-fixed bg-cover bg-center grayscale opacity-80 parallax-bg",
-          style: { backgroundImage: `url(${workshop})` }
+          className: "absolute inset-0 bg-fixed bg-cover bg-center  opacity-80 parallax-bg",
+          style: { backgroundImage: `url(${blueprint})` }
         }
       ) })
     ] }) }),
@@ -1447,13 +1448,13 @@ function AboutPage() {
           {
             src: image,
             alt: name,
-            className: "w-20 h-20 md:w-28 md:h-28 shrink-0 object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105 border border-white/10"
+            className: "w-20 h-20 md:w-28 md:h-28 shrink-0 object-cover rounded-full  group-hover:-0 transition-all duration-500 group-hover:scale-105 border border-white/10"
           }
         ) })
       ] }, name)) })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "paper py-24 md:py-32", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: design$1, alt: "Design", className: "w-full grayscale aspect-[4/3] object-cover" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7", children: /* @__PURE__ */ jsxRuntimeExports.jsx("video", { src: showcaseVideo, autoPlay: true, muted: true, loop: true, playsInline: true, className: "w-full  aspect-[4/3] object-cover" }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 font-mono text-[0.7rem] tracking-[0.22em] uppercase text-black/50", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "04" }),
@@ -1486,9 +1487,7 @@ function Marquee({ items }) {
     i
   )) }) });
 }
-const heroCar = "/assets/hero-car-D7AYmz0K.jpg";
 const heroVideo = "/assets/hero_video_landing_page-BG6qwN3k.mp4";
-const blueprint = "/assets/blueprint_vRS500_%20001-BAytMY1P.png";
 const theCarImage = "/assets/02_the_car-Lgh_mrNZ.jpg";
 const processImage = "/assets/from_chassis_to_road-DeiXDZE7.png";
 const Route$2 = createFileRoute("/")({
@@ -1519,12 +1518,11 @@ function Hero() {
       "video",
       {
         src: heroVideo,
-        poster: heroCar,
         autoPlay: true,
         muted: true,
         loop: true,
         playsInline: true,
-        className: "absolute inset-0 w-full h-full object-cover opacity-70 grayscale scale-[1.04]"
+        className: "absolute inset-0 w-full h-full object-cover opacity-70  scale-[1.04]"
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80" }),
@@ -1563,7 +1561,7 @@ function Manifesto() {
         {
           src: blueprint,
           alt: "vRS500 Blueprint",
-          className: "w-full h-auto object-cover grayscale opacity-55 transition-all duration-700 ease-out hover:scale-105 hover:opacity-100"
+          className: "w-full h-auto object-cover  opacity-55 transition-all duration-700 ease-out hover:scale-105 hover:opacity-100"
         }
       ) })
     ] }),
@@ -1612,7 +1610,7 @@ function HighlightCar() {
       {
         src: theCarImage,
         alt: "The Car",
-        className: "w-full h-full object-cover grayscale zoom-hover"
+        className: "w-full h-full object-cover  zoom-hover"
       }
     ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5 md:pt-6", children: [
@@ -1644,7 +1642,7 @@ function HighlightProcess() {
       {
         src: processImage,
         alt: "Process",
-        className: "w-full h-full object-cover grayscale zoom-hover"
+        className: "w-full h-full object-cover  zoom-hover"
       }
     ) })
   ] }) });
@@ -1659,7 +1657,7 @@ function HighlightExperience() {
         muted: true,
         loop: true,
         playsInline: true,
-        className: "w-full h-full object-cover grayscale zoom-hover"
+        className: "w-full h-full object-cover  zoom-hover"
       }
     ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5 md:pt-6", children: [
@@ -1733,6 +1731,7 @@ function Home() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
   ] });
 }
+const workshop = "/assets/workshop-DP3ouAaE.jpg";
 const engine = "/assets/engine-BAsbs6x4.jpg";
 const design = "/assets/scanning-Zqz__a3f.jpg";
 const experience = "/assets/dismantle-DDyiDgC6.jpg";
@@ -1825,12 +1824,12 @@ function JournalIndexPage() {
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-20 md:py-28 border-b border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/journal/$slug", params: { slug: lead.slug }, className: "group grid md:grid-cols-12 gap-10 items-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden", children: lead.video ? /* @__PURE__ */ jsxRuntimeExports.jsx("video", { src: lead.video, autoPlay: true, muted: true, loop: true, playsInline: true, className: "w-full aspect-[16/10] object-cover grayscale transition-transform duration-700 group-hover:scale-[1.03]" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:col-span-7 overflow-hidden", children: lead.video ? /* @__PURE__ */ jsxRuntimeExports.jsx("video", { src: lead.video, autoPlay: true, muted: true, loop: true, playsInline: true, className: "w-full aspect-[16/10] object-cover  transition-transform duration-700 group-hover:scale-[1.03]" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
         "img",
         {
           src: lead.img,
           alt: lead.title,
-          className: "w-full aspect-[16/10] object-cover grayscale transition-transform duration-700 group-hover:scale-[1.03]"
+          className: "w-full aspect-[16/10] object-cover  transition-transform duration-700 group-hover:scale-[1.03]"
         }
       ) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "md:col-span-5", children: [
@@ -1853,7 +1852,7 @@ function JournalIndexPage() {
           params: { slug: p.slug },
           className: "group bg-black p-8 md:p-10 hover:bg-white hover:text-black transition-colors duration-500",
           children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden", children: p.video ? /* @__PURE__ */ jsxRuntimeExports.jsx("video", { src: p.video, autoPlay: true, muted: true, loop: true, playsInline: true, className: "w-full aspect-[16/10] object-cover grayscale group-hover:scale-105 transition-transform duration-700" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: p.img, alt: p.title, className: "w-full aspect-[16/10] object-cover grayscale group-hover:scale-105 transition-transform duration-700" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden", children: p.video ? /* @__PURE__ */ jsxRuntimeExports.jsx("video", { src: p.video, autoPlay: true, muted: true, loop: true, playsInline: true, className: "w-full aspect-[16/10] object-cover  group-hover:scale-105 transition-transform duration-700" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: p.img, alt: p.title, className: "w-full aspect-[16/10] object-cover  group-hover:scale-105 transition-transform duration-700" }) }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-6 flex items-center gap-4 font-mono text-[10px] tracking-[0.24em] uppercase opacity-60", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: p.date }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "·" }),
