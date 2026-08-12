@@ -11,32 +11,32 @@ const groups: { title: string; items: [string, string][] }[] = [
     title: "The Programme",
     items: [
       ["How many seats are available?", "Limited 10 Founder Members for rotational use, however 20 associate Memberships available for experience days."],
-      ["Is this a fractional ownership scheme?", "No. Custodians do not own the car. They fund and accompany its build, and share scheduled access to the finished object."],
-      ["What is the duration of the programme?", "Approximately three years from kickoff to handover, with a five-year custodianship period after completion."],
+      ["Is this a fractional ownership scheme?", "This is an Experiential scheme for a limited number of people to get access to a 1-of-1 asset for use and enjoyment."],
+      ["What is the duration of the programme?", "The Syndicate will run for three years after the car is complete. "],
     ],
   },
   {
     title: "The Car",
     items: [
-      ["Is the donor shell genuine?", "Yes. A matching-numbers RS500 shell, fully documented, acquired in 2023. Provenance is published to custodians."],
-      ["What is being changed?", "Nothing visible. Beneath the skin: modern metallurgy, refreshed electronics, and a Mahle-built powertrain to original spec."],
-      ["Will it be road-legal?", "Yes. UK registered, MOT-exempt as a historic vehicle, fully usable on public roads."],
+      ["Is the donor shell genuine?", "Yes. A matching-numbers RS500 shell, fully documented, acquired in 2023. This is number 148 of 500. Provenance is published to custodians."],
+      ["What is being changed?", "The body will be coach built aluminium with modern underpinnings, so yes much will be changed."],
+      ["Will it be road-legal?", "The completed car will be road legal and used by the Members."],
     ],
   },
   {
     title: "Custodianship",
     items: [
-      ["What do custodians actually get?", "Studio access during build, quarterly digital-twin updates, private drives, exhibitions, dinners, and a place in the provenance ledger of the finished car."],
-      ["Can I drive the car?", "Yes. Scheduled drive days are part of the programme — track and road, in the UK and Europe."],
-      ["What happens after five years?", "The car enters its long-term custodianship phase. The original twenty-five retain first right of access in perpetuity."],
+      ["What do custodians actually get?", "Founder Members will have access to the car for 16 days per year for three years, Associate Members will be invited to two experience track days per year. "],
+      ["Can I drive the car?", "Yes , if you are a Founder Member"],
+      ["What happens after three years?", "The Rs500 will be prepared to be sold."],
     ],
   },
   {
     title: "Application",
     items: [
-      ["How do I apply?", "Submit an enquiry through the Apply page. We respond personally within two working days."],
-      ["Is there a selection process?", "Yes. The studio meets every prospective custodian before a seat is offered. Fit matters as much as funding."],
-      ["What are the costs?", "Disclosed in the prospectus, on request, after an initial conversation."],
+      ["How do I apply?", "Apply via www.syndicatedrestomod.com "],
+      ["Is there a selection process?", "First come first served limited to 10 Founder and 20 Associate Members."],
+      ["What are the costs?", "Founder Members one off fee of £25,000 for Associate Members £5000 one off fee."],
     ],
   },
 ];

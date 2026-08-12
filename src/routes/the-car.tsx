@@ -121,7 +121,7 @@ function TheCarPage() {
             <SectionLabel n="05" title="Coachwork" />
             <h2 className="font-display text-4xl md:text-5xl uppercase leading-[0.95] mt-8">
               COACH BUILT<br />
-              <span className="font-serif-italic normal-case opacity-70">Alluminium.</span>
+              <span className="font-serif-italic normal-case opacity-70">Aluminium.</span>
             </h2>
             <p className="mt-8 text-white/70 leading-relaxed">
               Unique tooling & coach built aluminium body panels by Coventry Metalcraft complemented by composite aero parts by BAMD and 3D printed interior dashboard and switchgear by DMC, Silverstone.

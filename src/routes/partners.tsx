@@ -13,8 +13,8 @@ const partners = [
   { name: "T3DMC", role: "Scanning & Twin", body: "Component-level 3D scanning and the live digital twin of the entire build." },
   { name: "ASM AUTORECYCLING ", role: "Dismantling specialists", body: "RS500 #148 dismantle and part catalogue and storage" },
   { name: "BAMD", role: "Composite specialists", body: "Composite partner for trim and interior" },
-  { name: "Cornerstone", role: "non-structural repair specialists", body: "Glass removal and specialist repairs" },
-  { name: "HGL", role: "Membership Program", body: "Technology providers for the project companion membership platform, autovision.club", href: "https://autovision.club" },
+  { name: "CORNERSTONE TECHNOLOGIES", role: "non-structural repair specialists", body: "Glass removal and specialist repairs" },
+  { name: "AL YASID DESIGN ", role: "AUTOMOTIVE VISUALISOR", body: "Creative Automotive visualisation and AI specialist "},
 ];
 
 export const Route = createFileRoute("/partners")({
