@@ -2,9 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
-import videoBg from "@/assets/video/journal.mp4";
+import videoBg from "@/assets/video/showcase_video_social_v1.mp4";
 import workshop from "@/assets/workshop.jpg";
-import design from "@/assets/design.jpg";
+import blueprint from "@/assets/blueprint_vRS500_ 001.png";
+import showcaseVideo from "@/assets/video/rs500_monaco_showcase.mp4";
 import ianHoweImg from "@/assets/team/Ian-Howe.png";
 import stuartPeachImg from "@/assets/team/Stuart-Peach.png";
 import alYasidImg from "@/assets/team/Al-Yasid.png";
@@ -90,9 +91,9 @@ function AboutPage() {
       <Nav />
       <PageHero
         eyebrow="05 / About"
-        title="A small studio"
+        title="An Agile Studio"
         italic="with one obsession."
-        intro="Vision148 was founded to build a single car — a definitive Ford Sierra RS500 Cosworth — and to share its making with twenty-five custodians who care as deeply as we do."
+        intro="Vision148 was founded to build a single car — a definitive Ford Sierra RS500 Cosworth — and to share its making with a small number of custodians who care as deeply as we do."
         video={videoBg}
       />
 
@@ -114,9 +115,9 @@ function AboutPage() {
             </p>
           </div>
           <div className="md:col-span-7 h-[300px] md:h-[450px] overflow-hidden relative">
-            <div 
-              className="absolute inset-0 bg-fixed bg-cover bg-center grayscale opacity-80 parallax-bg"
-              style={{ backgroundImage: `url(${workshop})` }}
+            <div
+              className="absolute inset-0 bg-fixed bg-cover bg-center  opacity-80 parallax-bg"
+              style={{ backgroundImage: `url(${blueprint})` }}
             />
           </div>
         </div>
@@ -174,7 +175,7 @@ function AboutPage() {
                     <img
                       src={image}
                       alt={name}
-                      className="w-20 h-20 md:w-28 md:h-28 shrink-0 object-cover rounded-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105 border border-white/10"
+                      className="w-20 h-20 md:w-28 md:h-28 shrink-0 object-cover rounded-full  group-hover:-0 transition-all duration-500 group-hover:scale-105 border border-white/10"
                     />
                   </div>
                 )}
@@ -187,7 +188,7 @@ function AboutPage() {
       <section className="paper py-24 md:py-32">
         <div className="max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-7">
-            <img src={design} alt="Design" className="w-full grayscale aspect-[4/3] object-cover" />
+            <video src={showcaseVideo} autoPlay muted loop playsInline className="w-full  aspect-[4/3] object-cover" />
           </div>
           <div className="md:col-span-5">
             <div className="flex items-center gap-4 font-mono text-[0.7rem] tracking-[0.22em] uppercase text-black/50">
@@ -198,7 +199,7 @@ function AboutPage() {
               <span className="font-serif-italic normal-case opacity-70">An experience</span>
             </h2>
             <p className="mt-8 text-black/70 leading-relaxed">
-              But, the true benefactors of this project will be a limited few who will be have the unique privilege of experiencing driving the completed car through an unique syndicate of individuals.   
+              But, the true benefactors of this project will be a limited few who will be have the unique privilege of experiencing driving the completed car through an unique syndicate of individuals.
             </p>
           </div>
         </div>

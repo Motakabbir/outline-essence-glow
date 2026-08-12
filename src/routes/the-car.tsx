@@ -55,7 +55,7 @@ function TheCarPage() {
       <section className="py-24 md:py-32">
         <div className="max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12">
           <div className="md:col-span-7 overflow-hidden">
-            <img src={theCar} alt="Silver Ford Sierra RS500" className="w-full grayscale" />
+            <img src={theCar} alt="Silver Ford Sierra RS500" className="w-full " />
           </div>
           <div className="md:col-span-5 md:pt-6">
             <SectionLabel n="02" title="THE VISION" />
@@ -66,7 +66,7 @@ function TheCarPage() {
             <p className="mt-8 text-white/70 leading-relaxed">
               The greatest cars are never designed by committee. They begin with one vision, one pencil, and the courage to challenge convention. Vision148 RS500 is our modern interpretation of that philosophy, inspired by Al Yasid's unmistakable design language and the legendary houses of Pininfarina, Bertone and Zagato. This isn't retro. It's the next chapter.
             </p>
-            <p className="mt-4 text-white/55 text-sm leading-relaxed">
+            <p className="mt-8 text-white/70 leading-relaxed">
               Working alongside Al Yasid, we're developing Vision148 RS500 with the same philosophy that made the world's greatest coach builders legendary.
             </p>
           </div>
@@ -107,7 +107,7 @@ function TheCarPage() {
             </p>
           </div>
           <div className="md:col-span-7 overflow-hidden">
-            <img src={engine} alt="Engine" className="w-full grayscale aspect-[4/3] object-cover" />
+            <img src={engine} alt="Engine" className="w-full  aspect-[4/3] object-cover" />
           </div>
         </div>
       </section>
@@ -115,7 +115,7 @@ function TheCarPage() {
       <section className="py-24 md:py-32 border-t border-white/10">
         <div className="max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-7 overflow-hidden order-2 md:order-1">
-            <img src={workshop} alt="Workshop" className="w-full grayscale aspect-[4/3] object-cover" />
+            <img src={workshop} alt="Workshop" className="w-full  aspect-[4/3] object-cover" />
           </div>
           <div className="md:col-span-5 order-1 md:order-2">
             <SectionLabel n="05" title="Coachwork" />
@@ -136,7 +136,7 @@ function TheCarPage() {
 
       <section className="h-[45vh] md:h-[65vh] relative overflow-hidden border-t border-b border-white/10">
         <div
-          className="absolute inset-0 bg-fixed bg-cover bg-center grayscale opacity-60 parallax-bg"
+          className="absolute inset-0 bg-fixed bg-cover bg-center  opacity-60 parallax-bg"
           style={{ backgroundImage: `url(${design})` }}
         />
       </section>

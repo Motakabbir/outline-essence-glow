@@ -39,12 +39,11 @@ function Hero() {
     <section id="top" className="relative min-h-screen flex items-end overflow-hidden">
       <video
         src={heroVideo}
-        poster={heroCar}
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-70 grayscale scale-[1.04]"
+        className="absolute inset-0 w-full h-full object-cover opacity-70  scale-[1.04]"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/80" />
       <div className="absolute inset-0 grain pointer-events-none" />
@@ -90,7 +89,7 @@ function Manifesto() {
             <img
               src={blueprint}
               alt="vRS500 Blueprint"
-              className="w-full h-auto object-cover grayscale opacity-55 transition-all duration-700 ease-out hover:scale-105 hover:opacity-100"
+              className="w-full h-auto object-cover  opacity-55 transition-all duration-700 ease-out hover:scale-105 hover:opacity-100"
             />
           </div>
         </div>
@@ -157,7 +156,7 @@ function HighlightCar() {
           <img
             src={theCarImage}
             alt="The Car"
-            className="w-full h-full object-cover grayscale zoom-hover"
+            className="w-full h-full object-cover  zoom-hover"
           />
         </div>
         <div className="md:col-span-5 md:pt-6">
@@ -201,7 +200,7 @@ function HighlightProcess() {
           <img
             src={processImage}
             alt="Process"
-            className="w-full h-full object-cover grayscale zoom-hover"
+            className="w-full h-full object-cover  zoom-hover"
           />
         </div>
       </div>
@@ -220,7 +219,7 @@ function HighlightExperience() {
             muted
             loop
             playsInline
-            className="w-full h-full object-cover grayscale zoom-hover"
+            className="w-full h-full object-cover  zoom-hover"
           />
         </div>
         <div className="md:col-span-5 md:pt-6">

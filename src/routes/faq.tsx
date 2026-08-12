@@ -10,7 +10,7 @@ const groups: { title: string; items: [string, string][] }[] = [
   {
     title: "The Programme",
     items: [
-      ["How many seats are available?", "Twenty-five. When they're gone, the syndicate closes. There is no waitlist beyond the first round."],
+      ["How many seats are available?", "Limited 10 Founder Members for rotational use, however 20 associate Memberships available for experience days."],
       ["Is this a fractional ownership scheme?", "No. Custodians do not own the car. They fund and accompany its build, and share scheduled access to the finished object."],
       ["What is the duration of the programme?", "Approximately three years from kickoff to handover, with a five-year custodianship period after completion."],
     ],

@@ -46,7 +46,7 @@ function ExperiencePage() {
         eyebrow="04 / The Experience"
         title="Ownership,"
         italic="reimagined."
-        intro="Twenty-five custodians. One car. A year-round programme of access, hospitality and shared craftsmanship — engineered with the same care as the build itself."
+        intro="Ten custodians. One car. A year-round programme of access, hospitality and shared craftsmanship — engineered with the same care as the build itself."
         video={videoBg}
       />
 
@@ -84,7 +84,7 @@ function ExperiencePage() {
             </p>
           </div>
           <div className="md:col-span-7 overflow-hidden reveal aspect-[4/3] relative">
-            <img src={experience} alt="Hospitality" className="w-full h-full grayscale object-cover zoom-hover" />
+            <img src={experience} alt="Hospitality" className="w-full h-full  object-cover zoom-hover" />
           </div>
         </div>
       </section>
@@ -92,7 +92,7 @@ function ExperiencePage() {
       <section className="py-24 md:py-32 border-t border-white/10">
         <div className="max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-7 overflow-hidden reveal aspect-[4/3] relative">
-            <img src={design} alt="Digital twin" className="w-full h-full grayscale object-cover zoom-hover" />
+            <img src={design} alt="Digital twin" className="w-full h-full  object-cover zoom-hover" />
           </div>
           <div className="md:col-span-5">
             <div className="eyebrow">03 / Special Access </div>

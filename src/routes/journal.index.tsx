@@ -46,12 +46,12 @@ function JournalIndexPage() {
           <Link to="/journal/$slug" params={{ slug: lead.slug }} className="group grid md:grid-cols-12 gap-10 items-center">
             <div className="md:col-span-7 overflow-hidden">
               {lead.video ? (
-                <video src={lead.video} autoPlay muted loop playsInline className="w-full aspect-[16/10] object-cover grayscale transition-transform duration-700 group-hover:scale-[1.03]" />
+                <video src={lead.video} autoPlay muted loop playsInline className="w-full aspect-[16/10] object-cover  transition-transform duration-700 group-hover:scale-[1.03]" />
               ) : (
                 <img
                   src={lead.img}
                   alt={lead.title}
-                  className="w-full aspect-[16/10] object-cover grayscale transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="w-full aspect-[16/10] object-cover  transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               )}
             </div>
@@ -84,13 +84,13 @@ function JournalIndexPage() {
               >
                 <div className="overflow-hidden">
                   {p.video ? (
-                    <video src={p.video} autoPlay muted loop playsInline className="w-full aspect-[16/10] object-cover grayscale group-hover:scale-105 transition-transform duration-700" />
+                    <video src={p.video} autoPlay muted loop playsInline className="w-full aspect-[16/10] object-cover  group-hover:scale-105 transition-transform duration-700" />
                   ) : (
-                    <img src={p.img} alt={p.title} className="w-full aspect-[16/10] object-cover grayscale group-hover:scale-105 transition-transform duration-700" />
+                    <img src={p.img} alt={p.title} className="w-full aspect-[16/10] object-cover  group-hover:scale-105 transition-transform duration-700" />
                   )}
                 </div>
                 <div className="mt-6 flex items-center gap-4 font-mono text-[10px] tracking-[0.24em] uppercase opacity-60">
-                   <span>{p.date}</span><span>·</span><span>{p.category}</span>
+                  <span>{p.date}</span><span>·</span><span>{p.category}</span>
                 </div>
                 <div className="mt-3 font-display uppercase text-2xl md:text-3xl leading-tight">
                   {p.title}

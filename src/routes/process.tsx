@@ -130,10 +130,10 @@ function ProcessPage() {
       <section className="py-24 md:py-32 border-t border-white/10">
         <div className="max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-2 gap-6">
           <div className="overflow-hidden aspect-[4/3] relative reveal">
-            <img src={design} alt="CAD" className="w-full h-full grayscale object-cover zoom-hover" />
+            <img src={design} alt="CAD" className="w-full h-full  object-cover zoom-hover" />
           </div>
           <div className="overflow-hidden aspect-[4/3] relative reveal stagger-2">
-            <img src={engine} alt="Engine" className="w-full h-full grayscale object-cover zoom-hover" />
+            <img src={engine} alt="Engine" className="w-full h-full  object-cover zoom-hover" />
           </div>
         </div>
       </section>
