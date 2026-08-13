@@ -1,8 +1,7 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
-import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-RHAYCVV2.mjs";
-import { p as posts } from "./router-CeK1b-pV.mjs";
-import { j as journalVideo } from "./journal-Dn1zTfAK.mjs";
+import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-BUEavZDk.mjs";
+import { p as posts } from "./router-F7gP3RwE.mjs";
 import "./index.mjs";
 import "../_libs/seroval.mjs";
 import "../_libs/tanstack__router-core.mjs";
@@ -29,6 +28,7 @@ import "node:http";
 import "node:stream/promises";
 import "node:https";
 import "node:http2";
+const journalVideo = "/assets/journal-CSqD8jW1.mp4";
 function JournalIndexPage() {
   const [lead, ...rest] = posts;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "bg-background text-foreground min-h-screen", children: [

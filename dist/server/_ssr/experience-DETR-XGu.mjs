@@ -1,5 +1,5 @@
 import { j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-RHAYCVV2.mjs";
+import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-BUEavZDk.mjs";
 import { p as partnerVideo } from "./04_the_experience_Ownership_Reimagined-CR2p3Iwk.mjs";
 import "./index.mjs";
 import "../_libs/seroval.mjs";
@@ -16,7 +16,7 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
-import "./router-CeK1b-pV.mjs";
+import "./router-F7gP3RwE.mjs";
 import "../_libs/tanstack__query-core.mjs";
 import "../_libs/tanstack__react-query.mjs";
 import "./api-Drrs5acz.mjs";

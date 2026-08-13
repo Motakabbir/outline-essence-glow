@@ -1,6 +1,6 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L as Link } from "../_libs/tanstack__react-router.mjs";
-import { l as logo } from "./router-CeK1b-pV.mjs";
+import { l as logo } from "./router-F7gP3RwE.mjs";
 const links = [
   { to: "/the-car", label: "The Car" },
   { to: "/process", label: "Process" },

@@ -114,7 +114,7 @@ function RootComponent() {
   const { queryClient } = Route$c.useRouteContext();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) });
 }
-const $$splitComponentImporter$b = () => import("./the-car-BA8xkhbK.mjs");
+const $$splitComponentImporter$b = () => import("./the-car-SY8NPWua.mjs");
 const Route$b = createFileRoute("/the-car")({
   loader: async () => {
     const seo = await fetchSeoMetadata("the-car", {
@@ -139,7 +139,7 @@ const Route$b = createFileRoute("/the-car")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$b, "component")
 });
-const $$splitComponentImporter$a = () => import("./process-DdTbX9I8.mjs");
+const $$splitComponentImporter$a = () => import("./process-DY4NhzkI.mjs");
 const Route$a = createFileRoute("/process")({
   loader: async () => {
     const seo = await fetchSeoMetadata("process", {
@@ -164,7 +164,7 @@ const Route$a = createFileRoute("/process")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$a, "component")
 });
-const $$splitComponentImporter$9 = () => import("./partners-DI4EIlcu.mjs");
+const $$splitComponentImporter$9 = () => import("./partners-DUtBjqGn.mjs");
 const partners = [{
   name: "DMC",
   role: "Digital Manufacturing",
@@ -243,7 +243,7 @@ const Route$8 = createFileRoute("/journal")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$8, "component")
 });
-const $$splitComponentImporter$7 = () => import("./faq-BrBy3-Ue.mjs");
+const $$splitComponentImporter$7 = () => import("./faq-1GG8k_my.mjs");
 const groups = [{
   title: "The Programme",
   items: [["How many seats are available?", "Limited 10 Founder Members for rotational use, however 20 associate Memberships available for experience days."], ["Is this a fractional ownership scheme?", "This is an Experiential scheme for a limited number of people to get access to a 1-of-1 asset for use and enjoyment."], ["What is the duration of the programme?", "The Syndicate will run for three years after the car is complete. "]]
@@ -302,7 +302,7 @@ const Route$7 = createFileRoute("/faq")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$7, "component")
 });
-const $$splitComponentImporter$6 = () => import("./experience-BCQc9kNU.mjs");
+const $$splitComponentImporter$6 = () => import("./experience-DETR-XGu.mjs");
 const Route$6 = createFileRoute("/experience")({
   loader: async () => {
     const seo = await fetchSeoMetadata("experience", {
@@ -339,7 +339,7 @@ var createSsrRpc = (functionId) => {
     [TSS_SERVER_FUNCTION]: true
   });
 };
-const $$splitComponentImporter$5 = () => import("./contact-BFGNSY6j.mjs");
+const $$splitComponentImporter$5 = () => import("./contact-D8bCKPMn.mjs");
 const Route$5 = createFileRoute("/contact")({
   loader: async () => {
     const seo = await fetchSeoMetadata("contact", {
@@ -373,7 +373,7 @@ createServerFn({
   phone: stringType(),
   message: stringType()
 })).handler(createSsrRpc("c3804d43ea11a75535ebb5ae9e76d1efb9734c08a9487988e3b78f015fb81075"));
-const $$splitComponentImporter$4 = () => import("./apply-SHUMQRFC.mjs");
+const $$splitComponentImporter$4 = () => import("./apply-BbO1q0_9.mjs");
 const Route$4 = createFileRoute("/apply")({
   loader: async () => {
     const seo = await fetchSeoMetadata("apply", {
@@ -413,7 +413,7 @@ const alYasidImg = "/assets/Al-Yasid-Bm-z5K-a.png";
 const simonKwImg = "/assets/Simon-Kw-BG0ASdJj.png";
 const brendanImg = "/assets/Brendan-D8B1ZMVt.png";
 const kieronImg = "/assets/KIERON_SALTER-Cbik1S_v.png";
-const $$splitComponentImporter$3 = () => import("./about-CNWvCAA-.mjs");
+const $$splitComponentImporter$3 = () => import("./about-y5H3dohq.mjs");
 const team = [{
   role: "Ian Howe FOUNDER & BUILD DIRECTOR 30 years experience in automotive & fintech Business",
   name: "Ian Howe",
@@ -471,7 +471,7 @@ const Route$3 = createFileRoute("/about")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./index-BhKYfi3R.mjs");
+const $$splitComponentImporter$2 = () => import("./index-DFbNsIu-.mjs");
 const Route$2 = createFileRoute("/")({
   loader: async () => {
     const seo = await fetchSeoMetadata("home", {
@@ -498,7 +498,7 @@ const Route$2 = createFileRoute("/")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./journal.index-CUrbu4Pa.mjs");
+const $$splitComponentImporter$1 = () => import("./journal.index-CewiVbPl.mjs");
 const Route$1 = createFileRoute("/journal/")({
   loader: async () => {
     const seo = await fetchSeoMetadata("journal", {
@@ -582,7 +582,7 @@ const posts = [
     content: /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Detailed notes regarding the extraordinary chain of custody for the donor car will go here, tracing its history back to 1987." }) })
   }
 ];
-const $$splitComponentImporter = () => import("./journal._slug-2MiM4SBc.mjs");
+const $$splitComponentImporter = () => import("./journal._slug-DvVHnF4O.mjs");
 const Route = createFileRoute("/journal/$slug")({
   component: lazyRouteComponent($$splitComponentImporter, "component"),
   loader: ({

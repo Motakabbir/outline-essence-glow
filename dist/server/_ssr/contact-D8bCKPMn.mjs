@@ -1,8 +1,7 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { d as createSsrRpc } from "./router-CeK1b-pV.mjs";
+import { d as createSsrRpc } from "./router-F7gP3RwE.mjs";
 import { a as createServerFn } from "./index.mjs";
-import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-RHAYCVV2.mjs";
-import { j as journalVideo } from "./journal-Dn1zTfAK.mjs";
+import { N as Nav, P as PageHero, C as CrossLink, F as Footer } from "./Primitives-BUEavZDk.mjs";
 import { d as sendContactForm } from "./api-Drrs5acz.mjs";
 import "../_libs/seroval.mjs";
 import { o as objectType, s as stringType } from "../_libs/zod.mjs";
@@ -29,6 +28,7 @@ import "node:http";
 import "node:stream/promises";
 import "node:https";
 import "node:http2";
+const videoBg = "/assets/contact-CKdf1a5_.mp4";
 createServerFn({
   method: "POST"
 }).inputValidator(objectType({
@@ -44,7 +44,7 @@ function ContactPage() {
   const [sent, setSent] = reactExports.useState(false);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "bg-background text-foreground min-h-screen", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Nav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(PageHero, { eyebrow: "06 / Contact", title: "Get in", italic: "touch.", intro: "The studio answers personally. Most messages receive a reply within two working days.", video: journalVideo }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(PageHero, { eyebrow: "06 / Contact", title: "Get in", italic: "touch.", intro: "The studio answers personally. Most messages receive a reply within two working days.", video: videoBg }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "py-24 md:py-32", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-[1500px] mx-auto px-6 md:px-10 grid md:grid-cols-3 gap-px bg-white/10", children: channels.map(([t, email, b]) => /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: `mailto:${email}`, className: "bg-black p-10 md:p-12 group hover:bg-white hover:text-black transition-colors duration-500", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-mono text-[11px] uppercase tracking-[0.22em] opacity-50", children: t }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-display uppercase text-2xl md:text-3xl mt-6 break-words", children: email }),

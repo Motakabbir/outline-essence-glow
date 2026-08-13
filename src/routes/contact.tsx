@@ -5,7 +5,7 @@ import { z } from "zod";
 import { Nav } from "@/components/site/Nav";
 import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
-import videoBg from "@/assets/video/journal.mp4";
+import videoBg from "@/assets/video/contact.mp4";
 import { fetchSeoMetadata, mapSeoToMeta, sendContactForm } from "@/lib/api";
 
 export const Route = createFileRoute("/contact")({
