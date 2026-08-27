@@ -81,43 +81,64 @@ export function mapSeoToMeta(seo: SeoData) {
 
 /**
  * Submit contact form details.
- * If VITE_WEB3FORMS_ACCESS_KEY is defined in .env, it submits directly to the free
- * Web3Forms API to send an email to your inbox. Otherwise, it stores submissions locally.
+ * Submits directly to the Vision API endpoint. Otherwise, it stores submissions locally.
  */
 export async function sendContactForm(data: ContactData): Promise<{ success: boolean; message?: string }> {
   console.info("Submitting contact form data:", data);
 
-  const web3FormsKey = typeof process !== "undefined"
-    ? process.env.VITE_WEB3FORMS_ACCESS_KEY
-    : (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "");
+  const apiUrl = (typeof process !== "undefined" && process.env.VITE_API_URL)
+    || (import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1/cms");
 
-  if (web3FormsKey && web3FormsKey !== "YOUR_ACCESS_KEY_HERE") {
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-        },
-        body: JSON.stringify({
-          access_key: web3FormsKey,
-          name: `${data.first_name} ${data.last_name}`,
-          email: data.email,
-          phone: data.phone,
-          message: data.message,
-          subject: `Vision148 Contact Form - ${data.first_name} ${data.last_name}`,
-          from_name: "Vision148 Website",
-        }),
-      });
+  try {
+    // 1. Authenticate with CMS
+    const loginRes = await fetch(`${apiUrl}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify({
+        email: (typeof process !== "undefined" && process.env.CMS_AUTH_EMAIL) || "",
+        password: (typeof process !== "undefined" && process.env.CMS_AUTH_PASSWORD) || "",
+      }),
+    });
 
-      const result = await response.json();
-      if (response.ok && result.success) {
-        return { success: true, message: "Email sent successfully!" };
+    let token = "";
+    if (loginRes.ok) {
+      const loginJson = await loginRes.json();
+      if ((loginJson.status || loginJson.success) && loginJson.data && loginJson.data.token) {
+        token = loginJson.data.token;
       }
-      throw new Error(result.message || "Failed to send email");
-    } catch (error) {
-      console.error("Web3Forms submission failed, falling back to local storage:", error);
+    } else {
+      console.warn("Failed to login to Vision API:", loginRes.status, await loginRes.text());
     }
+
+    // 2. Submit Contact Form
+    const response = await fetch(`${apiUrl}/contacts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        ...(token ? { "Authorization": `Bearer ${token}` } : {}),
+      },
+      body: JSON.stringify({
+        first_name: data.first_name,
+        last_name: data.last_name,
+        email: data.email,
+        phone: data.phone || "",
+        message: data.message,
+        subject: "Contact Form Submission",
+        source: "vision148",
+      }),
+    });
+
+    const result = await response.json();
+    if (response.ok && (result.status || result.success)) {
+      return { success: true, message: "Email sent successfully!" };
+    }
+    throw new Error(result.message || "Failed to send email");
+  } catch (error: any) {
+    console.error("Vision API submission failed, falling back to local storage:", error.message);
   }
 
   // Local/Offline Fallback (localStorage)
@@ -146,44 +167,73 @@ export interface ApplyData {
 
 /**
  * Submit syndicate application details.
- * If VITE_WEB3FORMS_ACCESS_KEY is defined in .env, it submits directly to the free
- * Web3Forms API to send an email to your inbox. Otherwise, it stores submissions locally.
+ * Submits directly to the Vision API endpoint. Otherwise, it stores submissions locally.
  */
 export async function sendApplyForm(data: ApplyData): Promise<{ success: boolean; message?: string }> {
   console.info("Submitting syndicate application data:", data);
 
-  const web3FormsKey = typeof process !== "undefined"
-    ? process.env.VITE_WEB3FORMS_ACCESS_KEY
-    : (import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "");
+  const nameParts = data.name.trim().split(/\s+/);
+  const firstName = nameParts[0] || "";
+  const lastName = nameParts.slice(1).join(" ") || "";
 
-  if (web3FormsKey && web3FormsKey !== "YOUR_ACCESS_KEY_HERE") {
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-        },
-        body: JSON.stringify({
-          access_key: web3FormsKey,
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          intro: data.intro,
-          message: data.message,
-          subject: `Vision148 Syndicate Application - ${data.name}`,
-          from_name: "Vision148 Website",
-        }),
-      });
+  const formattedMessage = `Intro: ${data.intro || "N/A"}
 
-      const result = await response.json();
-      if (response.ok && result.success) {
-        return { success: true, message: "Application sent successfully!" };
+Message:
+${data.message || "N/A"}`;
+
+  const apiUrl = (typeof process !== "undefined" && process.env.VITE_API_URL)
+    || (import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1/cms");
+
+  try {
+    // 1. Authenticate with CMS
+    const loginRes = await fetch(`${apiUrl}/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify({
+        email: (typeof process !== "undefined" && process.env.CMS_AUTH_EMAIL) || "",
+        password: (typeof process !== "undefined" && process.env.CMS_AUTH_PASSWORD) || "",
+      }),
+    });
+
+    let token = "";
+    if (loginRes.ok) {
+      const loginJson = await loginRes.json();
+      if ((loginJson.status || loginJson.success) && loginJson.data && loginJson.data.token) {
+        token = loginJson.data.token;
       }
-      throw new Error(result.message || "Failed to send application");
-    } catch (error) {
-      console.error("Web3Forms application submission failed, falling back to local storage:", error);
+    } else {
+      console.warn("Failed to login to Vision API:", loginRes.status, await loginRes.text());
     }
+
+    // 2. Submit Application Form
+    const response = await fetch(`${apiUrl}/contacts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        ...(token ? { "Authorization": `Bearer ${token}` } : {}),
+      },
+      body: JSON.stringify({
+        first_name: firstName,
+        last_name: lastName,
+        email: data.email,
+        phone: data.phone || "",
+        message: formattedMessage,
+        subject: "Register Your Interest",
+        source: "vision148",
+      }),
+    });
+
+    const result = await response.json();
+    if (response.ok && (result.status || result.success)) {
+      return { success: true, message: "Application sent successfully!" };
+    }
+    throw new Error(result.message || "Failed to send application");
+  } catch (error: any) {
+    console.error("Vision API application submission failed, falling back to local storage:", error.message);
   }
 
   // Local/Offline Fallback (localStorage)
