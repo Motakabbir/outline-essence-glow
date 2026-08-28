@@ -6,25 +6,7 @@
   RewriteCond %{HTTPS} off
   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-  # 1. Directly serve existing files inside the client folder
-  # This avoids redirecting files with any extension length (like .woff2, .webmanifest)
-  RewriteCond %{DOCUMENT_ROOT}/dist/client/$1 -f
-  RewriteRule ^(.*)$ /dist/client/$1 [L]
-
-  # 2. Route page requests to their prerendered index.html if it exists
-  # Works for both with and without trailing slash, avoiding mod_dir directory redirects
-  # E.g. /about or /about/ -> serves dist/client/about/index.html
-  RewriteCond %{DOCUMENT_ROOT}/dist/client/$1/index.html -f
-  RewriteRule ^(.*[^/])$ /dist/client/$1/index.html [L]
-
-  RewriteCond %{DOCUMENT_ROOT}/dist/client/$1index.html -f
-  RewriteRule ^(.*)/$ /dist/client/$1index.html [L]
-
-  # 3. Route root request / to the client index
-  RewriteRule ^$ /dist/client/index.html [L]
-
-  # 4. Fallback to index.html for client-side (SPA) routing of un-prerendered routes
-  RewriteCond %{DOCUMENT_ROOT}/dist/client/$1 !-f
-  RewriteCond %{DOCUMENT_ROOT}/dist/client/$1 !-d
-  RewriteRule ^(.*)$ /dist/client/index.html [L]
+  # PROXY ALL TRAFFIC TO PM2 NODE BACKEND (Port 3030)
+  # This ensures the Node server handles all rendering and API routes
+  RewriteRule ^(.*)$ http://127.0.0.1:3030/$1 [P,L]
 </IfModule>

@@ -29,25 +29,12 @@ export const Route = createFileRoute("/contact")({
   component: ContactPage,
 });
 
-const submitContactForm = createServerFn({ method: "POST" })
-  .inputValidator(
-    z.object({
-      first_name: z.string(),
-      last_name: z.string(),
-      email: z.string().email(),
-      phone: z.string(),
-      message: z.string(),
-    })
-  )
-  .handler(async ({ data }) => {
-    console.info("Server received contact submission:", data);
-    return await sendContactForm(data);
-  });
+
 
 const channels = [
-  ["Custodianship", "syndicate@vision148.com", "For seat enquiries and applications."],
-  ["Partnerships", "studio@vision148.com", "Suppliers, collaborators and patrons."],
-  ["Press", "press@vision148.com", "Editorial, features and image requests."],
+  ["Custodianship", "hello@vision148.com", "For seat enquiries and applications."],
+  ["Partnerships", "hello@vision148.com", "Suppliers, collaborators and patrons."],
+  ["Press", "hello@vision148.com", "Editorial, features and image requests."],
 ];
 
 const locations = [
@@ -123,6 +110,18 @@ function ContactPage() {
                     const res = await sendContactForm(data);
                     if (res.success) {
                       setSent(true);
+                      if (res.offline) {
+                        try {
+                          const submissions = JSON.parse(localStorage.getItem("contact_submissions") || "[]");
+                          submissions.push({
+                            ...data,
+                            submitted_at: new Date().toISOString(),
+                          });
+                          localStorage.setItem("contact_submissions", JSON.stringify(submissions));
+                        } catch (localStorageError) {
+                          console.error("Failed to save submission to localStorage:", localStorageError);
+                        }
+                      }
                     } else {
                       console.error("Failed to submit form:", res.message);
                     }

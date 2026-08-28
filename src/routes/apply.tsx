@@ -30,21 +30,7 @@ export const Route = createFileRoute("/apply")({
   component: ApplyPage,
 });
 
-const submitApplyForm = createServerFn({ method: "POST" })
-  .inputValidator(
-    z.object({
-      name: z.string(),
-      email: z.string().email(),
-      phone: z.string().optional(),
-      intro: z.string().optional(),
-      message: z.string().optional(),
-    })
-  )
-  .handler(async ({ data }) => {
-    console.info("Server received syndicate application:", data);
-    // Integration logic here (e.g. SMTP/Resend)
-    return { success: true };
-  });
+
 
 function ApplyPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -110,6 +96,18 @@ function ApplyPage() {
                     const res = await sendApplyForm(data);
                     if (res.success) {
                       setSubmitted(true);
+                      if (res.offline) {
+                        try {
+                          const submissions = JSON.parse(localStorage.getItem("apply_submissions") || "[]");
+                          submissions.push({
+                            ...data,
+                            submitted_at: new Date().toISOString(),
+                          });
+                          localStorage.setItem("apply_submissions", JSON.stringify(submissions));
+                        } catch (localStorageError) {
+                          console.error("Failed to save application to localStorage:", localStorageError);
+                        }
+                      }
                     }
                   } catch (err) {
                     console.error("Failed to submit application:", err);

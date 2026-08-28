@@ -1,3 +1,6 @@
+import { createServerFn } from "@tanstack/react-start";
+import { z } from "zod";
+
 export interface SeoData {
   title?: string;
   description?: string;
@@ -79,83 +82,76 @@ export function mapSeoToMeta(seo: SeoData) {
   return metaTags;
 }
 
-/**
- * Submit contact form details.
- * Submits directly to the Vision API endpoint. Otherwise, it stores submissions locally.
- */
-export async function sendContactForm(data: ContactData): Promise<{ success: boolean; message?: string }> {
-  console.info("Submitting contact form data:", data);
+const contactDataSchema = z.object({
+  first_name: z.string(),
+  last_name: z.string(),
+  email: z.string().email(),
+  phone: z.string().optional(),
+  message: z.string(),
+});
 
-  const apiUrl = (typeof process !== "undefined" && process.env.VITE_API_URL)
-    || (import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1/cms");
+export const sendContactForm = createServerFn({ method: "POST" })
+  .validator(contactDataSchema)
+  .handler(async ({ input: data }) => {
+    console.info("Server received contact form data:", data);
 
-  try {
-    // 1. Authenticate with CMS
-    const loginRes = await fetch(`${apiUrl}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-      },
-      body: JSON.stringify({
-        email: (typeof process !== "undefined" && process.env.CMS_AUTH_EMAIL) || "",
-        password: (typeof process !== "undefined" && process.env.CMS_AUTH_PASSWORD) || "",
-      }),
-    });
+    const apiUrl = (typeof process !== "undefined" && process.env.VITE_API_URL)
+      || import.meta.env.VITE_API_URL
+      || "http://localhost:8000/api/v1/cms";
 
-    let token = "";
-    if (loginRes.ok) {
-      const loginJson = await loginRes.json();
-      if ((loginJson.status || loginJson.success) && loginJson.data && loginJson.data.token) {
-        token = loginJson.data.token;
-      }
-    } else {
-      console.warn("Failed to login to Vision API:", loginRes.status, await loginRes.text());
-    }
-
-    // 2. Submit Contact Form
-    const response = await fetch(`${apiUrl}/contacts`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        ...(token ? { "Authorization": `Bearer ${token}` } : {}),
-      },
-      body: JSON.stringify({
-        first_name: data.first_name,
-        last_name: data.last_name,
-        email: data.email,
-        phone: data.phone || "",
-        message: data.message,
-        subject: "Contact Form Submission",
-        source: "vision148",
-      }),
-    });
-
-    const result = await response.json();
-    if (response.ok && (result.status || result.success)) {
-      return { success: true, message: "Email sent successfully!" };
-    }
-    throw new Error(result.message || "Failed to send email");
-  } catch (error: any) {
-    console.error("Vision API submission failed, falling back to local storage:", error.message);
-  }
-
-  // Local/Offline Fallback (localStorage)
-  try {
-    if (typeof window !== "undefined" && window.localStorage) {
-      const submissions = JSON.parse(window.localStorage.getItem("contact_submissions") || "[]");
-      submissions.push({
-        ...data,
-        submitted_at: new Date().toISOString(),
+    try {
+      // 1. Authenticate with CMS
+      const loginRes = await fetch(`${apiUrl}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          email: (typeof process !== "undefined" && process.env.CMS_AUTH_EMAIL) || "",
+          password: (typeof process !== "undefined" && process.env.CMS_AUTH_PASSWORD) || "",
+        }),
       });
-      window.localStorage.setItem("contact_submissions", JSON.stringify(submissions));
+
+      let token = "";
+      if (loginRes.ok) {
+        const loginJson = await loginRes.json();
+        if ((loginJson.status || loginJson.success) && loginJson.data && loginJson.data.token) {
+          token = loginJson.data.token;
+        }
+      } else {
+        console.warn("Failed to login to Vision API:", loginRes.status, await loginRes.text());
+      }
+
+      // 2. Submit Contact Form
+      const response = await fetch(`${apiUrl}/contacts`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          ...(token ? { "Authorization": `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({
+          first_name: data.first_name,
+          last_name: data.last_name,
+          email: data.email,
+          phone: data.phone || "",
+          message: data.message,
+          subject: "Contact Form Submission",
+          source: "vision148",
+        }),
+      });
+
+      const result = await response.json();
+      if (response.ok && (result.status || result.success)) {
+        return { success: true, offline: false, message: "Email sent successfully!" };
+      }
+      throw new Error(result.message || "Failed to send email");
+    } catch (error: any) {
+      console.error("Vision API submission failed, returning offline status:", error.message);
+      return { success: true, offline: true, message: error.message };
     }
-  } catch (localStorageError) {
-    console.error("Failed to save submission to localStorage:", localStorageError);
-  }
-  return { success: true, message: "Saved to local storage" };
-}
+  });
 
 export interface ApplyData {
   name: string;
@@ -165,92 +161,85 @@ export interface ApplyData {
   message?: string;
 }
 
-/**
- * Submit syndicate application details.
- * Submits directly to the Vision API endpoint. Otherwise, it stores submissions locally.
- */
-export async function sendApplyForm(data: ApplyData): Promise<{ success: boolean; message?: string }> {
-  console.info("Submitting syndicate application data:", data);
+const applyDataSchema = z.object({
+  name: z.string(),
+  email: z.string().email(),
+  phone: z.string().optional(),
+  intro: z.string().optional(),
+  message: z.string().optional(),
+});
 
-  const nameParts = data.name.trim().split(/\s+/);
-  const firstName = nameParts[0] || "";
-  const lastName = nameParts.slice(1).join(" ") || "";
+export const sendApplyForm = createServerFn({ method: "POST" })
+  .validator(applyDataSchema)
+  .handler(async ({ input: data }) => {
+    console.info("Server received syndicate application data:", data);
 
-  const formattedMessage = `Intro: ${data.intro || "N/A"}
+    const nameParts = data.name.trim().split(/\s+/);
+    const firstName = nameParts[0] || "";
+    const lastName = nameParts.slice(1).join(" ") || "";
+
+    const formattedMessage = `Intro: ${data.intro || "N/A"}
 
 Message:
 ${data.message || "N/A"}`;
 
-  const apiUrl = (typeof process !== "undefined" && process.env.VITE_API_URL)
-    || (import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1/cms");
+    const apiUrl = (typeof process !== "undefined" && process.env.VITE_API_URL)
+      || import.meta.env.VITE_API_URL
+      || "http://localhost:8000/api/v1/cms";
 
-  try {
-    // 1. Authenticate with CMS
-    const loginRes = await fetch(`${apiUrl}/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-      },
-      body: JSON.stringify({
-        email: (typeof process !== "undefined" && process.env.CMS_AUTH_EMAIL) || "",
-        password: (typeof process !== "undefined" && process.env.CMS_AUTH_PASSWORD) || "",
-      }),
-    });
-
-    let token = "";
-    if (loginRes.ok) {
-      const loginJson = await loginRes.json();
-      if ((loginJson.status || loginJson.success) && loginJson.data && loginJson.data.token) {
-        token = loginJson.data.token;
-      }
-    } else {
-      console.warn("Failed to login to Vision API:", loginRes.status, await loginRes.text());
-    }
-
-    // 2. Submit Application Form
-    const response = await fetch(`${apiUrl}/contacts`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-        ...(token ? { "Authorization": `Bearer ${token}` } : {}),
-      },
-      body: JSON.stringify({
-        first_name: firstName,
-        last_name: lastName,
-        email: data.email,
-        phone: data.phone || "",
-        message: formattedMessage,
-        subject: "Register Your Interest",
-        source: "vision148",
-      }),
-    });
-
-    const result = await response.json();
-    if (response.ok && (result.status || result.success)) {
-      return { success: true, message: "Application sent successfully!" };
-    }
-    throw new Error(result.message || "Failed to send application");
-  } catch (error: any) {
-    console.error("Vision API application submission failed, falling back to local storage:", error.message);
-  }
-
-  // Local/Offline Fallback (localStorage)
-  try {
-    if (typeof window !== "undefined" && window.localStorage) {
-      const submissions = JSON.parse(window.localStorage.getItem("apply_submissions") || "[]");
-      submissions.push({
-        ...data,
-        submitted_at: new Date().toISOString(),
+    try {
+      // 1. Authenticate with CMS
+      const loginRes = await fetch(`${apiUrl}/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          email: (typeof process !== "undefined" && process.env.CMS_AUTH_EMAIL) || "",
+          password: (typeof process !== "undefined" && process.env.CMS_AUTH_PASSWORD) || "",
+        }),
       });
-      window.localStorage.setItem("apply_submissions", JSON.stringify(submissions));
+
+      let token = "";
+      if (loginRes.ok) {
+        const loginJson = await loginRes.json();
+        if ((loginJson.status || loginJson.success) && loginJson.data && loginJson.data.token) {
+          token = loginJson.data.token;
+        }
+      } else {
+        console.warn("Failed to login to Vision API:", loginRes.status, await loginRes.text());
+      }
+
+      // 2. Submit Application Form
+      const response = await fetch(`${apiUrl}/contacts`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          ...(token ? { "Authorization": `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          email: data.email,
+          phone: data.phone || "",
+          message: formattedMessage,
+          subject: "Register Your Interest",
+          source: "vision148",
+        }),
+      });
+
+      const result = await response.json();
+      if (response.ok && (result.status || result.success)) {
+        return { success: true, offline: false, message: "Application sent successfully!" };
+      }
+      throw new Error(result.message || "Failed to send application");
+    } catch (error: any) {
+      console.error("Vision API application submission failed, returning offline status:", error.message);
+      return { success: true, offline: true, message: error.message };
     }
-  } catch (localStorageError) {
-    console.error("Failed to save submission to localStorage:", localStorageError);
-  }
-  return { success: true, message: "Saved to local storage" };
-}
+  });
 
 
 /**
