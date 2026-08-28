@@ -3,7 +3,6 @@ module.exports = {
     {
       name: 'vision148',
       script: 'server-entry.mjs',
-      cwd: '/var/www/vision148.com',
       exec_mode: 'fork',
       instances: 1,
       autorestart: true,

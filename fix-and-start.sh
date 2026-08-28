@@ -3,7 +3,8 @@
 # Run this as root: bash /var/www/vision148.com/fix-and-start.sh
 
 set -e
-cd /var/www/vision148.com
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+cd "$DIR"
 
 echo "============================================"
 echo "  vision148.com - Fix & Start"
@@ -33,6 +34,7 @@ ls -la dist/server/ 2>/dev/null || echo "  (empty or missing)"
 # 3. Rebuild the project
 echo ""
 echo "[3] Rebuilding project..."
+npm install
 npm run build
 
 echo ""
@@ -69,7 +71,7 @@ curl -s -o /dev/null -w "HTTP Status: %{http_code}\n" http://127.0.0.1:3030/ || 
 # 9. Test and reload Apache
 echo ""
 echo "[9] Reloading apache2..."
-systemctl reload apache2 || service apache2 reload
+systemctl reload apache2 2>/dev/null || service apache2 reload 2>/dev/null || echo "  (Skipping apache reload - not running as root or apache not installed)"
 
 echo ""
 echo "============================================"
