@@ -93,7 +93,7 @@ function ApplyPage() {
                     message: formData.get("message") as string || undefined,
                   };
                   try {
-                    const res = await sendApplyForm(data);
+                    const res = await sendApplyForm({ data });
                     if (res.success) {
                       setSubmitted(true);
                       if (res.offline) {
@@ -146,7 +146,7 @@ function ApplyPage() {
                 <div className="flex flex-wrap items-center gap-6 pt-4">
                   <button
                     type="submit"
-                    className="group inline-flex items-center gap-3 bg-white text-black px-8 py-4 text-[11px] font-mono uppercase tracking-[0.24em] hover:bg-white/85 transition"
+                    className="group inline-flex items-center gap-3 bg-white text-black px-8 py-4 text-[11px] font-mono uppercase tracking-[0.24em] hover:bg-white/85 transition cursor-pointer"
                   >
                     Register Interest
                     <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>

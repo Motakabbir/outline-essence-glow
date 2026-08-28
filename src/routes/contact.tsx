@@ -107,7 +107,7 @@ function ContactPage() {
                     message: formData.get("message") as string,
                   };
                   try {
-                    const res = await sendContactForm(data);
+                    const res = await sendContactForm({ data });
                     if (res.success) {
                       setSent(true);
                       if (res.offline) {
@@ -142,7 +142,7 @@ function ContactPage() {
                 <Field label="Message" name="message" textarea />
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-3 px-7 py-4 text-[11px] font-mono tracking-[0.24em] uppercase bg-black text-white hover:bg-black/85 transition-colors"
+                  className="inline-flex items-center gap-3 px-7 py-4 text-[11px] font-mono tracking-[0.24em] uppercase bg-black text-white hover:bg-black/85 transition-colors cursor-pointer"
                 >
                   Send message <span>→</span>
                 </button>
