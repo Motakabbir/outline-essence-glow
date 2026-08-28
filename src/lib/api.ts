@@ -91,8 +91,8 @@ const contactDataSchema = z.object({
 });
 
 export const sendContactForm = createServerFn({ method: "POST" })
-  .validator(contactDataSchema)
-  .handler(async ({ input: data }) => {
+  .inputValidator(contactDataSchema)
+  .handler(async ({ data }) => {
     console.info("Server received contact form data:", data);
 
     const apiUrl = (typeof process !== "undefined" && process.env.VITE_API_URL)
@@ -170,8 +170,8 @@ const applyDataSchema = z.object({
 });
 
 export const sendApplyForm = createServerFn({ method: "POST" })
-  .validator(applyDataSchema)
-  .handler(async ({ input: data }) => {
+  .inputValidator(applyDataSchema)
+  .handler(async ({ data }) => {
     console.info("Server received syndicate application data:", data);
 
     const nameParts = data.name.trim().split(/\s+/);
