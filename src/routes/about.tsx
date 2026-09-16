@@ -4,7 +4,7 @@ import { Footer } from "@/components/site/Footer";
 import { PageHero, CrossLink } from "@/components/site/Primitives";
 import videoBg from "@/assets/video/showcase_video_social_v1.mp4";
 import workshop from "@/assets/workshop.jpg";
-import blueprint from "@/assets/blueprint_vRS500_ 001.png";
+import blueprint from "@/assets/STARTED.jpeg";
 import showcaseVideo from "@/assets/video/rs500_monaco_showcase.mp4";
 import ianHoweImg from "@/assets/team/Ian-Howe.png";
 import stuartPeachImg from "@/assets/team/Stuart-Peach.png";
@@ -115,10 +115,8 @@ function AboutPage() {
             </p>
           </div>
           <div className="md:col-span-7 h-[300px] md:h-[450px] overflow-hidden relative">
-            <div
-              className="absolute inset-0 bg-fixed bg-cover bg-center  opacity-80 parallax-bg"
-              style={{ backgroundImage: `url(${blueprint})` }}
-            />
+            <img src={blueprint} alt="" className="w-full   object-cover" />
+
           </div>
         </div>
       </section>

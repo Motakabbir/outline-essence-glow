@@ -139,6 +139,7 @@ export const sendContactForm = createServerFn({ method: "POST" })
           message: data.message,
           subject: "Contact Form Submission",
           source: "vision148",
+          logo: "public/assets/vision148.jpeg",
         }),
       });
 
@@ -227,6 +228,7 @@ ${data.message || "N/A"}`;
           message: formattedMessage,
           subject: "Register Your Interest",
           source: "vision148",
+          logo: "public/assets/vision148.jpeg",
         }),
       });
 

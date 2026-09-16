@@ -1,6 +1,6 @@
 import React from "react";
 import workshop from "@/assets/workshop.jpg";
-import engine from "@/assets/engine.jpg";
+import engine from "@/assets/COLLABORATING.jpeg";
 import design from "@/assets/scanning.jpg";
 import experience from "@/assets/dismantle.jpg";
 import theCar from "@/assets/the_car_crowd.jpg";

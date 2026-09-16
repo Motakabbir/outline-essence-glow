@@ -37,9 +37,30 @@ export function Footer() {
             </div>
             <div className="space-y-3">
               <div className="text-white/40">Connect</div>
-              <a href="#" className="block hover:opacity-60">Instagram</a>
-              <a href="#" className="block hover:opacity-60">LinkedIn</a>
-              <a href="#" className="block hover:opacity-60">YouTube</a>
+              <a
+                href="https://www.instagram.com/vision148_rs500/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:opacity-60"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://www.linkedin.com/company/102822553/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:opacity-60"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://www.youtube.com/@Vision148TV"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:opacity-60"
+              >
+                YouTube
+              </a>
               <a href="mailto:hello@vision148.com" className="block hover:opacity-60">Email</a>
             </div>
           </div>
